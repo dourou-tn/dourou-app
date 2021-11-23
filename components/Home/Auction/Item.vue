@@ -1,5 +1,5 @@
 <template>
-  <article class="bg-white rounded m-5 relative mb-20 mt-14">
+  <article class="bg-white rounded m-5 relative mb-20 mt-14 px-1 sm:px-2 md:px-10 lg:px-20 xl:px-24">
 
     <!-- Date (visible only on desktop) -->
     <div class="absolute transform -translate-x-1/2 bg-purple left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
@@ -23,7 +23,7 @@
           </div>
 
           <!-- more info price start and price store -->
-          <div class="flex justify-between text-center">
+          <div class="flex justify-between md:justify-around text-center">
             <!-- start price -->
             <div class="leading-10">
               <div class="text-gray-500 text-sm ">Prix de départ</div>
