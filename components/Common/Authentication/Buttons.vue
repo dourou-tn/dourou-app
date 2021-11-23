@@ -5,7 +5,7 @@
       <!-- <button class="bg-orange text-sm font-thin px-5 py-1 w-36 rounded">S'inscrire</button> -->
     </div>
 
-    <div class="block sm:hidden">
+    <div class="block sm:hidden cursor-pointer">
       <box-icon name='user-circle' class="mt-2" color="orange"></box-icon>
     </div>
   </div>

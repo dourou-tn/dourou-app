@@ -4,7 +4,7 @@
     <div class="bg-white sm:bg-purple sm:px-8 text-white flex items-center justify-between px-2 py-2">
 
       <!-- VISIBLE ONLY IN MOBILE -->
-      <CommonIconsHamburger class="block sm:hidden"/>
+      <CommonIconsHamburger class="block sm:hidden cursor-pointer"/>
 
       <CommonLogo />
 
