@@ -41,7 +41,7 @@
 
       <!-- Progress -->
       <div class="leading-10 mt-4">
-          <div class="text-gray-500 text-sm ">Salle de ventes remplie à {{ auction.full }}%</div>
+          <div class="text-gray-500 text-sm ">Salle des ventes remplie à {{ auction.full }}%</div>
           <Progress :value="auction.full"/>
       </div>
 
