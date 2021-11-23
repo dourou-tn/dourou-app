@@ -1,55 +1,65 @@
 <template>
-  <article class="bg-white rounded m-5 relative mb-10">
+  <article class="bg-white rounded m-5 relative mb-20 mt-14">
 
-    <!-- visible only on desktop -->
-    <div class="hidden sm:block absolute bg-purple text-white left-1/2 -top-7 px-10 py-2 text-center transform -translate-x-1/2 rounded sm:rounded-b">
-      <div class="text-sm leading-4">Le 01/12/2022</div>
-      <div class="text-sm leading-4">à 19:00</div>
+    <!-- Date (visible only on desktop) -->
+    <div class="absolute transform -translate-x-1/2 bg-purple left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
+      <div class="text-sm leading-5">Le {{ auction.date }}</div>
+      <div class="text-sm leading-5">à {{ auction.time }}</div>
     </div>
 
-    <div class="flex flex-col justify-between sm:flex-row sm:p-3">
+    <div class="pt-10 px-2">
 
-      <!-- visible only on mobile -->
-      <div class="block sm:hidden text-center bg-purple pt-2 mb-5 rounded-t">
-        <div class="text-sm text-xl pb-2 text-white">Le 01/12/2022 à 19:00</div>
-      </div>
+      <!-- image + name + info -->
+      <div class="flex">
+        <!-- image -->
+        <div class="mr-1">
+          <img :src="auction.img" alt="product" class="rounded">
+        </div>
+        
+        <div class="info flex-1 mt-2">
+          <!-- name -->
+          <div class="text-2xl font-medium  mb-5">
+            {{ auction.name }}
+          </div>
 
-      <div class="flex items-center lg:w-3/7">
-        <img :src="auction.img" alt="product" class="rounded">
-        <div class="ml-5 text-xl">
-          {{ auction.name }}
+          <!-- more info price start and price store -->
+          <div class="flex justify-between text-center">
+            <!-- start price -->
+            <div class="leading-10">
+              <div class="text-gray-500 text-sm ">Prix de départ</div>
+              <div>{{ auction.start_price }} DT</div>
+            </div>
+
+            <!-- Store price -->
+            <div class="leading-10">
+              <div class="text-gray-500 text-sm">Prix magasin</div>
+              <div><s>{{ auction.store_price }} DT</s></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="mt-5 lg:m-0 flex items-center text-center justify-around flex-1">
-
-        <div class="auction_start_price">
-          <div class="text-gray-500 text-sm">Prix de départ</div>
-          <div class="auction_info_start_price">{{ auction.start_price }} DT</div>
-        </div>
-
-        <div class="auction_store_price">
-          <div class="text-gray-500 text-sm">Prix magasin</div>
-          <div class="auction_info_store_price"><s>{{ auction.store_price }} DT</s></div>
-        </div>
-
-        <div class="auction_limite">
-          <div class="text-gray-500 text-sm">Salle remplie à</div>
-          <div class="auction_info_limite">{{ auction.full }}%</div>
-        </div>
-
-        <!-- <button class="auction_participate">Participer à 10DT</button> -->
+      <!-- Progress -->
+      <div class="leading-10 mt-4">
+          <div class="text-gray-500 text-sm ">Salle de ventes remplie à {{ auction.full }}%</div>
+          <Progress :value="auction.full"/>
       </div>
 
+      <!-- Btn participer -->
+      <div class="text-center">
+        <button class="text-sm bg-purple text-white px-10 py-2 rounded-lg my-5">Participez à 10</button>
+      </div>
     </div>
 
   </article>
 </template>
 
 <script>
+import Progress from "../../Common/Progress.vue";
   export default {
-    name: 'HomeAuctionItem',
-    props: ['auction'],
-  }
+    name: "HomeAuctionItem",
+    props: ["auction"],
+    components: { Progress }
+}
 </script>
 
