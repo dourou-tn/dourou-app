@@ -1,6 +1,15 @@
 <template>
   <a href="#">
-    <img :class="`w-${width}`" :src="logo_url" alt="">
+    <img
+      :class="`w-${width}`"
+      :src="logo_light"
+      class="hidden sm:block"
+    />
+    <img
+      :class="`w-${width}`"
+      :src="logo_dark"
+      class="block sm:hidden"
+    />
   </a>
 </template>
 <script>
@@ -8,12 +17,13 @@
     name: 'CommonLogo',
     props: {
       width: {
-        default: 32,
+        default: 24,
       }
     },
     data () {
       return {
-        logo_url: require('~/assets/image/logo.png')
+        logo_light: require('~/assets/image/logo-light.png'),
+        logo_dark: require('~/assets/image/logo-dark.png')
       }
     }
   }

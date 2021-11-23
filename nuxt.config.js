@@ -2,6 +2,9 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'dourou-app',
+    script: [
+      { hid: 'stripe', src: 'https://unpkg.com/boxicons@2.0.9/dist/boxicons.js', defer: true }
+    ],
     htmlAttrs: {
       lang: 'en'
     },
@@ -19,6 +22,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/main',
+    'boxicons/css/boxicons.min.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
