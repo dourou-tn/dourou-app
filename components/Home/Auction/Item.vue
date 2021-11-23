@@ -12,13 +12,13 @@
       <!-- image + name + info -->
       <div class="flex">
         <!-- image -->
-        <div class="mr-1">
+        <div class="mr-2">
           <img :src="auction.img" alt="product" class="rounded">
         </div>
         
         <div class="info flex-1 mt-2">
           <!-- name -->
-          <div class="text-2xl font-medium  mb-5">
+          <div class="text-2xl font-medium mb-5 pl-2">
             {{ auction.name }}
           </div>
 
@@ -26,14 +26,14 @@
           <div class="flex justify-between md:justify-around text-center">
             <!-- start price -->
             <div class="leading-10">
-              <div class="text-gray-500 text-sm ">Prix de départ</div>
-              <div>{{ auction.start_price }} DT</div>
+              <div class="text-gray-500 font-thin text-sm ">Prix de départ</div>
+              <div class="text-purple">{{ auction.start_price }} DT</div>
             </div>
 
             <!-- Store price -->
             <div class="leading-10">
-              <div class="text-gray-500 text-sm">Prix magasin</div>
-              <div><s>{{ auction.store_price }} DT</s></div>
+              <div class="text-gray-500 font-thin text-sm">Prix magasin</div>
+              <div class="text-purple"><s>{{ auction.store_price }} DT</s></div>
             </div>
           </div>
         </div>
