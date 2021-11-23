@@ -8,12 +8,12 @@
 
       <CommonLogo />
 
-      <HomeAuthenticationButtons />
+      <CommonAuthenticationButtons />
 
     </div>
 
     <div class="hidden sm:block">
-      <HomeNavigation />
+      <CommonNavigation />
     </div>
 
   </header>

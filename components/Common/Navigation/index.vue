@@ -1,7 +1,7 @@
 <template>
   <nav class="bg-white">
     <ul class="xs:w-full md:w-9/12 md:m-auto flex justify-around bg-white py-2">
-      <HomeNavigationItem
+      <CommonNavigationItem
         v-for="nav in navigation"
         :key="nav.id"
         :item="nav"
