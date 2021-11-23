@@ -1,15 +1,14 @@
 <template>
-  <div class="xs:w-full md:w-9/12 md:m-auto ">
+  <div class="xs:w-full md:w-9/12 md:m-auto">
+
     <img :src="banner" alt="" class="object-cover w-full">
 
-    <div class="m-auto">
-      <AuctionList
-        type="FutureAuction"
-        title="Les prochaines ventes"
-        :auctions="auctions"
-      />
+    <AuctionList
+      type="FutureAuction"
+      title="Les prochaines ventes"
+      :auctions="auctions"
+    />
 
-    </div>
   </div>
 </template>
 
