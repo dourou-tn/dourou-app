@@ -3,8 +3,8 @@
 
     <!-- Date (visible only on desktop) -->
     <div class="absolute transform -translate-x-1/2 bg-purple left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
-      <div class="text-sm leading-5">Le {{ auction.date }}</div>
-      <div class="text-sm leading-5">à {{ auction.time }}</div>
+      <div class="text-sm leading-6">Le {{ auction.date }}</div>
+      <div class="text-sm leading-6">à {{ auction.time }}</div>
     </div>
 
     <div class="pt-10 px-2">
