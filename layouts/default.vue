@@ -1,10 +1,16 @@
 <template>
   <div>
-    <CommonHeader class="sticky top-0 z-50"/>
+
+    <!-- ComponentsHeader -->
+    <Header class="sticky top-0 z-50"/>
+
     <div class="relative">
       <Nuxt />
     </div>
-    <CommonFooter />
+
+    <!-- ComponentsFooter -->
+    <Footer />
+
   </div>
 </template>
 
