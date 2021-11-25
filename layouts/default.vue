@@ -4,7 +4,7 @@
     <!-- ComponentsHeader -->
     <Header class="sticky top-0 z-50"/>
 
-    <div class="relative">
+    <div class="container relative m-auto">
       <Nuxt />
     </div>
 

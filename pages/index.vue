@@ -1,7 +1,7 @@
 <template>
-  <div class="xs:w-full md:w-9/12 md:m-auto">
+  <div class="page-home">
 
-    <img :src="banner" alt="" class="object-cover w-full">
+    <Banner :img-path="banner" />
 
     <AuctionList
       type="FutureAuction"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'HomePage',
+  name: 'PageHome',
   data() {
     return {
       banner: require('~/assets/image/banner.jpg'),

@@ -12,8 +12,12 @@
 
     <aside
       class="transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 translate-x-0"
-      :class="isOpen ? '' : '-translate-x-full'">
-      ...
+      :class="drawerIsOpen ? '' : '-translate-x-full'">
+      <NavigationItem
+          v-for="nav in navigation"
+          :key="nav.id"
+          :item="nav"
+        />
     </aside>
 
   </div>
@@ -30,8 +34,24 @@
           { id: 2, name: 'VENTES TERMINES', href: '#' },
           { id: 3, name: 'CONTACT', href: '#' },
         ],
-        isOpen: false
+      }
+    },
+    computed: {
+      drawerIsOpen () {
+        return this.$store.getters['ux/getDrawer'];
+      },
+    },
+    watch: {
+      drawerIsOpen: {
+          immediate: true,
+          handler() {
+            if (process.client) {
+              if (this.drawerIsOpen) document.body.style.setProperty("overflow", "hidden");
+              else document.body.style.removeProperty("overflow");
+            }
+          }
       }
     }
+
   }
 </script>
