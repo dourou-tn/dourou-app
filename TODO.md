@@ -4,3 +4,9 @@
 [ ] Create login page
 [ ] Create register page
 [ ] Create contact page with map ?
+
+
+[-] SOCKET: timer
+  [ ] init
+
+[-] Link github with Clickup
