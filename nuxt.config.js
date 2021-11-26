@@ -1,10 +1,10 @@
+import io from './io/config';
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'dourou-app',
-    script: [
-      { hid: 'stripe', src: 'https://unpkg.com/boxicons@2.0.9/dist/boxicons.js', defer: true }
-    ],
+    script: [],
     htmlAttrs: {
       lang: 'en'
     },
@@ -22,7 +22,6 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/main',
-    'boxicons/css/boxicons.min.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -40,12 +39,17 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    ['nuxt-socket-io']
   ],
+
+  // socket.io module: https://nuxt-socket-io.netlify.app/installation/
+  io: io,
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
   serverMiddleware: [
     { path: "/api", handler: "~/api/index.js" },
+    { path: "/ws", handler: "~/io/socket.js" },
   ]
 }

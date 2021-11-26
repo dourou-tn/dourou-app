@@ -18,7 +18,8 @@
           <button class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">Se Connecter</button>
         </div>
         <div class="block sm:hidden cursor-pointer">
-          <box-icon name='user-circle' class="mt-2" color="orange"></box-icon>
+          <!-- TODO find a light icon lib or take icons from Meriem ? -->
+          <!-- <box-icon name='user-circle' class="mt-2" color="orange"></box-icon> -->
         </div>
       </div>
 
