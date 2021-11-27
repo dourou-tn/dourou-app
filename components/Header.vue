@@ -15,7 +15,9 @@
       <!-- Login/Register buttons -->
       <div>
         <div class="hidden sm:block">
-          <button class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">Se Connecter</button>
+          <Nuxt-link to="/demo/socket" class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">
+            Se Connecter
+          </Nuxt-link>
         </div>
         <div class="block sm:hidden cursor-pointer">
           <!-- TODO find a light icon lib or take icons from Meriem ? -->

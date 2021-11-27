@@ -1,11 +1,8 @@
 <template>
   <li>
-    <a
-      :href="item.href"
-       class="text-purple tracking-wider"
-    >
+    <Nuxt-link :to="item.href" class="text-purple tracking-wider">
       {{ item.name }}
-    </a>
+    </Nuxt-link>
   </li>
 </template>
 

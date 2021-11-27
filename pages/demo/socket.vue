@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h2>Start time {{ startTime ? startTime.format('DD/MM/YYYY HH:mm:ss') : '' }}</h2>
-    <h3 class="text-2xl">COUNTER: {{ countDownFormat  }}</h3>
+  <div class="text-center">
+    
+    <h2 class="text-xl mt-10 mb-10">
+      Start time {{ startTime ? startTime.format('DD/MM/YYYY HH:mm:ss') : '' }}
+    </h2>
+
+    <h3 class="text-6xl text-white bg-purple font-bold p-2 rounded-xl">{{ countDownFormat  }}</h3>
   </div>
 </template>
 <script>
