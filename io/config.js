@@ -3,7 +3,7 @@ export default {
     {
       default: true,
       name: 'home',
-      url: 'http://localhost:3001',
+      url: process.env.SOCKET_HOST,
     },
   ]
 };
