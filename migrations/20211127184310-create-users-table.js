@@ -21,6 +21,10 @@ exports.up = function (db, callback) {
     columns: {
       id: { type: 'int', primaryKey: true, autoIncrement: true },
       email: { type: 'string', notNull: true, unique: true },
+      username: { type: 'string', notNull: true, unique: true },
+      firstname: { type: 'string', notNull: true, unique: true },
+      lastname: { type: 'string', notNull: true, unique: true },
+      phone: { type: 'string', notNull: true, unique: true },
       role_id:{
         type: 'int',
         notNull: true,
