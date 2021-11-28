@@ -44,11 +44,17 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    ['nuxt-socket-io']
+    ['nuxt-socket-io'],
+    ['@nuxtjs/axios']
   ],
 
   // socket.io module: https://nuxt-socket-io.netlify.app/installation/
   io: io,
+
+  // axios module: https://axios.nuxtjs.org/setup
+  axios: {
+    baseURL: 'http://localhost:3000/api',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

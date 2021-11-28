@@ -18,8 +18,12 @@ module.exports = {
   create (data) {
     const query = Knex('users').insert({
       email: data.email,
-      password: data.password,
+      username: data.username,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      phone: data.phone,
       role_id: data.role_id,
+      password: data.password,
       created_at: moment().format('YYY-MM-DD HH:mm:ss'),
       updated_at: moment().format('YYY-MM-DD HH:mm:ss'),
     });

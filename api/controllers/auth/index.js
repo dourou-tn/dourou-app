@@ -7,7 +7,7 @@ const userQueries = require('../users/users');
 const router = express.Router();
 
 router.post('/register', async (req, res, next) => {
-  const { email, password } = req.body
+  const { email, password, username, firstname, lastname, phone  } = req.body
 
   if (!email) {
     console.error('Error Email')
@@ -23,8 +23,12 @@ router.post('/register', async (req, res, next) => {
   const cryptedPassword = await bcrypt.hash(password, 10);
   const user = await userQueries.create({
     email,
+    username,
+    firstname,
+    lastname,
+    phone,
+    role_id: 1,
     password: cryptedPassword,
-    role_id: 1
   });
 
   const token = jwt.sign(

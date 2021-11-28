@@ -57,6 +57,7 @@
       <div class="mb-4" v-if="register">
         <DouInput
           v-model="user.confirm_password"
+          type="password"
           label="Confirmez votre mot de passe"
           placeholder="********"
         />
@@ -116,7 +117,27 @@ export default {
     }
   },
   methods: {
-    submitLogin () {
+    async submitLogin () {
+      if (!this.user.email || !this.user.password) {
+        return;
+      }
+
+      let action = 'login';
+      const user = {
+        email: this.user.email,
+        password: this.user.password,
+      };
+
+      if (this.register) {
+        action = 'register';
+        user.phone = this.user.phone;
+        user.username = this.user.username;
+        user.lastname = this.user.lastname;
+        user.firstname = this.user.firstname;
+        user.confirm_password = this.user.confirm_password;
+      }
+
+      await this.$store.dispatch(`auth/${action}`, user)
       console.log('Login');
     },
     toggleRegister () {
