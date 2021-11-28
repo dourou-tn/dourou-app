@@ -7,14 +7,14 @@
 
     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-      <!-- Email (register and !register) -->
-      <div class="mb-4">
-        <DouInput
-          v-model="user.email"
-          label="Email"
-          placeholder="Votre email"
-        />
-      </div>
+      <p class="text-center text-gray-500 mb-5">
+        <span v-text="register ? `Vous avez déjà un compte?` : `Vous n'avez pas de compte?` ">
+        </span>
+        <DouHref
+          @click="toggleRegister"
+          :text="register ? 'Connexion' : 'Inscription'"
+        />.
+      </p>
 
       <!-- Lastname (only register) -->
       <div class="mb-4" v-if="register">
@@ -22,6 +22,7 @@
           v-model="user.lastname"
           label="Nom"
           placeholder="ex: Ben Falten"
+          hint="Ne serra pas visible au public"
         />
       </div>
 
@@ -31,15 +32,17 @@
           v-model="user.firstname"
           label="Prénom"
           placeholder="ex: Flen"
+          hint="Ne serra pas visible au public"
         />
       </div>
 
-      <!-- Username (only register) -->
-      <div class="mb-4" v-if="register">
+      <!-- Email (register and !register) -->
+      <div class="mb-4">
         <DouInput
-          v-model="user.username"
-          label="Username"
-          placeholder="Username"
+          type="email"
+          v-model="user.email"
+          label="Email"
+          placeholder="Votre email"
         />
       </div>
 
@@ -63,6 +66,15 @@
         />
       </div>
 
+      <!-- Username (only register) -->
+      <div class="mb-4" v-if="register">
+        <DouInput
+          v-model="user.username"
+          label="Pseudo"
+          placeholder="Pseudo de jeu"
+        />
+      </div>
+
       <!-- Téléphone (only register) -->
       <div class="mb-4" v-if="register">
         <DouInput
@@ -80,7 +92,7 @@
 
         <DouHref
           @click="toggleRegister"
-          :text="register ? 'Vous avez un compte ?' : 'Pas de compte?'"
+          text="Mot de passe oublié?"
         />
 
       </div>

@@ -2,10 +2,11 @@
   <div>
     <nav class="hidden sm:block bg-white">
       <ul class="xs:w-full md:w-9/12 md:m-auto flex justify-around py-2">
-        <NavigationItem
+        <DouLink
           v-for="nav in navigation"
           :key="nav.id"
-          :item="nav"
+          :to="nav.href"
+          :text="nav.name"
         />
       </ul>
     </nav>
@@ -14,13 +15,14 @@
       v-click-outside="closeDrawer"
       class="pt-10 pl-5 transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-700 z-30 translate-x-0"
       :class="drawerIsOpen ? '' : '-translate-x-full'">
-      <ul>
-        <NavigationItem
-            v-for="nav in navigation"
-            :key="nav.id"
-            :item="nav"
-          />
-      </ul>
+      <div class="flex flex-col">
+        <DouLink
+          v-for="nav in navigation"
+          :key="nav.id"
+          :to="nav.href"
+          :text="nav.name"
+        />
+      </div>
       <div class="mt-10">
         <Nuxt-link to="/auth"
           class=" bg-orange text-sm text-purple px-5 py-1 w-36 rounded"
@@ -34,8 +36,11 @@
 </template>
 
 <script>
+  import DouLink from 'dourou-components/DouLink/index.vue';
+
   export default {
     name: 'Navigation',
+    components: { DouLink },
     data () {
       return {
         navigation: [
