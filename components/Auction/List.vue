@@ -1,8 +1,6 @@
 <template>
 <div class="auction-list">
-  <h2 class="text-purple font-bold text-2xl text-center font-medium my-10">
-    {{ title }}
-  </h2>
+  <DouTitle :text="title" />
   <div
     v-for="auction in auctions"
     :key="auction.id"
@@ -13,8 +11,10 @@
 </template>
 
 <script>
+  import DouTitle from 'dourou-components/DouTitle/index.vue';
   export default {
     name: 'AuctionList',
+    components: { DouTitle },
     props: {
       type: {
         type: String,

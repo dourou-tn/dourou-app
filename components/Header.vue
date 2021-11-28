@@ -5,8 +5,8 @@
 
       <!-- https://github.com/visualfanatic/vue-svg-loader/issues/54 -->
       <!-- svg can't support click so need to wrap it -->
-      <div @click="toggleDrawer">
-        <IconsHamburger class="block sm:hidden cursor-pointer" />
+      <div @click="toggleDrawer" class="block sm:hidden md:hidden cursor-pointer">
+        <IconsHamburger />
       </div>
 
       <DouLogo />

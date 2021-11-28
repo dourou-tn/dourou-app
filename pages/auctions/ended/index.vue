@@ -1,20 +1,14 @@
 <template>
   <div class="page-home">
-
-    <h2 class="text-purple font-bold text-2xl text-center font-medium my-10">
-      Encheres terminées
-    </h2>
-
+    <DouTitle text="Encheres terminées" />
   </div>
 </template>
 
 <script>
+import DouTitle from 'dourou-components/DouTitle/index.vue';
+
 export default {
   name: 'AuctionsEnded',
-  data() {
-    return {
-      
-    }
-  }
+  components: { DouTitle },
 }
 </script>
