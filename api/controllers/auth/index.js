@@ -3,10 +3,11 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const userQueries = require('../users/users');
+const auth = require('./../../middleware/auth.js');
 
 const router = express.Router();
 
-router.post('/register', async (req, res, next) => {
+router.post('/register', async (req, res) => {
   const { email, password, username, firstname, lastname, phone  } = req.body
 
   if (!email) {
@@ -55,17 +56,17 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const [user] = await userQueries.get({ email: email });
-
-    const samePassword = await bcrypt.compare(password, user.password.toString())
-    if (user && samePassword) {
-      const token = jwt.sign(
-        { user: user },
-        process.env.JWT_TOKEN_KEY,
-        { expiresIn: "2h" },
-      );
-      user.token = token
-      return res.status(200).json(user);
+    const [user] = await userQueries.get({ email: email }, true);
+    if (user) {
+      const samePassword = await bcrypt.compare(password, user.password.toString())
+      if (samePassword) {
+        const token = jwt.sign(
+          { user: user },
+          process.env.JWT_TOKEN_KEY,
+          { expiresIn: "2h" },
+        );
+        return res.status(200).json({ user: user, token: token });
+      }
     }
 
     return res.status(400).json({ error: 'Invalid user email or password '});
@@ -74,6 +75,11 @@ router.post('/login', async (req, res) => {
     return res.status(500).json({ error: 'fqq' })
   }
 
+})
+
+router.get('/user', auth, async (req, res) => {
+  const user = await userQueries.get({ id: req.user.id });
+  res.json({user: user }).status(200);
 })
 
 module.exports = router;

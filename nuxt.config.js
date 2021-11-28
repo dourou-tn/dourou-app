@@ -1,4 +1,4 @@
-import io from './io/config';
+import { io, auth, axios } from './config';
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -28,7 +28,7 @@ export default {
   plugins: ['~/plugins/click-outside.js'],
 
   router: {
-    middleware: "close-drawer"
+    middleware: ["close-drawer"]
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,16 +45,18 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     ['nuxt-socket-io'],
-    ['@nuxtjs/axios']
+    ['@nuxtjs/axios'],
+    ['@nuxtjs/auth-next']
   ],
 
   // socket.io module: https://nuxt-socket-io.netlify.app/installation/
   io: io,
 
   // axios module: https://axios.nuxtjs.org/setup
-  axios: {
-    baseURL: 'http://localhost:3000/api',
-  },
+  axios: axios,
+
+  // auth module: https://auth.nuxtjs.org/guide/setup/
+  auth: auth,
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

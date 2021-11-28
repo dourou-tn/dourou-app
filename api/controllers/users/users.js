@@ -3,15 +3,27 @@ const moment = require('moment');
 const Knex = require('../../db');
 
 module.exports = {
-  get (where = null) {
+  /**
+   * Select users.
+   * Can filter by where and include_password (for login)
+   * @param {Object} where SQL where conditions
+   * @param {Boolean} include_password Include password in user response
+   * @returns Object
+   */
+  get (where = null, include_password = false) {
     const query = Knex('users').select(
       'id',
       'email',
       'created_at',
-      'password',
+      'username',
+      'firstname',
+      'lastname',
     )
     if (where) {
       query.where(where);
+    }
+    if (include_password) {
+      query.select('password');
     }
     return query;
   },

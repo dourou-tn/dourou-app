@@ -109,6 +109,8 @@ import DouHref from 'dourou-components/DouHref/index.vue';
 
 export default {
   name: 'PageAuth',
+  middleware: 'auth',
+  auth: 'guest',
   components: {
     DouInput,
     DouButton,
@@ -149,7 +151,9 @@ export default {
         user.confirm_password = this.user.confirm_password;
       }
 
-      await this.$store.dispatch(`auth/${action}`, user)
+      // await this.$store.dispatch(`auth/${action}`, user)
+      let response = await this.$auth.loginWith('local', { data: user })
+      console.log(response);
       console.log('Login');
     },
     toggleRegister () {

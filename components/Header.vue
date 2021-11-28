@@ -15,7 +15,10 @@
       <!-- Login/Register buttons -->
       <div>
         <div class="hidden sm:block">
-          <Nuxt-link to="/auth" class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">
+          <div v-if="$auth.loggedIn" class="text-orange cursor-pointer" @click="logout">
+            {{ this.$store.state.auth.user[0].username }}
+          </div>
+          <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">
             Se Connecter
           </Nuxt-link>
         </div>
@@ -44,6 +47,9 @@
       toggleDrawer (e) {
         e.stopPropagation();
         this.$store.commit('ux/toggleDrawer')
+      },
+      async logout () {
+        await this.$auth.logout();
       }
     }
   }
