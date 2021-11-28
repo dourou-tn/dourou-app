@@ -1,7 +1,7 @@
 <template>
   <div class="page-home">
 
-    <Banner :img-path="banner" />
+    <DouBanner :img-path="banner" />
 
     <AuctionList
       type="FutureAuction"
@@ -13,8 +13,11 @@
 </template>
 
 <script>
+import DouBanner from 'dourou-components/DouBanner/index.vue';
+
 export default {
   name: 'PageHome',
+  components: { DouBanner },
   data() {
     return {
       banner: require('~/assets/image/banner.jpg'),
