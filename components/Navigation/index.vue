@@ -11,6 +11,7 @@
     </nav>
 
     <aside
+      v-click-outside="closeDrawer"
       class="transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 translate-x-0"
       :class="drawerIsOpen ? '' : '-translate-x-full'">
       <NavigationItem
@@ -50,6 +51,16 @@
               else document.body.style.removeProperty("overflow");
             }
           }
+      }
+    },
+    methods: {
+      closeDrawer (e) {
+        // click outside the drawer and not on the #hamburger-icon
+        if (e.srcElement.id !== 'hamburger-icon') {
+          if (this.$store.getters['ux/getDrawer']) {
+            this.$store.commit('ux/toggleDrawer')
+          }
+        }
       }
     }
 

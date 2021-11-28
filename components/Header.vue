@@ -36,7 +36,8 @@
   export default {
     name: 'Header',
     methods: {
-      toggleDrawer () {
+      toggleDrawer (e) {
+        e.stopPropagation();
         this.$store.commit('ux/toggleDrawer')
       }
     }
