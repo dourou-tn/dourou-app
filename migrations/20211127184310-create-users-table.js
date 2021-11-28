@@ -1,8 +1,10 @@
 'use strict';
 
-var dbm;
-var type;
-var seed;
+const moment = require('moment');
+
+let dbm;
+let type;
+let seed;
 
 /**
   * We receive the dbmigrate dependency from dbmigrate initially.
@@ -36,8 +38,8 @@ exports.up = function (db, callback) {
       },
       password: { type: 'string', notNull: true },
       email_confirmed_at: { type: 'timestamp', notNull: false, },
-      create_at: { type: 'string', defaultValue: Date() },
-      updated_at: { type: 'string', defaultValue: Date() },
+      created_at: { type: 'string', notNull: true },
+      updated_at: { type: 'string', notNull: true },
     },
     ifNotExists: true
   }, callback);

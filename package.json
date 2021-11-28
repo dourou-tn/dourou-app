@@ -11,13 +11,16 @@
     "migrate": "db-migrate"
   },
   "dependencies": {
-    "boxicons": "^2.0.9",
+    "bcryptjs": "^2.4.3",
     "core-js": "^3.15.1",
     "db-migrate": "^0.11.13",
     "db-migrate-mysql": "^2.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.14",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",
+    "mysql": "^2.18.1",
     "nuxt": "^2.15.7",
     "nuxt-socket-io": "^2.0.0",
     "socket.io": "^4.4.0"
