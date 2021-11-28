@@ -30,7 +30,7 @@ export default {
           full: 20,
         },
         {
-          id: 0,
+          id: 1,
           img: 'https://picsum.photos/100/150',
           name: 'Playstation 5',
           start_price: '0.1',

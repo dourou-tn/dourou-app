@@ -9,13 +9,13 @@
         <IconsHamburger class="block sm:hidden cursor-pointer" />
       </div>
 
-      <Logo />
+      <DouLogo />
 
       <!-- This can be a separate component maybe ? -->
       <!-- Login/Register buttons -->
       <div>
         <div class="hidden sm:block">
-          <Nuxt-link to="/demo/socket" class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">
+          <Nuxt-link to="/auth" class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">
             Se Connecter
           </Nuxt-link>
         </div>
@@ -33,8 +33,13 @@
 </template>
 
 <script>
+  import DouLogo from 'dourou-components/DouLogo/index.vue';
+
   export default {
     name: 'Header',
+    components: {
+      DouLogo,
+    },
     methods: {
       toggleDrawer (e) {
         e.stopPropagation();
