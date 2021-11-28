@@ -8,6 +8,7 @@ module.exports = {
       'id',
       'email',
       'created_at',
+      'password',
     )
     if (where) {
       query.where(where);
