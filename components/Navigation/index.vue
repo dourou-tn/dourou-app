@@ -21,6 +21,7 @@
           :key="nav.id"
           :to="nav.href"
           :text="nav.name"
+          class="mb-2"
         />
       </div>
       <div class="mt-10">
