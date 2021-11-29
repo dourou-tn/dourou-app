@@ -86,7 +86,7 @@
 
       <div class="flex items-center justify-between">
         <DouButton
-          @click="submitLogin"
+          @click="submitForm"
           label="Se connecter"
         />
 
@@ -131,33 +131,53 @@ export default {
     }
   },
   methods: {
-    async submitLogin () {
-      if (!this.user.email || !this.user.password) {
+    async submitForm() {
+      const errors = this.register ? this.validateRegister() : this.validateLogin();
+
+      if (errors.length) {
+        console.error(errors);
         return;
       }
 
-      let action = 'login';
-      const user = {
+      this.register ?
+        await this.submitRegister() :
+        await this.submitLogin();
+    },
+    validateLogin() {
+      const errors = [];
+      if (!this.user.email) errors.push({ field: 'email', error: 'L\'email est obligatoire!' });
+      if (!this.user.password) errors.push({ field: 'password', error: 'Le mot de passe est obligatoire!'});
+
+      return errors;
+    },
+    validateRegister() {
+      const errors = this.validateLogin();
+      if (!this.user.phone) errors.push({ field: 'phone', error: 'Le téléphone est obligatoire!' });
+      if (!this.user.username) errors.push({ field: 'username', error: 'Le pseudo est obligatoire!'});
+      if (!this.user.firstname) errors.push({ field: 'firstname', error: 'Le prénom est obligatoire!'});
+      if (!this.user.lastname) errors.push({ field: 'lastname', error: 'Le nom est obligatoire!'});
+      if (!this.user.confirm_password) errors.push({ field: 'confirm_password', error: 'Les mots de passe doivent être identique!'});
+      return errors;
+    },
+    async submitLogin() {
+      await this.$auth.loginWith('local', { data: {
         email: this.user.email,
         password: this.user.password,
-      };
-
-      if (this.register) {
-        action = 'register';
-        user.phone = this.user.phone;
-        user.username = this.user.username;
-        user.lastname = this.user.lastname;
-        user.firstname = this.user.firstname;
-        user.confirm_password = this.user.confirm_password;
-      }
-
-      // await this.$store.dispatch(`auth/${action}`, user)
-      let response = await this.$auth.loginWith('local', { data: user })
-      console.log(response);
-      console.log('Login');
+      }})
+    },
+    async submitRegister() {
+      const res = await this.$axios.$post('/auth/register', {
+        email: this.user.email,
+        password: this.user.password,
+        phone: this.user.phone,
+        username: this.user.username,
+        lastname: this.user.lastname,
+        firstname: this.user.firstname,
+        confirm_password: this.user.confirm_password,
+      })
+      await this.$auth.setUserToken(res.data.token)
     },
     toggleRegister () {
-      console.log('Hello');
       this.register = !this.register
     }
   }
