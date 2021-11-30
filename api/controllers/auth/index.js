@@ -12,12 +12,12 @@ router.post('/register', async (req, res) => {
 
   if (!email) {
     console.error('Error Email')
-    return res.json({ code: 400, error: 'email is required' }).status(400);
+    return res.status(400).json({ code: 400, error: 'email is required' });
   }
 
   if (!password) {
     console.error('Error password')
-    return res.json({ code: 400, error: 'password is required' }).status(400);
+    return res.status(400).json({ code: 400, error: 'password is required' });
   }
 
 
@@ -49,12 +49,12 @@ router.post('/login', async (req, res) => {
 
   if (!email) {
     console.error('Error Email');
-    return res.json({ error: 'email is required' }).status(400);
+    return res.status(400).json({ error: 'email is required' });
   }
 
   if (!password) {
     console.error('Error password');
-    return res.json({ error: 'password is required' }).status(400);
+    return res.status(400).json({ error: 'password is required' });
   }
 
   try {
