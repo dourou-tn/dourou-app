@@ -2,7 +2,10 @@
   <div>
 
     <!-- ComponentsHeader -->
-    <Header class="sticky top-0 z-50"/>
+    <div class="m-0 p-0 sticky top-0 z-50">
+      <Header />
+      <Navigation />
+    </div>
 
     <div class="container relative m-auto">
       <Nuxt />

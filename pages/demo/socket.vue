@@ -5,7 +5,7 @@
       Start time {{ startTime ? startTime.format('DD/MM/YYYY HH:mm:ss') : '' }}
     </h2>
 
-    <h3 class="text-6xl text-white bg-purple font-bold p-2 rounded-xl">{{ countDownFormat  }}</h3>
+    <h3 class="text-6xl text-white bg-purple-500 font-bold p-2 rounded-xl">{{ countDownFormat  }}</h3>
   </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
   <header>
 
-    <div class="bg-white sm:bg-purple sm:px-8 text-white flex items-center justify-between px-2 py-2">
+    <div class="bg-white sm:bg-purple-500 sm:px-8 text-white flex items-center justify-between px-2 py-2">
 
       <!-- https://github.com/visualfanatic/vue-svg-loader/issues/54 -->
       <!-- svg can't support click so need to wrap it -->
@@ -18,7 +18,7 @@
           <div v-if="$auth.loggedIn" class="text-orange cursor-pointer" @click="logout">
             {{ this.$store.state.auth.user[0].username }}
           </div>
-          <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple px-5 py-1 w-36 rounded">
+          <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple-500 px-5 py-1 w-36 rounded">
             Se Connecter
           </Nuxt-link>
         </div>
@@ -30,7 +30,6 @@
 
     </div>
 
-    <Navigation />
 
   </header>
 </template>

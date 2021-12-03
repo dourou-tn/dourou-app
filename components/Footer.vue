@@ -7,7 +7,7 @@
       <b>DOUROU.tn</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos repellat praesentium saepe, distinctio quas inventore delectus fugit libero!.
     </p>
     <footer
-      class="flex justify-center items-center  bg-purple h-24 text-white"
+      class="flex justify-center items-center  bg-purple-500 h-24 text-white"
     >
       Dourou.tn © {{ new Date().getFullYear() }}
     </footer>

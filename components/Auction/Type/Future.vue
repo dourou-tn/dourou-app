@@ -2,7 +2,7 @@
   <article class="bg-white rounded m-5 relative mb-20 mt-14 px-1 sm:px-2 md:px-10 lg:px-20 xl:px-24">
 
     <!-- Date (visible only on desktop) -->
-    <div class="absolute transform -translate-x-1/2 bg-purple left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
+    <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
       <div class="text-sm leading-6">Le {{ auction.date }}</div>
       <div class="text-sm leading-6">à {{ auction.time }}</div>
     </div>
@@ -27,13 +27,13 @@
             <!-- start price -->
             <div class="leading-10">
               <div class="text-gray-500 font-thin text-sm ">Prix de départ</div>
-              <div class="text-purple">{{ auction.start_price }} DT</div>
+              <div class="text-purple-500">{{ auction.start_price }} DT</div>
             </div>
 
             <!-- Store price -->
             <div class="leading-10">
               <div class="text-gray-500 font-thin text-sm">Prix magasin</div>
-              <div class="text-purple"><s>{{ auction.store_price }} DT</s></div>
+              <div class="text-purple-500"><s>{{ auction.store_price }} DT</s></div>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
 
       <!-- Btn participer -->
       <div class="text-center">
-        <button class="text-sm bg-purple text-white px-10 py-2 rounded-lg my-5">Participez à 10</button>
+        <button class="text-sm bg-purple-500 text-white px-10 py-2 rounded-lg my-5">Participez à 10</button>
       </div>
     </div>
 
