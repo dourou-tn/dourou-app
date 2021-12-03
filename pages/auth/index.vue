@@ -23,6 +23,7 @@
           label="Nom"
           placeholder="ex: Ben Falten"
           hint="Ne serra pas visible au public"
+          :error="errors.lastname"
         />
       </div>
 
@@ -33,6 +34,7 @@
           label="Prénom"
           placeholder="ex: Flen"
           hint="Ne serra pas visible au public"
+          :error="errors.firstname"
         />
       </div>
 
@@ -43,6 +45,7 @@
           v-model="user.email"
           label="Email"
           placeholder="Votre email"
+          :error="errors.email"
         />
       </div>
 
@@ -53,6 +56,7 @@
           type="password"
           label="Mot de passe"
           placeholder="*********"
+          :error="errors.password"
         />
       </div>
 
@@ -63,6 +67,7 @@
           type="password"
           label="Confirmez votre mot de passe"
           placeholder="********"
+          :error="errors.confirm_password"
         />
       </div>
 
@@ -72,6 +77,7 @@
           v-model="user.username"
           label="Pseudo"
           placeholder="Pseudo de jeu"
+          :error="errors.username"
         />
       </div>
 
@@ -81,6 +87,7 @@
           v-model="user.phone"
           label="Téléphone"
           placeholder="ex: 55 555 555"
+          :error="errors.phone"
         />
       </div>
 
@@ -117,6 +124,16 @@ export default {
     DouHref,
   },
   data() {
+    const defaultErrors = {
+      email: null,
+      password: null,
+      confirm_password: null,
+      username: null,
+      phone: null,
+      firstname: null,
+      lastname: null,
+    };
+
     return {
       user: {
         email: '',
@@ -127,15 +144,18 @@ export default {
         firstname: '',
         lastname: '',
       },
-      register: false
+      register: false,
+      defaultErrors: defaultErrors,
+      errors: Object.assign({}, defaultErrors),
     }
   },
   methods: {
-    async submitForm() {
-      const errors = this.register ? this.validateRegister() : this.validateLogin();
+    async submitForm(e) {
+      this.errors = [];
+      this.register ? this.validateRegister() : this.validateLogin();
 
-      if (errors.length) {
-        console.error(errors);
+      if (Object.values(this.errors).filter(Boolean).length) {
+        console.error(this.errors);
         return;
       }
 
@@ -144,20 +164,16 @@ export default {
         await this.submitLogin();
     },
     validateLogin() {
-      const errors = [];
-      if (!this.user.email) errors.push({ field: 'email', error: 'L\'email est obligatoire!' });
-      if (!this.user.password) errors.push({ field: 'password', error: 'Le mot de passe est obligatoire!'});
-
-      return errors;
+      if (!this.user.email) this.errors.email = 'L\'email est obligatoire!';
+      if (!this.user.password) this.errors.password = 'Le mot de passe est obligatoire!';
     },
     validateRegister() {
-      const errors = this.validateLogin();
-      if (!this.user.phone) errors.push({ field: 'phone', error: 'Le téléphone est obligatoire!' });
-      if (!this.user.username) errors.push({ field: 'username', error: 'Le pseudo est obligatoire!'});
-      if (!this.user.firstname) errors.push({ field: 'firstname', error: 'Le prénom est obligatoire!'});
-      if (!this.user.lastname) errors.push({ field: 'lastname', error: 'Le nom est obligatoire!'});
-      if (!this.user.confirm_password) errors.push({ field: 'confirm_password', error: 'Les mots de passe doivent être identique!'});
-      return errors;
+      this.validateLogin();
+      if (!this.user.phone) this.errors.phone = 'Le téléphone est obligatoire!';
+      if (!this.user.username) this.errors.username = 'Le pseudo est obligatoire!';
+      if (!this.user.firstname) this.errors.firstname = 'Le prénom est obligatoire!';
+      if (!this.user.lastname) this.errors.lastname = 'Le nom est obligatoire!';
+      if (!this.user.confirm_password) this.errors.confirm_password = 'Les mots de passe doivent être identique!';
     },
     async submitLogin() {
       await this.$auth.loginWith('local', { data: {
@@ -179,6 +195,17 @@ export default {
     },
     toggleRegister () {
       this.register = !this.register
+    },
+    resetErrors () {
+      this.errors = Object.assign({}, this.defaultErrors);
+    }
+  },
+  watch: {
+    user: {
+      handler () {
+        this.resetErrors();
+      },
+      deep: true,
     }
   }
 }
