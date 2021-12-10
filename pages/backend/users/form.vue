@@ -4,62 +4,78 @@
     <h1>Create a new user</h1>
     <form @submit.prevent="onSubmit" @keydown.enter.prevent="onSubmit">
       <!-- role -->
-      <div class="form-control mx-5 mt-5 mb-5">
+      <div class="form-control mt-5 mb-5">
         <select class="select select-bordered select-primary w-full " v-model="user.role_id">
           <option value="2" selected>Utilisateur</option> 
           <option value="1">Admin</option> 
         </select>
       </div>
       <!-- username -->
-      <div class="form-control mx-5">
-          <label class="label">
-            <span class="label-text">Username</span>
-          </label>
-          <input type="text" placeholder="Nom de joueur" class="input input-bordered" v-model="user.username">
-      </div>
+      <DouInput
+        v-model="user.username"
+        label="Username"
+        placeholder="ex: John Hitman 07"
+        :error="errors.username"
+        dark
+      />
       <!-- firstname & lastname -->
-      <div class="flex justify-evenly align-center">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Nom</span>
-          </label>
-          <input type="text" placeholder="ex: Ben Falten" class="input input-bordered" v-model="user.lastname">
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Prénom</span>
-          </label>
-          <input type="text" placeholder="ex: Flen" class="input input-bordered" v-model="user.firstname">
-        </div>
+      <div class="flex justify-between mt-5">
+        <DouInput
+          v-model="user.lastname"
+          label="Nom"
+          placeholder="ex: Ben Falten"
+          :error="errors.lastname"
+          dark
+          class="flex-1 mr-2"
+        />
+        <DouInput
+          v-model="user.firstname"
+          label="Prénom"
+          placeholder="ex: Flen"
+          :error="errors.firstname"
+          dark
+          class="flex-1 ml-2"
+        />
       </div>
       <!-- phone -->
-      <div class="form-control mx-5">
-          <label class="label">
-            <span class="label-text">Téléphone</span>
-          </label>
-          <input type="text" placeholder="ex: 22 555 555" class="input input-bordered" v-model="user.phone">
-      </div>
+      <DouInput
+        v-model="user.phone"
+        label="Téléphone"
+        placeholder="ex: 22 555 555"
+        :error="errors.phone"
+        dark
+        class="mt-5"
+      />
       <!-- email -->
-      <div class="form-control mx-5 mt-10">
-        <label class="label">
-          <span class="label-text">Email</span>
-        </label>
-        <input type="text" placeholder="ex: jean@dourou.tn" class="input input-bordered" v-model="user.email">
-      </div>
+      <DouInput
+        v-model="user.email"
+        type="email"
+        label="Email"
+        placeholder="ex: myemail@gmail.com"
+        :error="errors.email"
+        dark
+        class="mt-5"
+      />
       <!-- password -->
-      <div class="flex justify-evenly">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Mot de passe</span>
-          </label>
-          <input type="password" placeholder="ex: ********" class="input input-bordered" v-model="user.password">
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Confirmation Mot de passe</span>
-          </label>
-          <input type="password" placeholder="ex: ********" class="input input-bordered" v-model="user.password_confirmation">
-        </div>
+      <div class="flex justify-between">
+        <DouInput
+          v-model="user.password"
+          type="password"
+          label="Mot de passe"
+          placeholder="ex: ********"
+          :error="errors.password"
+          dark
+          class="mt-5 mr-1"
+        />
+        <DouInput
+          v-model="user.password_confirmation"
+          type="password"
+          label="Confirmation Mot de passe"
+          placeholder="ex: ********"
+          :error="errors.password_confirmation"
+          dark
+          class="mt-5 ml-1"
+        />
       </div>
       <!-- buttons -->
       <div class="modal-action">
@@ -70,12 +86,13 @@
   </div>
 </template>
 <script>
-import { validateForm } from '~/helpers/InputValidation';
+import { validateInputs } from '~/helpers/InputValidation';
 import DouSelect from 'dourou-components/DouSelect/index.vue';
+import DouInput from 'dourou-components/DouInput/index.vue';
 
 export default {
   name: "UserForm",
-  components: { DouSelect },
+  components: { DouSelect, DouInput },
   data() {
     return {
       user: {
@@ -101,7 +118,7 @@ export default {
   },
   methods: {
     save() {
-      this.errors = validateForm(this.user, {
+      this.errors = validateInputs(this.user, {
         username: "required",
         email: "email",
         lastname: "required",
