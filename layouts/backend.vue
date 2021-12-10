@@ -18,5 +18,6 @@
 <script>
 export default {
   name: 'LayoutsBackend',
+  middleware: 'auth',
 }
 </script>
