@@ -4,12 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        purple: '#4d1a9b',
+        purple: {
+          '500': '#4d1a9b',
+          '900': '#15062d',
+        },
         orange: '#fcd731',
       },
       borderWidth: {
         '1': '1px',
       }
     }
-  }
+  },
+  plugins: [
+    require('daisyui'),
+  ],
 }

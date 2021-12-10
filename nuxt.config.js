@@ -44,7 +44,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    ['nuxt-socket-io'],
+    // ['nuxt-socket-io'],
     ['@nuxtjs/axios'],
     ['@nuxtjs/auth-next']
   ],
@@ -63,6 +63,6 @@ export default {
   },
   serverMiddleware: [
     { path: "/api", handler: "~/api/index.js" },
-    { path: "/ws", handler: "~/io/socket.js" },
+    // { path: "/ws", handler: "~/io/socket.js" },
   ]
 }

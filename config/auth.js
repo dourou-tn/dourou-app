@@ -17,5 +17,11 @@ export default {
         user: { url: '/auth/user', method: 'get' }
       }
     }
+  },
+  redirect: {
+    login: '/auth',
+    logout: '/',
+    callback: '/auth',
+    home: '/',
   }
 }
