@@ -62,7 +62,7 @@ export default {
   build: {
   },
   serverMiddleware: [
-    { path: "/api", handler: "~/api/index.js" },
+    // { path: "/api", handler: "~/api/index.js" },
     // { path: "/ws", handler: "~/io/socket.js" },
   ]
 }
