@@ -86,7 +86,7 @@
   </div>
 </template>
 <script>
-import { validateInputs } from '~/helpers/InputValidation';
+import { validateInputs } from '~/helpers/Validator';
 import DouSelect from 'dourou-components/DouSelect/index.vue';
 import DouInput from 'dourou-components/DouInput/index.vue';
 
