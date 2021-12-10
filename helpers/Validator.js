@@ -6,12 +6,15 @@ const TEXTS = {
   FIELD_SAME: 'This field must match the {0} field'
 };
 
-const isSet = (value) => value ? true : false;
+const isSet = (value) => (value ? String(value).replaceAll(' ', '') : value) ? true : false;
+
+// TODO: for isMin() & isMax() maybe if its a string we should try with the lenght
 const isMin = (value, min) => value && value >= min;
-const isMax = (value, max) => value && value < max;
-const isSame = (value, otherValue) => value && value === otherValue;
-const isNumeric = (value) => value && value.toString().match(/^\d+$/);
-const isEmail = (email) => email && email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+const isMax = (value, max) => value && value <= max;
+
+const isSame = (value, otherValue) => !!value && value === otherValue; // TODO: need more work on this check test isSame('', '')
+const isNumeric = (value) => !!value && Number(value) && (value.toString().match(/^\d+$/) !== null); // TODO: Add float support 
+const isEmail = (email) => email && (email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) !== null);
 
 /**
  * For instance we have only: required, email, numeric, min and same
@@ -48,6 +51,12 @@ const validateInputs = (obj, rules) => {
 
 
 
-export {
+module.exports = {
+  isSet,
+  isMin,
+  isMax,
+  isSame,
+  isNumeric,
+  isEmail,
   validateInputs
 }
