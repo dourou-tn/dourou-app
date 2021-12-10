@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen">
+  <div class="flex flex-col">
 
     <!-- ComponentsHeader -->
     <div class="m-0 p-0 sticky top-0 z-50">
