@@ -63,11 +63,11 @@
       <!-- Confirm password (only register) -->
       <div class="mb-4" v-if="register">
         <DouInput
-          v-model="user.confirm_password"
+          v-model="user.password_confirmation"
           type="password"
           label="Confirmez votre mot de passe"
           placeholder="********"
-          :error="errors.confirm_password"
+          :error="errors.password_confirmation"
         />
       </div>
 
@@ -127,7 +127,7 @@ export default {
     const defaultErrors = {
       email: null,
       password: null,
-      confirm_password: null,
+      password_confirmation: null,
       username: null,
       phone: null,
       firstname: null,
@@ -138,7 +138,7 @@ export default {
       user: {
         email: '',
         password: '',
-        confirm_password: '',
+        password_confirmation: '',
         username: '',
         phone: '',
         firstname: '',
@@ -173,7 +173,7 @@ export default {
       if (!this.user.username) this.errors.username = 'Le pseudo est obligatoire!';
       if (!this.user.firstname) this.errors.firstname = 'Le prénom est obligatoire!';
       if (!this.user.lastname) this.errors.lastname = 'Le nom est obligatoire!';
-      if (!this.user.confirm_password) this.errors.confirm_password = 'Les mots de passe doivent être identique!';
+      if (!this.user.password_confirmation) this.errors.password_confirmation = 'Les mots de passe doivent être identique!';
     },
     async submitLogin() {
       await this.$auth.loginWith('local', { data: {
@@ -189,7 +189,7 @@ export default {
         username: this.user.username,
         lastname: this.user.lastname,
         firstname: this.user.firstname,
-        confirm_password: this.user.confirm_password,
+        password_confirmation: this.user.password_confirmation,
       })
       await this.$auth.setUserToken(res.data.token)
     },
