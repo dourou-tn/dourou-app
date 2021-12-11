@@ -64,5 +64,9 @@ export default {
 
   serverMiddleware: [
     // { path: "/ws", handler: "~/io/socket.js" },
-  ]
+  ],
+
+  server: {
+    port: process.env.APP_PORT || 8080,
+  }
 }
