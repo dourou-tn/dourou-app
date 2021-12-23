@@ -16,7 +16,7 @@
       <div>
         <div class="hidden sm:block">
           <div v-if="$auth.loggedIn" class="text-orange cursor-pointer" @click="logout">
-            {{ this.$store.state.auth.user[0].username }}
+            {{ this.$store.state.auth.user.username }}
           </div>
           <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple-500 px-5 py-1 w-36 rounded">
             Se Connecter

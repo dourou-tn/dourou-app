@@ -26,7 +26,7 @@
       </div>
       <div class="mt-10">
         <div v-if="$auth.loggedIn" class="text-purple-500 cursor-pointer" @click="logout">
-          {{ this.$store.state.auth.user[0].username }}
+          {{ this.$store.state.auth.user.username }}
         </div>
         <Nuxt-link v-else to="/auth"
           class=" bg-orange text-sm text-purple-500 px-5 py-1 w-36 rounded"
