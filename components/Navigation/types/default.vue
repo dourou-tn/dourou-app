@@ -46,10 +46,10 @@ export default {
   data () {
     return {
       navigation: [
-        { id: 0, name: 'ACCEUIL', href: '/' },
-        { id: 1, name: 'VENTES EN COURS', href: '/auctions/current' },
-        { id: 2, name: 'VENTES TERMINES', href: '/auctions/ended' },
-        { id: 3, name: 'CONTACT', href: '/contact' },
+        { id: 0, name: 'Accueil', href: '/' },
+        { id: 1, name: 'Ventes en cours', href: '/auctions/current' },
+        { id: 2, name: 'Ventes terminées', href: '/auctions/ended' },
+        { id: 3, name: 'Contact', href: '/contact' },
       ],
     }
   },

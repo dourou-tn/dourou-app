@@ -40,6 +40,7 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { path: '../.env'} ],
+    '@nuxtjs/google-fonts'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -57,6 +58,13 @@ export default {
 
   // auth module: https://auth.nuxtjs.org/guide/setup/
   auth: auth,
+
+  // google fonts module: https://google-fonts.nuxtjs.org/options
+  googleFonts: {
+    families: {
+      Montserrat: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
