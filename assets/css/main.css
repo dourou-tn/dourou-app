@@ -1,8 +1,9 @@
-/* @font-face {
-  font-family: "Poppins";
-  src: url("~/assets/fonts/Poppins-Light.ttf");
+@font-face {
+  font-family: "COCON";
+  src: url("~/assets/fonts/COCON-NEXT-ARABIC-LIGHT.OTF");
   font-weight: 300;
 }
+/* 
 @font-face {
   font-family: "Poppins";
   src: url("~/assets/fonts/Poppins-regular.ttf");

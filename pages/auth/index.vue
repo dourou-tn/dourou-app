@@ -2,17 +2,17 @@
   <div class="page-home">
 
     <h2 class="text-purple-500 font-bold text-2xl text-center font-medium my-10">
-      {{ register ? 'Inscription' : 'Se connecter' }}
+      {{ register ? $t('global.auth.register.title') : $t('global.auth.login.title') }}
     </h2>
 
     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
       <p class="text-center text-gray-500 mb-5">
-        <span v-text="register ? `Vous avez déjà un compte?` : `Vous n'avez pas de compte?` ">
+        <span v-text="register ? $t('global.auth.register.login_call') : $t('global.auth.login.register_call') ">
         </span>
         <DouHref
           @click="toggleRegister"
-          :text="register ? 'Connexion' : 'Inscription'"
+          :text="register ? $t('global.auth.login.title') : $t('global.auth.register.title')"
         />.
       </p>
 
@@ -20,8 +20,8 @@
       <div class="mb-4" v-if="register">
         <DouInput
           v-model="user.lastname"
-          label="Nom"
-          placeholder="ex: Ben Falten"
+          :label="$t('global.auth.form.lastname.label')"
+          :placeholder="$t('global.auth.form.lastname.placeholder')"
           hint="Ne serra pas visible au public"
           :error="errors.lastname"
         />
@@ -31,8 +31,8 @@
       <div class="mb-4" v-if="register">
         <DouInput
           v-model="user.firstname"
-          label="Prénom"
-          placeholder="ex: Flen"
+          :label="$t('global.auth.form.firstname.label')"
+          :placeholder="$t('global.auth.form.firstname.placeholder')"
           hint="Ne serra pas visible au public"
           :error="errors.firstname"
         />
@@ -43,8 +43,8 @@
         <DouInput
           type="email"
           v-model="user.email"
-          label="Email"
-          placeholder="Votre email"
+          :label="$t('global.auth.form.email.label')"
+          :placeholder="$t('global.auth.form.email.placeholder')"
           :error="errors.email"
         />
       </div>
@@ -54,8 +54,8 @@
         <DouInput
           v-model="user.password"
           type="password"
-          label="Mot de passe"
-          placeholder="*********"
+          :label="$t('global.auth.form.password.label')"
+          :placeholder="$t('global.auth.form.password.placeholder')"
           :error="errors.password"
         />
       </div>
@@ -65,8 +65,8 @@
         <DouInput
           v-model="user.password_confirmation"
           type="password"
-          label="Confirmez votre mot de passe"
-          placeholder="********"
+          :label="$t('global.auth.form.password_confirmation.label')"
+          :placeholder="$t('global.auth.form.password_confirmation.placeholder')"
           :error="errors.password_confirmation"
         />
       </div>
@@ -75,8 +75,8 @@
       <div class="mb-4" v-if="register">
         <DouInput
           v-model="user.username"
-          label="Pseudo"
-          placeholder="Pseudo de jeu"
+          :label="$t('global.auth.form.username.label')"
+          :placeholder="$t('global.auth.form.username.placeholder')"
           :error="errors.username"
         />
       </div>
@@ -85,8 +85,8 @@
       <div class="mb-4" v-if="register">
         <DouInput
           v-model="user.phone"
-          label="Téléphone"
-          placeholder="ex: 55 555 555"
+          :label="$t('global.auth.form.phone.label')"
+          :placeholder="$t('global.auth.form.phone.placeholder')"
           :error="errors.phone"
         />
       </div>
@@ -94,7 +94,7 @@
       <div class="flex items-center justify-between">
         <DouButton
           @click="submitForm"
-          label="Se connecter"
+          :label="register ? $t('global.auth.register.title') : $t('global.auth.login.title')"
         />
 
         <DouHref

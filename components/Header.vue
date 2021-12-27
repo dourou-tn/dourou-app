@@ -1,32 +1,36 @@
 <template>
   <header>
 
-    <div class="bg-white sm:bg-purple-500 sm:px-8 text-white flex items-center justify-between px-2 py-2">
+    <div class="bg-white sm:bg-purple-500 text-white flex py-3 px-5">
 
       <!-- https://github.com/visualfanatic/vue-svg-loader/issues/54 -->
       <!-- svg can't support click so need to wrap it -->
-      <div @click="toggleDrawer" class="block sm:hidden md:hidden cursor-pointer">
+      <div @click="toggleDrawer" class="flex-1 flex items-center block sm:hidden md:hidden cursor-pointer">
         <IconsHamburger />
       </div>
 
-      <DouLogo />
+      <DouLogo class="flex-4"/>
 
       <!-- This can be a separate component maybe ? -->
       <!-- Login/Register buttons -->
-      <div>
+      <div class="flex flex-1 justify-end items-center">
+        
+        <!-- Local button -->
+        <button class="text-sm text-purple-500 sm:text-orange mr-3" @click="$i18n.locale === 'fr' ? $i18n.locale = 'ar' : $i18n.locale = 'fr'">
+          {{ $i18n.locale === 'fr' ? $t('global.ar') : $t('global.fr') }}
+        </button>
+        <!-- Auth section -->
         <div class="hidden sm:block">
           <div v-if="$auth.loggedIn" class="text-orange cursor-pointer" @click="logout">
             {{ this.$store.state.auth.user.username }}
           </div>
-          <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple-500 px-5 py-1 w-36 rounded">
-            Se Connecter
+          <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple-500 px-5 w-36 rounded">
+            {{ $t('global.auth.login.title') }}
           </Nuxt-link>
         </div>
-        <div class="block sm:hidden cursor-pointer">
-          <!-- TODO find a light icon lib or take icons from Meriem ? -->
-          <!-- <box-icon name='user-circle' class="mt-2" color="orange"></box-icon> -->
-        </div>
       </div>
+
+      
 
     </div>
 

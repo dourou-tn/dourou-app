@@ -4,7 +4,7 @@
     <!-- Date (visible only on desktop) -->
     <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
       <div class="text-sm leading-6">Le {{ auction.date }}</div>
-      <div class="text-sm leading-6">à {{ auction.time }}</div>
+      <div class="text-sm leading-6">à {{ auction.time }}</div>
     </div>
 
     <div class="pt-10 px-2">
@@ -26,13 +26,13 @@
           <div class="flex justify-between md:justify-around text-center">
             <!-- start price -->
             <div class="leading-10">
-              <div class="text-gray-500 font-thin text-sm ">Prix de départ</div>
+              <div class="text-gray-500 font-thin text-sm ">{{ $t('auction.start_price') }}</div>
               <div class="text-purple-500">{{ auction.start_price }} DT</div>
             </div>
 
             <!-- Store price -->
             <div class="leading-10">
-              <div class="text-gray-500 font-thin text-sm">Prix magasin</div>
+              <div class="text-gray-500 font-thin text-sm">{{ $t('auction.store_price') }}</div>
               <div class="text-purple-500"><s>{{ auction.store_price }} DT</s></div>
             </div>
           </div>
@@ -41,13 +41,13 @@
 
       <!-- Progress -->
       <div class="leading-10 mt-4">
-          <div class="text-gray-500 text-sm ">Salle des ventes remplie à {{ auction.full }}%</div>
+          <div class="text-gray-500 text-sm ">{{ $t('auction.room_fullnes', { full: auction.full }) }}Salle des ventes remplie à {{ auction.full }}%</div>
           <Progress :value="auction.full"/>
       </div>
 
       <!-- Btn participer -->
       <div class="text-center">
-        <button class="text-sm bg-purple-500 text-white px-10 py-2 rounded-lg my-5">Participez à 10</button>
+        <button class="text-sm bg-purple-500 text-white px-10 py-2 rounded-lg my-5">{{ $t('auction.subscribe_cta', { price: 10 }) }}</button>
       </div>
     </div>
 

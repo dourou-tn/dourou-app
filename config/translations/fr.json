@@ -1,0 +1,86 @@
+{
+  "global": {
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "Youtube"
+    },
+    "fr": "Français",
+    "ar": "Arabe",
+    "auth": {
+      "login": {
+        "title": "Se connecter",
+        "subtitle": "Connectez-vous pour accéder à votre compte",
+        "register_call": "Si vous n'avez pas de compte, créez un pour accéder à toutes les ventes en cours"
+      },
+      "register": {
+        "title": "S'inscrire",
+        "subtitle": "Créez votre compte pour accéder à toutes les ventes en cours",
+        "login_call": "Si vous avez un compte, connectez-vous"
+      },
+      "form": {
+        "firstname": {
+          "label": "Prénom",
+          "placeholder": "ex: Flen"
+        },
+        "lastname": {
+          "label": "Nom",
+          "placeholder": "ex: Ben Falten"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Votre email"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "********"
+        },
+        "password_confirmation": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "********"
+        },
+        "username": {
+          "label": "Pseudo",
+          "placeholder": "Pseudo ou nom d'utilisateur"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "********"
+        }
+      }
+    }
+  },
+  "comingsoon": {
+    "title": "On arrive bientôt!",
+    "subtitle": "Les présents informent les absents",
+    "contact": {
+      "headline": "Get subscribe to our mailing for latest updates... keep rocking!"
+    }
+  },
+  "menu": {
+    "accueil": "Accueil",
+    "ventesEnCours": "Ventes en cours",
+    "ventesTerminees": "Ventes terminées",
+    "contact": "Contact"
+  },
+  "home": {
+
+  },
+  "onlineAuctions": {
+
+  },
+  "finishedAuctions": {
+
+  },
+  "contact": {
+
+  },
+  "nextAuction": "Les prochaines ventes",
+  "auction": {
+    "start_price": "Prix de départ",
+    "store_price": "Prix magasin",
+    "subscribe_cta": "Participez à {price}",
+    "room_fullnes": "Salle des ventes remplie à {full}%"
+  }
+  
+}

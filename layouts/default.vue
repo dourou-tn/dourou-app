@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col" :style="{ direction: $dir() }">
 
     <!-- ComponentsHeader -->
     <div class="m-0 p-0 sticky top-0 z-50">

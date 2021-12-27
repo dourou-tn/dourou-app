@@ -1,4 +1,4 @@
-import { io, auth, axios } from './config';
+import { io, auth, axios, i18n, fonts } from './config';
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -25,7 +25,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/click-outside.js'],
+  plugins: ['~/plugins/click-outside.js', '~/plugins/direction-control',],
 
   router: {
     middleware: ["close-drawer"]
@@ -47,7 +47,8 @@ export default {
   modules: [
     // ['nuxt-socket-io'],
     ['@nuxtjs/axios'],
-    ['@nuxtjs/auth-next']
+    ['@nuxtjs/auth-next'],
+    ['@nuxtjs/i18n'],
   ],
 
   // socket.io module: https://nuxt-socket-io.netlify.app/installation/
@@ -60,11 +61,10 @@ export default {
   auth: auth,
 
   // google fonts module: https://google-fonts.nuxtjs.org/options
-  googleFonts: {
-    families: {
-      Montserrat: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-    }
-  },
+  googleFonts: fonts,
+
+  // https://i18n.nuxtjs.org/basic-usage
+  i18n: i18n,
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

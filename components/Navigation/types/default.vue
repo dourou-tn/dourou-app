@@ -3,10 +3,20 @@
     <nav class="hidden sm:block bg-white">
       <ul class="xs:w-full md:w-9/12 md:m-auto flex justify-around py-2">
         <DouLink
-          v-for="nav in navigation"
-          :key="nav.id"
-          :to="nav.href"
-          :text="nav.name"
+          :to="'/'"
+          :text="$t('menu.accueil')"
+        />
+        <DouLink
+          :to="'/auctions/current'"
+          :text="$t('menu.ventesEnCours')"
+        />
+        <DouLink
+          :to="'/auctions/ended'"
+          :text="$t('menu.ventesTerminees')"
+        />
+        <DouLink
+          :to="'/contact'"
+          :text="$t('menu.contact')"
         />
       </ul>
     </nav>
@@ -17,12 +27,22 @@
       :class="drawerIsOpen ? '' : '-translate-x-full'">
       <div class="flex flex-col">
         <DouLink
-          v-for="nav in navigation"
-          :key="nav.id"
-          :to="nav.href"
-          :text="nav.name"
-          class="mb-2"
+          :to="'/'"
+          :text="$t('menu.accueil')"
         />
+        <DouLink
+          :to="'/auctions/current'"
+          :text="$t('menu.ventesEnCours')"
+        />
+        <DouLink
+          :to="'/auctions/ended'"
+          :text="$t('menu.ventesTerminees')"
+        />
+        <DouLink
+          :to="'/contact'"
+          :text="$t('menu.contact')"
+        />
+        
       </div>
       <div class="mt-10">
         <div v-if="$auth.loggedIn" class="text-purple-500 cursor-pointer" @click="logout">
@@ -46,10 +66,10 @@ export default {
   data () {
     return {
       navigation: [
-        { id: 0, name: 'Accueil', href: '/' },
-        { id: 1, name: 'Ventes en cours', href: '/auctions/current' },
-        { id: 2, name: 'Ventes terminées', href: '/auctions/ended' },
-        { id: 3, name: 'Contact', href: '/contact' },
+        { id: 0, name: this.$t('menu.accueil'), href: '/' },
+        { id: 1, name: this.$t('menu.ventesEnCours'), href: '/auctions/current' },
+        { id: 2, name: this.$t('menu.ventesTerminees'), href: '/auctions/ended' },
+        { id: 3, name: this.$t('menu.contact'), href: '/contact' },
       ],
     }
   },

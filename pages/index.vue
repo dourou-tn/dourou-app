@@ -5,7 +5,7 @@
 
     <AuctionList
       type="FutureAuction"
-      title="Les prochaines ventes"
+      :title="$t('nextAuction')"
       :auctions="auctions"
     />
 

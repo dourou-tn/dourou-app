@@ -1,0 +1,73 @@
+{
+  "global": {
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "Youtube"
+    },
+    "fr": "الفرنسية",
+    "ar": "العربية",
+    "auth": {
+      "login": {
+        "title": "تسجيل الدخول",
+        "subtitle": "تسجيل الدخول للوصول إلى حسابك",
+        "register_call": "إذا لم يكن لديك حساب ، فأنشئ حسابًا للوصول إلى جميع المبيعات الحالية"
+      },
+      "register": {
+        "title": "تسجيل",
+        "subtitle": "قم بإنشاء حسابك للوصول إلى جميع المبيعات الحالية",
+        "login_call": "إذا لم يكن لديك حساب ، فأنشئ حسابك للوصول إلى جميع المبيعات الحالية"
+      },
+      "form": {
+        "firstname": {
+          "label": "الاسم الاول",
+          "placeholder": "ex: Flen"
+        },
+        "lastname": {
+          "label": "اسم العائلة",
+          "placeholder": "ex: Ben Falten"
+        },
+        "email": {
+          "label": "البريد الإلكتروني",
+          "placeholder": "Votre email"
+        },
+        "password": {
+          "label": "كلمه السر",
+          "placeholder": "********"
+        },
+        "password_confirmation": {
+          "label": "تأكيد كلمة السر",
+          "placeholder": "********"
+        },
+        "username": {
+          "label": "اسم االمستخدم",
+          "placeholder": "Pseudo ou nom d'utilisateur"
+        },
+        "phone": {
+          "label": "هاتف",
+          "placeholder": "********"
+        }
+      }
+    }
+  },
+  "comingsoon": {
+    "title": "جاينكم عن قريب",
+    "subtitle": "الحاضر يعلم الغايب",
+    "contact": {
+      "headline": "احصل على اشتراك في رسائلنا البريدية للحصول على آخر التحديثات ... استمر في التأرجح!"
+    }
+  },
+  "menu": {
+    "accueil": "ترحيب",
+    "ventesEnCours": "المبيعات جارية",
+    "ventesTerminees": "انتهت المبيعات",
+    "contact": "اتصل"
+  },
+  "nextAuction": "المبيعات القادمة",
+  "auction": {
+    "start_price": "ثمن الذهاب",
+    "store_price": "سعر المتجر",
+    "subscribe_cta": "{price} اشترك ب",
+    "room_fullnes": "دار المزاد {full}٪ ممتلئة"
+  }
+}
