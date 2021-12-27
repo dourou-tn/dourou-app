@@ -76,5 +76,6 @@ export default {
 
   server: {
     port: process.env.APP_PORT || 8080,
+    host: "0.0.0.0"
   }
 }
