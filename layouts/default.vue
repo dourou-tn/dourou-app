@@ -18,5 +18,17 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'DefaultLayout',
+  head () {
+    return {
+      bodyAttrs: {
+        class:  `locale-${this.$i18n.locale}`
+      },
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
+    }
+  },
+}
 </script>

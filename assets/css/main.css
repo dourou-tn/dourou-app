@@ -3,37 +3,13 @@
   src: url("~/assets/fonts/COCON-NEXT-ARABIC-LIGHT.OTF");
   font-weight: 300;
 }
-/* 
-@font-face {
-  font-family: "Poppins";
-  src: url("~/assets/fonts/Poppins-regular.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("~/assets/fonts/Poppins-Medium.ttf");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("~/assets/fonts/Poppins-Bold.ttf");
-  font-weight: 700;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("~/assets/fonts/Poppins-Light.ttf");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("~/assets/fonts/Poppins-Black.ttf");
-  font-weight: 900;
-}
- */
 
-
-body {
+body.locale-fr {
   font-family: Montserrat, sans-serif;
+  background-color: #f2f2f2;
+}
+body.locale-ar {
+  font-family: COCON, sans-serif;
   background-color: #f2f2f2;
 }
 

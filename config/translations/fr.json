@@ -48,6 +48,12 @@
           "placeholder": "********"
         }
       }
+    },
+    "time": {
+      "days": "Jours",
+      "hours": "Heures",
+      "minutes": "Minutes",
+      "seconds": "Secondes"
     }
   },
   "comingsoon": {

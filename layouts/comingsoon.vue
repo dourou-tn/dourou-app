@@ -1,9 +1,28 @@
 <template>
-  <div class="bg-purple-500" :style="{ direction: $dir() }">
+  <div class="coming-soon " :style="{ direction: $dir() }">
     <Nuxt />
   </div>
 </template>
 
 <script>
-export default {}
+// import '~/assets/css/comingsoon.css';
+export default {
+  head () {
+    return {
+      bodyAttrs: {
+        class: this.$i18n.locale === 'fr' ? 'locale-fr' : 'locale-ar'
+      },
+      link: [
+         //you shouldn't mention ~/static itself
+        { rel: 'stylesheet', href: '/css/comingsoon.css' }, 
+      ],
+      htmlAttrs: {
+        lang: 'ar'
+      }
+    }
+  },
+  created () {
+    this.$i18n.locale = 'ar'
+  },
+}
 </script>

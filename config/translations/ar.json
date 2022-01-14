@@ -29,7 +29,7 @@
         },
         "email": {
           "label": "البريد الإلكتروني",
-          "placeholder": "Votre email"
+          "placeholder": "بريدك الإلكتروني"
         },
         "password": {
           "label": "كلمه السر",
@@ -41,13 +41,19 @@
         },
         "username": {
           "label": "اسم االمستخدم",
-          "placeholder": "Pseudo ou nom d'utilisateur"
+          "placeholder": "اسم المستخدم"
         },
         "phone": {
           "label": "هاتف",
           "placeholder": "********"
         }
       }
+    },
+    "time": {
+      "days": "الأيام",
+      "hours": "الساعات",
+      "minutes": "الدقائق",
+      "seconds": "الثواني"
     }
   },
   "comingsoon": {

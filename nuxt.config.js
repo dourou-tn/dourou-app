@@ -6,7 +6,7 @@ export default {
     title: 'dourou-app',
     script: [],
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
@@ -40,7 +40,8 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { path: '../.env'} ],
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -66,6 +67,11 @@ export default {
   // https://i18n.nuxtjs.org/basic-usage
   i18n: i18n,
 
+  fontawesome: {
+    icons: {
+      brands: true,
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },

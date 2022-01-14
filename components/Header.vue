@@ -24,7 +24,8 @@
           <div v-if="$auth.loggedIn" class="text-orange cursor-pointer" @click="logout">
             {{ this.$store.state.auth.user.username }}
           </div>
-          <Nuxt-link v-else to="/auth" class="bg-orange text-sm text-purple-500 px-5 w-36 rounded">
+
+          <Nuxt-link v-else :to="localePath('/auth')" class="bg-orange text-sm text-purple-500 px-5 w-36 rounded">
             {{ $t('global.auth.login.title') }}
           </Nuxt-link>
         </div>
