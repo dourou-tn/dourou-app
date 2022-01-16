@@ -5,6 +5,7 @@
         <DouLink
           :to="'/'"
           :text="$t('menu.accueil')"
+          exact
         />
         <DouLink
           :to="'/auctions/current'"

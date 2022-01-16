@@ -16,3 +16,6 @@ body.locale-ar {
 aside {
   background-color: #f2f2f2;
 }
+.nuxt-link-active {
+  font-weight: bold;
+}

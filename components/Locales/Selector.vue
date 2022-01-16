@@ -5,7 +5,7 @@
       :key="locale.code"
       :to="switchLocalePath(locale.code)"
     >
-        <img :src="locale.img_src" :alt="`${locale.name}-flag`" width="22" class="mx-2">
+        <img :src="locale.img_src" :alt="`${locale.name}-flag`" width="22" class="ml-2">
       </nuxt-link>
   </div>
 </template>

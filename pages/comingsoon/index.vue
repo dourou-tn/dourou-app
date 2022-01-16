@@ -17,7 +17,7 @@
       <img :src="tokenImage" width="100" alt="Image du jeton dourou.tn" class="mb-10 image__token">
 
       <!-- counter -->
-      <flip-countdown deadline="2022-01-13 14:00:00" :labels="labels"></flip-countdown>
+      <flip-countdown v-if="startDate" :deadline="startDate" :labels="labels"></flip-countdown>
 
       <div class="flex flex-wrap mt-20 justify-center ">
         <div class="m-3 text-center">
@@ -52,6 +52,11 @@ export default {
   name: 'Comingsoon',
   layout: 'comingsoon',
   components: { FlipCountdown, DouLogo },
+  async mounted () {
+    const config = await this.$store.dispatch('config/get', 'open-date');
+    this.startDate = JSON.parse(config[0].value).value;
+    console.log('this.startDate', this.startDate)
+  },
   data () {
     return {
       contact: {
@@ -63,7 +68,8 @@ export default {
         minutes: this.$t('global.time.minutes'),
         seconds: this.$t('global.time.seconds'),
       },
-      tokenImage: require('~/assets/image/token.png')
+      tokenImage: require('~/assets/image/token.png'),
+      startDate: null,
     }
   }
 }
