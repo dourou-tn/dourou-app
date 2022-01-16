@@ -50,7 +50,7 @@
           {{ this.$store.state.auth.user.username }}
         </div>
         <Nuxt-link v-else to="/auth"
-          class=" bg-orange text-sm text-purple-500 px-5 py-1 w-36 rounded"
+          class=" bg-orange-500 text-sm text-purple-500 px-5 py-1 w-36 rounded"
         >
           Se Connecter
         </Nuxt-link>

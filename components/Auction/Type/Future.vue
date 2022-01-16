@@ -1,10 +1,10 @@
 <template>
-  <article class="bg-white rounded m-5 relative mb-20 mt-14 px-1 sm:px-2 md:px-10 lg:px-20 xl:px-24">
+  <article class="bg-white rounded m-5 relative mb-20 mt-14 px-1 sm:px-2 md:px-10 lg:px-20 xl:px-24 shadow-md border-solid border-1 border-gray-200">
 
     <!-- Date (visible only on desktop) -->
-    <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg px-4 py-1">
-      <div class="text-sm leading-6">Le {{ auction.date }}</div>
-      <div class="text-sm leading-6">à {{ auction.time }}</div>
+    <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg px-10 py-1 shadow-md">
+      <div class="leading-6">Le {{ formatedAuction.date }}</div>
+      <div class="leading-6">à {{ formatedAuction.time }}</div>
     </div>
 
     <div class="pt-10 px-2">
@@ -13,41 +13,43 @@
       <div class="flex">
         <!-- image -->
         <div class="mr-2">
-          <img :src="auction.img" alt="product" class="rounded">
+          <img :src="formatedAuction.image_path" alt="product" class="rounded" width="200">
         </div>
         
-        <div class="info flex-1 mt-2">
+        <div class="info flex flex-col justify-around flex-1 mt-2">
           <!-- name -->
           <div class="text-2xl font-medium mb-5 pl-2">
-            {{ auction.name }}
+            {{ formatedAuction.product_name }}
           </div>
 
           <!-- more info price start and price store -->
           <div class="flex justify-between md:justify-around text-center">
             <!-- start price -->
-            <div class="leading-10">
-              <div class="text-gray-500 font-thin text-sm ">{{ $t('auction.start_price') }}</div>
-              <div class="text-purple-500">{{ auction.start_price }} DT</div>
+            <div class="leading-9">
+              <div class="text-gray-700 text-sm">{{ $t('auction.start_price') }}</div>
+              <div class="text-purple-500">{{ formatedAuction.start_price }} DT</div>
             </div>
 
             <!-- Store price -->
-            <div class="leading-10">
-              <div class="text-gray-500 font-thin text-sm">{{ $t('auction.store_price') }}</div>
-              <div class="text-purple-500"><s>{{ auction.store_price }} DT</s></div>
+            <div class="leading-9">
+              <div class="text-gray-700 text-sm">{{ $t('auction.store_price') }}</div>
+              <div class="text-purple-500"><s>{{ formatedAuction.store_price }} DT</s></div>
             </div>
+          </div>
+
+          <!-- Progress -->
+          <div class="leading-10 mt-4">
+              <div class="text-gray-500 text-sm ">{{ $t('auction.room_fullnes', { full: 20 }) }}</div>
+              <Progress :value="20" class="shadow-md"/>
           </div>
         </div>
       </div>
 
-      <!-- Progress -->
-      <div class="leading-10 mt-4">
-          <div class="text-gray-500 text-sm ">{{ $t('auction.room_fullnes', { full: auction.full }) }}Salle des ventes remplie à {{ auction.full }}%</div>
-          <Progress :value="auction.full"/>
-      </div>
+      
 
       <!-- Btn participer -->
       <div class="text-center">
-        <button class="text-sm bg-purple-500 text-white px-10 py-2 rounded-lg my-5">{{ $t('auction.subscribe_cta', { price: 10 }) }}</button>
+        <button class="bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-gray-800">{{ $t('auction.subscribe_cta', { price: formatedAuction.subscribe_price }) }}</button>
       </div>
     </div>
 
@@ -55,11 +57,32 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 import Progress from "../../Common/Progress.vue";
   export default {
     name: "HomeAuctionItem",
     props: ["auction"],
-    components: { Progress }
+    components: { Progress },
+    data() {
+      return {
+        moment: moment
+      }
+    },
+    computed: {
+      formatedAuction () {
+        const product = JSON.parse(this.auction.product);
+        return {
+          date: this.moment(this.auction.start_date).format('DD/MM/YYYY'),
+          time: this.moment(this.auction.start_date).format('HH:mm'),
+          start_price: this.auction.start_price,
+          store_price: Math.round(product.price * 100) / 100,
+          image_path: `http://localhost:5000/${product.image_path}`,
+          subscribe_price: this.auction.subscribe_price,
+          product_name: product.name,
+        }
+      }
+    }
 }
 </script>
 

@@ -1,9 +1,8 @@
 <template>
-  <div class="progress_wrapper h-4 bg-gray-500">
+  <div class="progress_wrapper h-4 bg-gray-300 border-1 border-solid border-gray-300 rounded">
     <div
-      class="h-4"
-      :class="`bg-${color}`"
-      :style="{ width: value + '%' }"
+      :class="`bg-${color} rounded`"
+      :style="{ width: value + '%', height: '0.864rem', 'margin-left': '0.02rem' }"
     />
   </div>
 </template>
@@ -19,7 +18,7 @@
       },
       color: {
         type: String,
-        default: 'orange',
+        default: 'orange-500',
       }
     },
   }

@@ -1,7 +1,7 @@
 <template>
-  <header>
+  <header class="bg-white sm:bg-purple-500">
 
-    <div class="bg-white sm:bg-purple-500 text-white flex py-3 px-10">
+    <div class="m-auto bg-white sm:bg-purple-500 text-white flex py-3 px-10 container">
 
       <!-- https://github.com/visualfanatic/vue-svg-loader/issues/54 -->
       <!-- svg can't support click so need to wrap it -->
@@ -11,30 +11,17 @@
 
       <DouLogo class="flex-4"/>
 
-      <!-- This can be a separate component maybe ? -->
-      <!-- Login/Register buttons -->
+      <!-- Auth Visible only on desktop -->
       <div class="flex flex-1 justify-end items-center">
-        
-        <!-- Local button -->
-        <!-- <button class="text-sm text-purple-500 sm:text-orange mr-3" @click="$i18n.locale === 'fr' ? $i18n.locale = 'ar' : $i18n.locale = 'fr'">
-          {{ $i18n.locale === 'fr' ? $t('global.ar') : $t('global.fr') }}
-        </button> -->
-        
         <!-- Auth section -->
         <div class="hidden sm:block">
-          <div v-if="$auth.loggedIn" class="text-orange cursor-pointer" @click="logout">
-            {{ this.$store.state.auth.user.username }}
-          </div>
+          <AuthDropdown v-if="$auth.loggedIn" />
 
-          <Nuxt-link v-else :to="localePath('/auth')" class="bg-orange text-purple-500 py-1 px-5 w-36 rounded hover:opacity-80 active:bg-violet-600">
+          <Nuxt-link v-else :to="localePath('/auth')" class="bg-orange-500 text-purple-500 py-1 px-5 w-36 rounded hover:bg-orange-500">
             {{ $t('global.auth.login.title') }}
           </Nuxt-link>
         </div>
 
-        <!-- Flags -->
-        <div class="flags">
-          <LocalesSelector />
-        </div>
       </div>
     </div>
 
@@ -44,20 +31,19 @@
 
 <script>
   import DouLogo from 'dourou-components/DouLogo/index.vue';
+  import DouDropdown from 'dourou-components/DouDropdown/index.vue';
 
   export default {
     name: 'Header',
     components: {
       DouLogo,
+      DouDropdown,
     },
     methods: {
       toggleDrawer (e) {
         e.stopPropagation();
         this.$store.commit('ux/toggleDrawer')
       },
-      async logout () {
-        await this.$auth.logout();
-      }
     }
   }
 </script>

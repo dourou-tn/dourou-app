@@ -85,7 +85,7 @@
   "auction": {
     "start_price": "Prix de départ",
     "store_price": "Prix magasin",
-    "subscribe_cta": "Participez à {price}",
+    "subscribe_cta": "Participez à {price} dt",
     "room_fullnes": "Salle des ventes remplie à {full}%"
   }
   

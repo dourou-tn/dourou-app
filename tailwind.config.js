@@ -8,7 +8,10 @@ module.exports = {
           '500': '#4d1a9b',
           '900': '#15062d',
         },
-        orange: '#fcd731',
+        orange: {
+          '500': '#fcd731',
+          '900': '#AB9018',
+        },
       },
       borderWidth: {
         '1': '1px',
