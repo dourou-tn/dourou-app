@@ -55,7 +55,6 @@ export default {
   async mounted () {
     const config = await this.$store.dispatch('config/get', 'open-date');
     this.startDate = JSON.parse(config[0].value).value;
-    console.log('this.startDate', this.startDate)
   },
   data () {
     return {
