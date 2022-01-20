@@ -67,13 +67,55 @@
     "accueil": "ترحيب",
     "ventesEnCours": "المبيعات جارية",
     "ventesTerminees": "انتهت المبيعات",
-    "contact": "اتصل"
+    "contact": "اتصل",
+    "faq": "الأسئلة الشائعة",
+    "chat": "محادثة",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستعمال",
+    "accessibility": "إمكانية الوصول"
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "subtitle": "نحن هنا لمساعدتك",
+    "form": {
+      "name": "الاسم الكامل",
+      "email": "بريد الالكتروني",
+      "message": "رسالة",
+      "send": "يبعث"
+    }
   },
   "nextAuction": "المبيعات القادمة",
   "auction": {
     "start_price": "ثمن الذهاب",
     "store_price": "سعر المتجر",
-    "subscribe_cta": "{price} اشترك ب",
-    "room_fullnes": "دار المزاد {full}٪ ممتلئة"
+    "subscribe_cta": "اشترك ب {price} دت",
+    "room_fullnes": "دار المزاد {full}٪ ممتلئة",
+    "date": "يوم {date}",
+    "time": "الساعة {time}"
+  },
+  "subscribe": {
+    "title": "اشترك بالمبيعات الحالية",
+    "sub_price": "تسعيرة إشتراك",
+    "oth_price": "سعر آخر",
+    "tot_price": "الثمن الجملي",
+    "price": "{price} دت",
+    "methods": {
+      "laposte": "La Poste",
+      "cb": "Carte bancaire"
+    },
+    "success": {
+      "header": "التسجيل بنجاح",
+      "text": "سيبدأ المزاد يوم {date} الساعة {time}"
+    },
+    
+    "error": {
+      "already_sub": "أنت مسجل في المزاد",
+      "text": "سيبدأ المزاد يوم {date} الساعة {time}"
+    }
+  },
+  "footer": {
+    "helpfulLinks": "روابط مفيدة",
+    "legal": "إشعار قانوني",
+    "resume": "Ipsum Lorem"
   }
 }
