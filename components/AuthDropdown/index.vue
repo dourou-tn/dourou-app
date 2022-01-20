@@ -10,8 +10,15 @@
         </span>
       </span> -->
     </div>
+    <div
+      id="auth-dropdown"
+      class="absolute mt-2 m-width-1/4 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none  bg-gray-100"
+      :class="positionClass"
+      role="menu"
+      aria-orientation="vertical" aria-labelledby="menu-button"
+      tabindex="-1"
 
-    <div id="auth-dropdown" class="origin-top-right absolute right-0 mt-2 m-width-1/4 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none  bg-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+    >
       <div v-if="isOpen" v-click-outside="closeMenu" class="relative max-w-[340px] mx-auto bg-white shadow-lg rounded-lg">
         <!-- Card header -->
         <header class="pt-6 pb-4 px-5 border-b border-gray-200">
@@ -67,6 +74,12 @@ export default {
     return {
       isOpen: false,
       tokenImage: require('~/assets/image/token.png')
+    }
+  },
+  computed: {
+    positionClass (){
+      if (this.$dir() === 'rtl') return 'left-0'
+      else return 'right-0';
     }
   },
   methods: {
