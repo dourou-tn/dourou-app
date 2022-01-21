@@ -47,6 +47,13 @@
           "label": "Téléphone",
           "placeholder": "********"
         }
+      },
+      "dropdown": {
+        "menu": "menu",
+        "profile": "Mon profil",
+        "support": "Support",
+        "logout": "Déconnexion",
+        "buy_dourou": "Acheter des dourous"
       }
     },
     "time": {

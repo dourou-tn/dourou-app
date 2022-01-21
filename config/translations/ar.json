@@ -47,6 +47,13 @@
           "label": "هاتف",
           "placeholder": "********"
         }
+      },
+      "dropdown": {
+        "menu": "القائمة",
+        "profile": "ملفي",
+        "support": "الدعم",
+        "logout": "تسجيل خروج",
+        "buy_dourou": "شراء دورو"
       }
     },
     "time": {

@@ -11,6 +11,7 @@
       </span> -->
     </div>
     <div
+      v-if="isOpen"
       id="auth-dropdown"
       class="absolute mt-2 m-width-1/4 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none  bg-gray-100"
       :class="positionClass"
@@ -45,18 +46,18 @@
         </header>
         <!-- Card body -->
         <div class="py-3">
-            <h3 class="text-xs px-5 font-semibold uppercase text-gray-400 mb-1">Menu</h3>
+            <h3 class="text-xs px-5 font-semibold uppercase text-gray-400 mb-1">{{ $t('global.auth.dropdown.menu') }}</h3>
             <!-- Chat list -->
             <div class="divide-y divide-gray-200">
-              <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Mon Profile</a>
-              <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
-              <a href="#" class="text-red-900 hover:text-red-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2" @click="logout">Déconnextion</a>
+              <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">{{ $t('global.auth.dropdown.profile') }}</a>
+              <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">{{ $t('global.auth.dropdown.support') }}</a>
+              <a href="#" class="text-red-900 hover:text-red-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2" @click="logout">{{ $t('global.auth.dropdown.logout') }}</a>
             </div>
         </div>
 
         <div class="text-center py-5">
           <Nuxt-link :to="localePath('/acheter-dourou')" class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-gray-800">
-            Acheter Dourou
+            {{ $t('global.auth.dropdown.buy_dourou') }}
           </Nuxt-link>
         </div>
         <div class="flags flex justify-center pb-1 pb-5">
