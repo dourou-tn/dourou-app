@@ -29,7 +29,7 @@
         </div>
         <div class="mt-8">
           <button
-            class="text-smuppercase font-bold tracking-wide bg-orange-500 rounded-lg hover:shadow-md py-2 rounded-lg w-full">
+            class="text-sm uppercase font-bold tracking-wide bg-orange-500 rounded-lg hover:shadow-md py-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-500">
             {{ $t('contact.form.send') }}
           </button>
         </div>

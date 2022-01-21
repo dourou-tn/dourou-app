@@ -11,21 +11,25 @@
       "login": {
         "title": "Se connecter",
         "subtitle": "Connectez-vous pour accéder à votre compte",
-        "register_call": "Si vous n'avez pas de compte, créez un pour accéder à toutes les ventes en cours"
+        "register_call": "Si vous n'avez pas de compte, créez un pour accéder à toutes les ventes en cours",
+        "apiError": "Erreur lors de la connexion"
       },
       "register": {
         "title": "S'inscrire",
         "subtitle": "Créez votre compte pour accéder à toutes les ventes en cours",
-        "login_call": "Si vous avez un compte, connectez-vous"
+        "login_call": "Si vous avez un compte, connectez-vous",
+        "apiError": "Erreur lors de la création du compte"
       },
       "form": {
         "firstname": {
           "label": "Prénom",
-          "placeholder": "ex: Flen"
+          "placeholder": "ex: Flen",
+          "hint": "Ne serra pas visible au public"
         },
         "lastname": {
           "label": "Nom",
-          "placeholder": "ex: Ben Falten"
+          "placeholder": "ex: Ben Falten",
+          "hint": "Ne serra pas visible au public"
         },
         "email": {
           "label": "Email",
@@ -46,7 +50,11 @@
         "phone": {
           "label": "Téléphone",
           "placeholder": "********"
-        }
+        },
+        "forgot_password": "Mot de passe oublié ?"
+      },
+      "errors": {
+        "invalid_email_or_password": "Email ou mot de passe invalide"
       },
       "dropdown": {
         "menu": "menu",
@@ -128,6 +136,7 @@
     }
   },
   "packs": {
+    "title": "Acheter des dourous",
     "labels": {
       "price": "Prix Pack de {nbr} dourou's"
     }
@@ -140,6 +149,7 @@
   "footer": {
     "helpfulLinks": "Liens utiles",
     "legal": "Mentions légales",
-    "resume": "Ipsum Lorem"
+    "resume": "Dourou.tn est un site Tunisien de vente aux enchère.",
+    "sells": "Ventes"
   }
 }

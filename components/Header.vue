@@ -17,12 +17,9 @@
         <div class="hidden sm:block">
           <div v-if="$auth.loggedIn" class="flex justify-between items-center">
 
-            <div class="flex items-center justify-center mr-2 p-2 rounded hover:bg-purple-700 bg-purple-800 cursor-pointer" @click="$router.push(localePath('/acheter-dourou'))">
-              {{ $store.state.auth.user.tokens }} {{ $t('global.wording.dourou') }}
-              <img src="~/assets/image/token.png" alt="" width="25" class="ml-2">
-            </div>
+            <TokenIndicator class="me-2" />
 
-             <AuthDropdown />
+            <AuthDropdown />
 
           </div>
 

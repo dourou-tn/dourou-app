@@ -56,9 +56,9 @@
         </div>
 
         <div class="text-center py-5">
-          <Nuxt-link :to="localePath('/acheter-dourou')" class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-gray-800">
+          <button :to="localePath('/acheter-dourou')" class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-500" tabindex="1">
             {{ $t('global.auth.dropdown.buy_dourou') }}
-          </Nuxt-link>
+          </button>
         </div>
         <div class="flags flex justify-center pb-1 pb-5">
           <LocalesSelector />

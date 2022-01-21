@@ -11,21 +11,25 @@
       "login": {
         "title": "تسجيل الدخول",
         "subtitle": "تسجيل الدخول للوصول إلى حسابك",
-        "register_call": "إذا لم يكن لديك حساب ، فأنشئ حسابًا للوصول إلى جميع المبيعات الحالية"
+        "register_call": "إذا لم يكن لديك حساب ، فأنشئ حسابًا للوصول إلى جميع المبيعات الحالية",
+        "apiError": "خطأ أثناء الاتصال"
       },
       "register": {
         "title": "تسجيل",
         "subtitle": "قم بإنشاء حسابك للوصول إلى جميع المبيعات الحالية",
-        "login_call": "إذا لم يكن لديك حساب ، فأنشئ حسابك للوصول إلى جميع المبيعات الحالية"
+        "login_call": "إذا لم يكن لديك حساب ، فأنشئ حسابك للوصول إلى جميع المبيعات الحالية",
+        "apiError": "خطأ في إنشاء الحساب"
       },
       "form": {
         "firstname": {
           "label": "الاسم الاول",
-          "placeholder": "ex: Flen"
+          "placeholder": "ex: Flen",
+          "hint": "لن تكون مرئية للجمهور"
         },
         "lastname": {
           "label": "اسم العائلة",
-          "placeholder": "ex: Ben Falten"
+          "placeholder": "ex: Ben Falten",
+          "hint": "لن تكون مرئية للجمهور"
         },
         "email": {
           "label": "البريد الإلكتروني",
@@ -46,7 +50,11 @@
         "phone": {
           "label": "هاتف",
           "placeholder": "********"
-        }
+        },
+        "forgot_password": "نسيت رقمك السري ؟"
+      },
+      "errors": {
+        "invalid_email_or_password": "البريد الإلكتروني أو كلمة السر خاطئة"
       },
       "dropdown": {
         "menu": "القائمة",
@@ -130,6 +138,7 @@
     }
   },
   "packs": {
+    "title": "شراء دورو",
     "labels": {
       "price": "سعر {nbr} دورو"
     }
@@ -142,6 +151,7 @@
   "footer": {
     "helpfulLinks": "روابط مفيدة",
     "legal": "إشعار قانوني",
-    "resume": "Ipsum Lorem"
+    "resume": "Dourou.tn هو موقع مزاد تونسي.",
+    "sells": "المبيعات"
   }
 }

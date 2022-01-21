@@ -1,6 +1,6 @@
 <template>
   <div class="page-home mt-5">
-    <!-- <DouTitle :text="$t('buyTokens.title')" /> -->
+    <DouTitle :text="$t('packs.title')" />
 
     <section v-if="!selectedPack" class="antialiased bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <!-- Pricing -->
@@ -16,7 +16,7 @@
                     <div class="absolute top-0 left-0 right-0 h-0.5" :style="`background-color: ${pack.color}`" aria-hidden="true"></div>
                     <div class="px-5 pt-5 pb-6 border-b border-gray-200">
                         <header class="flex items-center mb-2">
-                            <div class="w-6 h-6 rounded-full flex-shrink-0 mr-3" :style="`background-color: ${pack.color}`">
+                            <div class="w-6 h-6 rounded-full flex-shrink-0 me-3" :style="`background-color: ${pack.color}`">
                                 <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
                                     <path d="M12 17a.833.833 0 01-.833-.833 3.333 3.333 0 00-3.334-3.334.833.833 0 110-1.666 3.333 3.333 0 003.334-3.334.833.833 0 111.666 0 3.333 3.333 0 003.334 3.334.833.833 0 110 1.666 3.333 3.333 0 00-3.334 3.334c0 .46-.373.833-.833.833z" />
                                 </svg>
@@ -36,7 +36,7 @@
                           </div>
                         </div>
                         <!-- CTA -->
-                        <button class="font-medium text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-orange-500 focus:outline-none focus-visible:ring-2 hover:shadow-md text-gray-800 w-full" @click="choosePack(pack.id)">{{ $t('global.wording.buy') }}</button>
+                        <button class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-purple-500 w-full focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-500" @click="choosePack(pack.id)">{{ $t('global.wording.buy') }}</button>
                     </div>
                 </div>
             </div>

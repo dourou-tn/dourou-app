@@ -5,7 +5,7 @@
       {{ register ? $t('global.auth.register.title') : $t('global.auth.login.title') }}
     </h2>
 
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-20" @keyup.enter="submitForm">
 
       <p class="text-center text-gray-500 mb-5">
         <span v-text="register ? $t('global.auth.register.login_call') : $t('global.auth.login.register_call') ">
@@ -16,13 +16,20 @@
         />.
       </p>
 
+        <Alert
+          v-if="apiError"
+          class="animate-bounce"
+          :title="$t(`global.auth.${register ? 'register' : 'login'}.apiError`)"
+          :text="$t(`global.auth.errors.${apiError}`)"
+        />
+
       <!-- Lastname (only register) -->
       <div class="mb-4" v-if="register">
         <DouInput
           v-model="user.lastname"
           :label="$t('global.auth.form.lastname.label')"
           :placeholder="$t('global.auth.form.lastname.placeholder')"
-          hint="Ne serra pas visible au public"
+          :hint="$t('global.auth.form.lastname.hint')"
           :error="errors.lastname"
         />
       </div>
@@ -99,7 +106,7 @@
 
         <DouHref
           @click="toggleRegister"
-          text="Mot de passe oublié?"
+          :text="$t('global.auth.form.forgot_password')"
         />
 
       </div>
@@ -147,6 +154,7 @@ export default {
       register: false,
       defaultErrors: defaultErrors,
       errors: Object.assign({}, defaultErrors),
+      apiError: null
     }
   },
   methods: {
@@ -176,22 +184,32 @@ export default {
       if (!this.user.password_confirmation) this.errors.password_confirmation = 'Les mots de passe doivent être identique!';
     },
     async submitLogin() {
-      await this.$auth.loginWith('local', { data: {
-        email: this.user.email,
-        password: this.user.password,
-      }})
+      try {
+        await this.$auth.loginWith('local', { data: {
+          email: this.user.email,
+          password: this.user.password,
+        }})
+      } catch (error) {
+        if (error.response) {
+          this.apiError = error.response.data.message
+        }
+      }
     },
     async submitRegister() {
-      const res = await this.$axios.$post('/auth/register', {
-        email: this.user.email,
-        password: this.user.password,
-        phone: this.user.phone,
-        username: this.user.username,
-        lastname: this.user.lastname,
-        firstname: this.user.firstname,
-        password_confirmation: this.user.password_confirmation,
-      })
-      await this.$auth.setUserToken(res.data.token)
+      try {
+        const res = await this.$axios.$post('/auth/register', {
+          email: this.user.email,
+          password: this.user.password,
+          phone: this.user.phone,
+          username: this.user.username,
+          lastname: this.user.lastname,
+          firstname: this.user.firstname,
+          password_confirmation: this.user.password_confirmation,
+        })
+        await this.$auth.setUserToken(res.data.token)
+      } catch (error) {
+        console.error('ERR4', error);
+      }
     },
     toggleRegister () {
       this.register = !this.register
@@ -204,6 +222,7 @@ export default {
     user: {
       handler () {
         this.resetErrors();
+        this.apiError = null;
       },
       deep: true,
     }
