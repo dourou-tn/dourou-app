@@ -15,7 +15,16 @@
       <div class="flex flex-1 justify-end items-center">
         <!-- Auth section -->
         <div class="hidden sm:block">
-          <AuthDropdown v-if="$auth.loggedIn" />
+          <div v-if="$auth.loggedIn" class="flex justify-between items-center">
+
+            <div class="flex items-center justify-center mr-2 p-2 rounded hover:bg-purple-700 bg-purple-800 cursor-pointer" @click="$router.push(localePath('/acheter-dourou'))">
+              {{ $store.state.auth.user.tokens }} {{ $t('global.wording.dourou') }}
+              <img src="~/assets/image/token.png" alt="" width="25" class="ml-2">
+            </div>
+
+             <AuthDropdown />
+
+          </div>
 
           <Nuxt-link v-else :to="localePath('/auth')" class="bg-orange-500 text-purple-500 py-1 px-5 w-36 rounded hover:bg-orange-500">
             {{ $t('global.auth.login.title') }}

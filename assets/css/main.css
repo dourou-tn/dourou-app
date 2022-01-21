@@ -1,15 +1,15 @@
-@font-face {
+/* @font-face {
   font-family: "COCON";
   src: url("~/assets/fonts/COCON-NEXT-ARABIC-LIGHT.OTF");
   font-weight: 300;
-}
+} */
 
 body.locale-fr {
   font-family: Montserrat, sans-serif;
   background-color: #f2f2f2;
 }
 body.locale-ar {
-  font-family: COCON, sans-serif;
+  font-family: 'Noto Sans Arabic', sans-serif;
   background-color: #f2f2f2;
 }
 

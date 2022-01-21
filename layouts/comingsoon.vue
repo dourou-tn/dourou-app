@@ -1,5 +1,5 @@
 <template>
-  <div class="coming-soon " :style="{ direction: $dir() }">
+  <div class="antialiased coming-soon " :style="{ direction: $dir() }">
     <Nuxt />
   </div>
 </template>

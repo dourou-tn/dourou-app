@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="hidden sm:block bg-white">
+    <nav class="hidden sm:block bg-white shadow-md">
       <ul class="xs:w-full md:w-9/12 md:m-auto flex justify-around py-2">
         <DouLink
           :to="'/'"

@@ -61,6 +61,15 @@
       "hours": "Heures",
       "minutes": "Minutes",
       "seconds": "Secondes"
+    },
+    "price": "{price} dt",
+    "wording": {
+      "dourou": "Dourou",
+      "buy": "Acheter",
+      "token": "Jeton",
+      "tokens": "Jetons",
+      "confirm": "Confirmer",
+      "cancel": "Annuler"
     }
   },
   "comingsoon": {
@@ -105,7 +114,6 @@
     "sub_price": "Prix de participation",
     "oth_price": "Prix d'autres ventes",
     "tot_price": "Prix total",
-    "price": "{price} dt",
     "methods": {
       "laposte": "Payer par la Poste",
       "cb": "Payer par carte bancaire"
@@ -117,6 +125,16 @@
     "error": {
       "already_sub": "Vous êtes déjà inscrit",
       "text": "L'enchère démarrera le {date} à {time}"
+    }
+  },
+  "packs": {
+    "labels": {
+      "price": "Prix Pack de {nbr} dourou's"
+    }
+  },
+  "payement": {
+    "methods": {
+      "title": "Choisissez un mode de payement"
     }
   },
   "footer": {

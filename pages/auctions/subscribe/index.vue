@@ -26,83 +26,16 @@
       </div>
 
       <!-- prices -->
-      <div class="shadow rounded-md mb-5">
-        <ul class="divide-y divide-gray-200">
-          <li>
-            <a class="block hover:bg-gray-50">
-              <div class="px-4 py-4 sm:px-6">
-                <div class="flex items-center justify-between">
-                  <p class="text-sm text-gray-600 truncate">
-                    {{ $t('subscribe.sub_price') }}
-                  </p>
-                  <div class="ml-2 flex-shrink-0 flex">
-                    <p class="px-2 inline-flex text-md leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                      {{ $t('subscribe.price', { price: Math.round(auction.subscribe_price * 100) / 100 }) }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="block hover:bg-gray-50">
-              <div class="px-4 py-4 sm:px-6">
-                <div class="flex items-center justify-between">
-                  <p class="text-sm text-gray-600 truncate">
-                    {{ $t('subscribe.oth_price') }}
-                  </p>
-                  <div class="ml-2 flex-shrink-0 flex">
-                    <p class="px-2 inline-flex text-md leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                      {{ $t('subscribe.price', { price: Math.round(0 * 100) / 100 }) }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bg-gray-100">
-            <a class="block hover:bg-gray-100">
-              <div class="px-4 py-4 sm:px-6">
-                <div class="flex items-center justify-between">
-                  <p class="text-sm text-gray-800 truncate font-bold">
-                    {{ $t('subscribe.tot_price') }}
-                  </p>
-                  <div class="ml-2 flex-shrink-0 flex">
-                    <p class="px-2 inline-flex text-md leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                      {{ $t('subscribe.price', { price: Math.round(auction.subscribe_price * 100) / 100 }) }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
-
-        </ul>
-      </div>
+      <payement-prices :prices="[
+        { label: $t('subscribe.sub_price'), price: Math.round(auction.subscribe_price * 100) / 100 }
+      ]" />
 
       <!-- loader -->
       <Douloader v-if="loading" />
 
       <!-- buttons + alerts (success, is_subscribed)-->
       <div v-else>
-        <div class="flex justify-center" v-if="!auction.is_subscribed && !success">
-          <button
-            type="button"
-            class="flex-col inline-flex items-center justify-end m-4 px-4 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-gray-50 hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-            @click="subscribe"
-          >
-            <img :src="images.posteTN" alt="">
-            <span class="text-purple-500 text-md mt-2">{{ $t('subscribe.methods.laposte') }}</span>
-          </button>
-          <button
-            type="button"
-            class="flex-col inline-flex items-center justify-end m-4 px-4 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-gray-50 hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-            @click="subscribe"
-          >
-            <img :src="images.cb" alt="">
-            <span class="text-purple-500 text-md mt-2">{{ $t('subscribe.methods.cb') }}</span>
-          </button>
-        </div>
+        <payement-methods @submit:method="subscribe" v-if="!auction.is_subscribed && !success" />
 
         <!-- success -->
         <div class="flex justify-center" v-if="success">

@@ -61,6 +61,16 @@
       "hours": "الساعات",
       "minutes": "الدقائق",
       "seconds": "الثواني"
+    },
+    "price": "{price} دت",
+    "wording": {
+      "dourou": "دورو",
+      "buy": "شراء",
+      "token": "عملة رمزية",
+      "tokens": "عملة رمزية",
+      "confirm": "أكد",
+      "cancel": "لالغاء"
+      
     }
   },
   "comingsoon": {
@@ -105,7 +115,6 @@
     "sub_price": "تسعيرة إشتراك",
     "oth_price": "سعر آخر",
     "tot_price": "الثمن الجملي",
-    "price": "{price} دت",
     "methods": {
       "laposte": "La Poste",
       "cb": "Carte bancaire"
@@ -118,6 +127,16 @@
     "error": {
       "already_sub": "أنت مسجل في المزاد",
       "text": "سيبدأ المزاد يوم {date} الساعة {time}"
+    }
+  },
+  "packs": {
+    "labels": {
+      "price": "سعر {nbr} دورو"
+    }
+  },
+  "payement": {
+    "methods": {
+      "title": "اختر طريقة الدفع"
     }
   },
   "footer": {
