@@ -54,7 +54,14 @@
         "forgot_password": "Mot de passe oublié ?"
       },
       "errors": {
-        "invalid_email_or_password": "Email ou mot de passe invalide"
+        "invalid_email_or_password": "Email ou mot de passe invalide",
+        "email_is_required": "L'email est obligatoire",
+        "password_is_required": "Le mot de passe est obligatoire",
+        "phone_is_required": "Le numéro de téléphone est obligatoire",
+        "firstname_is_required": "Le prénom est obligatoire",
+        "lastname_is_required": "Le nom est obligatoire",
+        "username_is_required": "Le pseudo est obligatoire",
+        "password_confirmation": "Les mots de passe doivent être identiques"
       },
       "dropdown": {
         "menu": "menu",

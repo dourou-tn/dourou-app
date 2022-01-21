@@ -54,7 +54,14 @@
         "forgot_password": "نسيت رقمك السري ؟"
       },
       "errors": {
-        "invalid_email_or_password": "البريد الإلكتروني أو كلمة السر خاطئة"
+        "invalid_email_or_password": "البريد الإلكتروني أو كلمة السر خاطئة",
+        "email_is_required": "البريد الالكتروني مطلوب!",
+        "password_is_required": "كلمة السر مطلوبة",
+        "phone_is_required": "رقم الهاتف مطلوب",
+        "firstname_is_required": "الإسم الأول مطلوب",
+        "lastname_is_required": "اسم العائلة مطلوب",
+        "username_is_required": "الاسم المستعار مطلوب",
+        "password_confirmation": "يجب أن تكون كلمات المرور متطابقة"
       },
       "dropdown": {
         "menu": "القائمة",

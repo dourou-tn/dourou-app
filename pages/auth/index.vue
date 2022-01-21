@@ -172,16 +172,16 @@ export default {
         await this.submitLogin();
     },
     validateLogin() {
-      if (!this.user.email) this.errors.email = 'L\'email est obligatoire!';
-      if (!this.user.password) this.errors.password = 'Le mot de passe est obligatoire!';
+      if (!this.user.email) this.errors.email = this.$t('global.auth.errors.email_is_required');
+      if (!this.user.password) this.errors.password = this.$t('global.auth.errors.password_is_required');
     },
     validateRegister() {
       this.validateLogin();
-      if (!this.user.phone) this.errors.phone = 'Le téléphone est obligatoire!';
-      if (!this.user.username) this.errors.username = 'Le pseudo est obligatoire!';
-      if (!this.user.firstname) this.errors.firstname = 'Le prénom est obligatoire!';
-      if (!this.user.lastname) this.errors.lastname = 'Le nom est obligatoire!';
-      if (!this.user.password_confirmation) this.errors.password_confirmation = 'Les mots de passe doivent être identique!';
+      if (!this.user.phone) this.errors.phone = this.$t('global.auth.errors.phone_is_required');;
+      if (!this.user.username) this.errors.username = this.$t('global.auth.errors.username_is_required');;
+      if (!this.user.firstname) this.errors.firstname = this.$t('global.auth.errors.firstname_is_required');;
+      if (!this.user.lastname) this.errors.lastname = this.$t('global.auth.errors.lastname_is_required');;
+      if (!this.user.password_confirmation) this.errors.password_confirmation = this.$t('global.auth.errors.password_confirmation');;
     },
     async submitLogin() {
       try {
