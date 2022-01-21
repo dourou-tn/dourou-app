@@ -3,8 +3,8 @@
 
     <!-- Date (visible only on desktop) -->
     <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg px-10 py-1 shadow-md">
-      <div class="leading-6">Le {{ formatedAuction.date }}</div>
-      <div class="leading-6">à {{ formatedAuction.time }}</div>
+      <div class="leading-6">{{ $t('auction.date', { date: formatedAuction.date }) }}</div>
+      <div class="leading-6">{{ $t('auction.time', { time: formatedAuction.time }) }}</div>
     </div>
 
     <div class="pt-10 px-2">
@@ -45,11 +45,11 @@
         </div>
       </div>
 
-      
-
       <!-- Btn participer -->
-      <div class="text-center">
-        <button class="bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-gray-800">{{ $t('auction.subscribe_cta', { price: formatedAuction.subscribe_price }) }}</button>
+      <div class="text-center mb-5 mt-5">
+        <auction-subscribe-btn
+          :auction="formatedAuction"
+        />
       </div>
     </div>
 
@@ -58,12 +58,13 @@
 
 <script>
 import moment from 'moment';
+import Doulink from 'dourou-components/DouLink/index.vue';
 
 import Progress from "../../Common/Progress.vue";
   export default {
     name: "HomeAuctionItem",
     props: ["auction"],
-    components: { Progress },
+    components: { Progress, Doulink },
     data() {
       return {
         moment: moment
@@ -73,6 +74,7 @@ import Progress from "../../Common/Progress.vue";
       formatedAuction () {
         const product = JSON.parse(this.auction.product);
         return {
+          id: this.auction.id,
           date: this.moment(this.auction.start_date).format('DD/MM/YYYY'),
           time: this.moment(this.auction.start_date).format('HH:mm'),
           start_price: this.auction.start_price,

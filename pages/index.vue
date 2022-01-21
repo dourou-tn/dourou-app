@@ -46,8 +46,7 @@ export default {
     }
   },
   async fetch() {
-    this.auctions = (await this.$axios.get('auctions/upcoming')).data;
-    console.log(this.auctions)
+    this.auctions = (await this.$axios.get('client/auctions/upcoming')).data;
   },
 }
 </script>

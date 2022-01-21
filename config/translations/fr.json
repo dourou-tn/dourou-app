@@ -47,6 +47,13 @@
           "label": "Téléphone",
           "placeholder": "********"
         }
+      },
+      "dropdown": {
+        "menu": "menu",
+        "profile": "Mon profil",
+        "support": "Support",
+        "logout": "Déconnexion",
+        "buy_dourou": "Acheter des dourous"
       }
     },
     "time": {
@@ -67,26 +74,54 @@
     "accueil": "Accueil",
     "ventesEnCours": "Ventes en cours",
     "ventesTerminees": "Ventes terminées",
-    "contact": "Contact"
-  },
-  "home": {
-
-  },
-  "onlineAuctions": {
-
-  },
-  "finishedAuctions": {
-
+    "contact": "Contact",
+    "faq": "FAQ",
+    "chat": "Chat",
+    "privacy": "Confidentialité",
+    "terms": "Conditions d'utilisation",
+    "accessibility": "Accessibilité"
   },
   "contact": {
-
+    "title": "Nous contacter",
+    "subtitle": "Nous sommes là pour vous aider",
+    "form": {
+      "name": "Nom complet",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer"
+    }
   },
   "nextAuction": "Les prochaines ventes",
   "auction": {
     "start_price": "Prix de départ",
     "store_price": "Prix magasin",
     "subscribe_cta": "Participez à {price} dt",
-    "room_fullnes": "Salle des ventes remplie à {full}%"
+    "room_fullnes": "Salle des ventes remplie à {full}%",
+    "date": "Le {date}",
+    "time": "à {time}"
+  },
+  "subscribe": {
+    "title": "Participer à l'enchère",
+    "sub_price": "Prix de participation",
+    "oth_price": "Prix d'autres ventes",
+    "tot_price": "Prix total",
+    "price": "{price} dt",
+    "methods": {
+      "laposte": "Payer par la Poste",
+      "cb": "Payer par carte bancaire"
+    },
+    "success": {
+      "header": "Inscription avec succcès",
+      "text": "L'enchère démarrera le {date} à {time}"
+    },
+    "error": {
+      "already_sub": "Vous êtes déjà inscrit",
+      "text": "L'enchère démarrera le {date} à {time}"
+    }
+  },
+  "footer": {
+    "helpfulLinks": "Liens utiles",
+    "legal": "Mentions légales",
+    "resume": "Ipsum Lorem"
   }
-  
 }

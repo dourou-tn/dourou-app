@@ -10,31 +10,57 @@
         </span>
       </span> -->
     </div>
+    <div
+      v-if="isOpen"
+      id="auth-dropdown"
+      class="absolute mt-2 m-width-1/4 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none  bg-gray-100"
+      :class="positionClass"
+      role="menu"
+      aria-orientation="vertical" aria-labelledby="menu-button"
+      tabindex="-1"
 
-    <div v-if="isOpen" v-click-outside="closeMenu" class="origin-top-right absolute right-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none  bg-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-      <div class="py-1" role="none">
-        <div class="text-sm text-gray-500 flex flex-col p-2">
-          <span>
-            Bienvenue
-            <span class="text-purple-500">{{ $store.state.auth.user.username }}</span>
-          </span>
-          <span class="mr-1">
-            Vous possédez <span class="text-lg text-purple-500 font-bold">20</span> Dourou
-          </span>
+    >
+      <div v-if="isOpen" v-click-outside="closeMenu" class="relative max-w-[340px] mx-auto bg-white shadow-lg rounded-lg">
+        <!-- Card header -->
+        <header class="pt-6 pb-4 px-5 border-b border-gray-200">
+            <div class="flex justify-between items-center mb-3">
+                <!-- Image + name -->
+                <div class="flex items-center">
+                    <div class="pr-1">
+                        <a class="inline-flex text-gray-800 hover:text-gray-900" href="#0">
+                            <h2 class="text-xl leading-snug font-bold">{{ $store.state.auth.user.username }}</h2>
+                        </a>
+                        <a class="text-purple-500 block text-sm font-medium" href="#0">{{ $store.state.auth.user.email }}</a>
+                    </div>
+                </div>
+                <!-- Settings button -->
+                <div class="relative inline-flex flex-shrink-0">
+                    <button class="text-gray-400 hover:text-gray-500 rounded-full focus:ring-0 outline-none focus:outline-none">
+                        <span class="sr-only">Settings</span>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16">
+                            <path d="m15.621 7.015-1.8-.451A5.992 5.992 0 0 0 13.13 4.9l.956-1.593a.5.5 0 0 0-.075-.611l-.711-.707a.5.5 0 0 0-.611-.075L11.1 2.87a5.99 5.99 0 0 0-1.664-.69L8.985.379A.5.5 0 0 0 8.5 0h-1a.5.5 0 0 0-.485.379l-.451 1.8A5.992 5.992 0 0 0 4.9 2.87l-1.593-.956a.5.5 0 0 0-.611.075l-.707.711a.5.5 0 0 0-.075.611L2.87 4.9a5.99 5.99 0 0 0-.69 1.664l-1.8.451A.5.5 0 0 0 0 7.5v1a.5.5 0 0 0 .379.485l1.8.451c.145.586.378 1.147.691 1.664l-.956 1.593a.5.5 0 0 0 .075.611l.707.707a.5.5 0 0 0 .611.075L4.9 13.13a5.99 5.99 0 0 0 1.664.69l.451 1.8A.5.5 0 0 0 7.5 16h1a.5.5 0 0 0 .485-.379l.451-1.8a5.99 5.99 0 0 0 1.664-.69l1.593.956a.5.5 0 0 0 .611-.075l.707-.707a.5.5 0 0 0 .075-.611L13.13 11.1a5.99 5.99 0 0 0 .69-1.664l1.8-.451A.5.5 0 0 0 16 8.5v-1a.5.5 0 0 0-.379-.485ZM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Card body -->
+        <div class="py-3">
+            <h3 class="text-xs px-5 font-semibold uppercase text-gray-400 mb-1">{{ $t('global.auth.dropdown.menu') }}</h3>
+            <!-- Chat list -->
+            <div class="divide-y divide-gray-200">
+              <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">{{ $t('global.auth.dropdown.profile') }}</a>
+              <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">{{ $t('global.auth.dropdown.support') }}</a>
+              <a href="#" class="text-red-900 hover:text-red-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2" @click="logout">{{ $t('global.auth.dropdown.logout') }}</a>
+            </div>
         </div>
-        <div class="">
-        </div>
-        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-        <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Mon compte</a>
-        <a href="#" class="text-gray-900 hover:text-gray-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
-        <a href="#" class="text-red-900 hover:text-red-700 hover:bg-gray-100 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2" @click="logout">Déconnextion</a>
+
         <div class="text-center py-5">
           <Nuxt-link :to="localePath('/acheter-dourou')" class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-gray-800">
-            Acheter Dourou
+            {{ $t('global.auth.dropdown.buy_dourou') }}
           </Nuxt-link>
         </div>
-        <!-- Flags -->
-        <div class="flags flex justify-center pb-1">
+        <div class="flags flex justify-center pb-1 pb-5">
           <LocalesSelector />
         </div>
       </div>
@@ -51,6 +77,12 @@ export default {
       tokenImage: require('~/assets/image/token.png')
     }
   },
+  computed: {
+    positionClass (){
+      if (this.$dir() === 'rtl') return 'left-0'
+      else return 'right-0';
+    }
+  },
   methods: {
     openMenu (e) {
       e.stopPropagation();
@@ -65,3 +97,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#auth-dropdown {
+  min-width: 280px;
+}
+</style>
