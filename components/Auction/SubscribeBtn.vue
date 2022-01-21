@@ -2,7 +2,6 @@
   <Doulink
     :to="{name: 'auctions-subscribe' }"
     :text="$t('auction.subscribe_cta', { price: auction.subscribe_price })"
-    event=""
     v-on:click.native="subscribe"
     class="bg-orange-500 rounded-lg hover:shadow-md my-5 px-10 py-2 mt-10"
   />
