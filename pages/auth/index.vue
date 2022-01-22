@@ -15,7 +15,6 @@
 
       <Alert
         v-if="apiError"
-        class="animate-bounce"
         :title="$t(`global.auth.${register ? 'register' : 'login'}.apiError`)"
         :text="$t(`global.auth.errors.${apiError}`)"
       />
@@ -119,6 +118,8 @@ import DouInput from 'dourou-components/DouInput/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
 import DouHref from 'dourou-components/DouHref/index.vue';
 
+import Alert from '~/components/Alert/index.vue';
+
 export default {
   name: 'PageAuth',
   middleware: 'auth',
@@ -128,6 +129,7 @@ export default {
     DouButton,
     DouHref,
     DouTitle,
+    Alert,
   },
   data() {
     const defaultErrors = {
@@ -212,16 +214,18 @@ export default {
     },
     toggleRegister () {
       this.register = !this.register
+      this.resetErrors();
     },
     resetErrors () {
       this.errors = Object.assign({}, this.defaultErrors);
+      this.apiError = null;
     }
   },
   watch: {
     user: {
       handler () {
         this.resetErrors();
-        this.apiError = null;
+        this.resetErrors();
       },
       deep: true,
     }
