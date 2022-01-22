@@ -7,9 +7,14 @@
 
       <!-- img + name + date + time -->
       <div class="text-center mb-5">
-        <img :src="`http://localhost:5000/${product.image_path}`" :alt="`image de ${product.name}`" class="m-auto">
-        <h2 class="text-gray-500 font-bold text-xl text-center font-medium my-3">{{product.name}}</h2>
+        <div class="bg-purple-500 mx-auto text-white text-center rounded-lg font-semibold w-2/6 py-1 shadow-md mb-5">
+          <div>{{ $t('auction.date', { date: auction.start_date }) }}</div>
+          <div>{{ $t('auction.time', { time: auction.start_time }) }}</div>
+        </div>
 
+        <img :src="`http://localhost:5000/${product.image_path}`" :alt="`image de ${product.name}`" class="m-auto">
+
+        <h2 class="text-gray-800 font-bold text-2xl text-center font-medium my-3">{{product.name}}</h2>
 
         <!-- count down -->
         <flip-countdown

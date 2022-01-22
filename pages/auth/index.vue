@@ -1,13 +1,10 @@
 <template>
-  <div class="page-home">
+  <div class="page-auth">
 
-    <h2 class="text-purple-500 font-bold text-2xl text-center font-medium my-10">
-      {{ register ? $t('global.auth.register.title') : $t('global.auth.login.title') }}
-    </h2>
+    <DouTitle :text="register ? $t('global.auth.register.title') : $t('global.auth.login.title')" />
 
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-20" @keyup.enter="submitForm">
-
-      <p class="text-center text-gray-500 mb-5">
+    <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-20">
+      <p class="text-center text-gray-500 mb-5 mt-5">
         <span v-text="register ? $t('global.auth.register.login_call') : $t('global.auth.login.register_call') ">
         </span>
         <DouHref
@@ -16,110 +13,113 @@
         />.
       </p>
 
-        <Alert
-          v-if="apiError"
-          class="animate-bounce"
-          :title="$t(`global.auth.${register ? 'register' : 'login'}.apiError`)"
-          :text="$t(`global.auth.errors.${apiError}`)"
-        />
+      <Alert
+        v-if="apiError"
+        :title="$t(`global.auth.${register ? 'register' : 'login'}.apiError`)"
+        :text="$t(`global.auth.errors.${apiError}`)"
+      />
+      <form @keyup.enter="submitForm">
+        <!-- Lastname (only register) -->
+        <div class="mb-4" v-if="register">
+          <DouInput
+            v-model="user.lastname"
+            :label="$t('global.auth.form.lastname.label')"
+            :placeholder="$t('global.auth.form.lastname.placeholder')"
+            :hint="$t('global.auth.form.lastname.hint')"
+            :error="errors.lastname"
+          />
+        </div>
 
-      <!-- Lastname (only register) -->
-      <div class="mb-4" v-if="register">
-        <DouInput
-          v-model="user.lastname"
-          :label="$t('global.auth.form.lastname.label')"
-          :placeholder="$t('global.auth.form.lastname.placeholder')"
-          :hint="$t('global.auth.form.lastname.hint')"
-          :error="errors.lastname"
-        />
-      </div>
+        <!-- Firstname (only register) -->
+        <div class="mb-4" v-if="register">
+          <DouInput
+            v-model="user.firstname"
+            :label="$t('global.auth.form.firstname.label')"
+            :placeholder="$t('global.auth.form.firstname.placeholder')"
+            hint="Ne serra pas visible au public"
+            :error="errors.firstname"
+          />
+        </div>
 
-      <!-- Firstname (only register) -->
-      <div class="mb-4" v-if="register">
-        <DouInput
-          v-model="user.firstname"
-          :label="$t('global.auth.form.firstname.label')"
-          :placeholder="$t('global.auth.form.firstname.placeholder')"
-          hint="Ne serra pas visible au public"
-          :error="errors.firstname"
-        />
-      </div>
+        <!-- Email (register and !register) -->
+        <div class="mb-4">
+          <DouInput
+            type="email"
+            v-model="user.email"
+            :label="$t('global.auth.form.email.label')"
+            :placeholder="$t('global.auth.form.email.placeholder')"
+            :error="errors.email"
+          />
+        </div>
 
-      <!-- Email (register and !register) -->
-      <div class="mb-4">
-        <DouInput
-          type="email"
-          v-model="user.email"
-          :label="$t('global.auth.form.email.label')"
-          :placeholder="$t('global.auth.form.email.placeholder')"
-          :error="errors.email"
-        />
-      </div>
+        <!-- Password (register and !register) -->
+        <div class="mb-6">
+          <DouInput
+            v-model="user.password"
+            type="password"
+            :label="$t('global.auth.form.password.label')"
+            :placeholder="$t('global.auth.form.password.placeholder')"
+            :error="errors.password"
+          />
+        </div>
 
-      <!-- Password (register and !register) -->
-      <div class="mb-6">
-        <DouInput
-          v-model="user.password"
-          type="password"
-          :label="$t('global.auth.form.password.label')"
-          :placeholder="$t('global.auth.form.password.placeholder')"
-          :error="errors.password"
-        />
-      </div>
+        <!-- Confirm password (only register) -->
+        <div class="mb-4" v-if="register">
+          <DouInput
+            v-model="user.password_confirmation"
+            type="password"
+            :label="$t('global.auth.form.password_confirmation.label')"
+            :placeholder="$t('global.auth.form.password_confirmation.placeholder')"
+            :error="errors.password_confirmation"
+          />
+        </div>
 
-      <!-- Confirm password (only register) -->
-      <div class="mb-4" v-if="register">
-        <DouInput
-          v-model="user.password_confirmation"
-          type="password"
-          :label="$t('global.auth.form.password_confirmation.label')"
-          :placeholder="$t('global.auth.form.password_confirmation.placeholder')"
-          :error="errors.password_confirmation"
-        />
-      </div>
+        <!-- Username (only register) -->
+        <div class="mb-4" v-if="register">
+          <DouInput
+            v-model="user.username"
+            :label="$t('global.auth.form.username.label')"
+            :placeholder="$t('global.auth.form.username.placeholder')"
+            :error="errors.username"
+          />
+        </div>
 
-      <!-- Username (only register) -->
-      <div class="mb-4" v-if="register">
-        <DouInput
-          v-model="user.username"
-          :label="$t('global.auth.form.username.label')"
-          :placeholder="$t('global.auth.form.username.placeholder')"
-          :error="errors.username"
-        />
-      </div>
+        <!-- Téléphone (only register) -->
+        <div class="mb-4" v-if="register">
+          <DouInput
+            v-model="user.phone"
+            :label="$t('global.auth.form.phone.label')"
+            :placeholder="$t('global.auth.form.phone.placeholder')"
+            :error="errors.phone"
+          />
+        </div>
 
-      <!-- Téléphone (only register) -->
-      <div class="mb-4" v-if="register">
-        <DouInput
-          v-model="user.phone"
-          :label="$t('global.auth.form.phone.label')"
-          :placeholder="$t('global.auth.form.phone.placeholder')"
-          :error="errors.phone"
-        />
-      </div>
+        <div class="flex items-center justify-between">
+          <DouButton
+            @click="submitForm"
+            :label="register ? $t('global.auth.register.title') : $t('global.auth.login.title')"
+          />
 
-      <div class="flex items-center justify-between">
-        <DouButton
-          @click="submitForm"
-          :label="register ? $t('global.auth.register.title') : $t('global.auth.login.title')"
-        />
+          <DouHref
+            @click="toggleRegister"
+            :text="$t('global.auth.form.forgot_password')"
+            class="focus:ring-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-1"
+          />
 
-        <DouHref
-          @click="toggleRegister"
-          :text="$t('global.auth.form.forgot_password')"
-        />
-
-      </div>
-
-    </form>
+        </div>
+      </form>
+    </section>
 
   </div>
 </template>
 
 <script>
+import DouTitle from 'dourou-components/DouTitle/index.vue';
 import DouInput from 'dourou-components/DouInput/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
 import DouHref from 'dourou-components/DouHref/index.vue';
+
+import Alert from '~/components/Alert/index.vue';
 
 export default {
   name: 'PageAuth',
@@ -129,6 +129,8 @@ export default {
     DouInput,
     DouButton,
     DouHref,
+    DouTitle,
+    Alert,
   },
   data() {
     const defaultErrors = {
@@ -213,16 +215,18 @@ export default {
     },
     toggleRegister () {
       this.register = !this.register
+      this.resetErrors();
     },
     resetErrors () {
       this.errors = Object.assign({}, this.defaultErrors);
+      this.apiError = null;
     }
   },
   watch: {
     user: {
       handler () {
         this.resetErrors();
-        this.apiError = null;
+        this.resetErrors();
       },
       deep: true,
     }
