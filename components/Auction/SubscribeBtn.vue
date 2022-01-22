@@ -1,6 +1,6 @@
 <template>
   <Nuxt-link
-    :to="{name: 'auctions-subscribe' }"
+    :to="localePath('/auctions/subscribe')"
     v-on:click.native="subscribe"
     class="text-sm bg-orange-500 px-10 py-2 rounded-lg hover:shadow-md text-purple-500"
   >
