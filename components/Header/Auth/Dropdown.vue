@@ -1,14 +1,8 @@
 <template>
   <div class="relative inline-block">
-    <div @click="openMenu" class="cursor-pointer hover:opacity-90">
-      <svg xmlns="http://www.w3.org/2000/svg" style="fill: white" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z"/>
+    <div @click="openMenu" class="bg-purple-500 rounded-full p-2 cursor-pointer hover:opacity-90">
+      <svg xmlns="http://www.w3.org/2000/svg" class="" style="fill: white;" width="16" height="16" viewBox="0 0 24 24"><path class="fill-pink-800" d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z"/>
       </svg>
-      <!-- <span class="cursor-pointer hover:opacity-80" :class="{ 'opacity-80': isOpen }">
-        <span class="text-sm">Bienvenue </span>
-        <span class="text-orange-500">
-          {{ $store.state.auth.user.username }}
-        </span>
-      </span> -->
     </div>
     <div
       v-if="isOpen"
@@ -56,12 +50,12 @@
         </div>
 
         <div class="text-center py-5">
-          <button :to="localePath('/acheter-dourou')" class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-500" tabindex="1">
+          <button @click="$router.push(localePath('/acheter-dourou'))" class="text-sm bg-orange-500 px-10 py-2 rounded-lg my-5 hover:shadow-md text-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-500" tabindex="1">
             {{ $t('global.auth.dropdown.buy_dourou') }}
           </button>
         </div>
         <div class="flags flex justify-center pb-1 pb-5">
-          <LocalesSelector />
+          <LocaleSelector />
         </div>
       </div>
     </div>
@@ -69,8 +63,11 @@
 </template>
 
 <script>
+import LocaleSelector from '~/components/LocaleSelector/index.vue';
+
 export default {
   name: 'DouDropdown',
+  components: { LocaleSelector },
   data() {
     return {
       isOpen: false,

@@ -18,8 +18,13 @@
 </template>
 
 <script>
+import Header from '~/components/Header/index.vue';
+import Footer from '~/components/Footer/index.vue';
+import Navigation from '~/components/Navigation/index.vue';
+
 export default {
   name: 'DefaultLayout',
+  components: { Header, Navigation, Footer },
   head () {
     return {
       bodyAttrs: {
