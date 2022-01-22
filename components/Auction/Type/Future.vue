@@ -1,63 +1,46 @@
 <template>
-  <article class="bg-white rounded relative mb-20 pb-10 mt-14 px-0 sm:px-2 md:px-10 lg:px-10 xl:px-24 shadow-md border-solid border-1 border-gray-200">
+  <div class="bg-white shadow-md border border-gray-200 rounded-lg relative mx-auto mb-20 pt-10 xl-mx-10">
 
-    <!-- Date (visible only on desktop) -->
-    <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg w-1/3 font-bold py-1 shadow-md">
+    <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg font-semibold w-2/6 py-1 shadow-md">
       <div>{{ $t('auction.date', { date: formatedAuction.date }) }}</div>
       <div>{{ $t('auction.time', { time: formatedAuction.time }) }}</div>
     </div>
 
-    <div class="pt-10">
+    <div class="block sm:flex px-5 lg:px-52">
+      <img class="rounded-t-lg mx-auto" :src="formatedAuction.image_path" max-width="250">
 
-      <!-- image + name + info -->
-      <div class="flex">
-        <!-- image -->
-        <div class="pe-5">
-          <img :src="formatedAuction.image_path" alt="product" class="rounded shadow-md" width="200">
+      <div class="p-5 text-center sm:text-left w-full">
+        <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">{{ formatedAuction.product_name }}</h5>
+
+        <div class="my-10 grid grid-cols-2 grid-flow-col gap-4 text-center">
+          <!-- Start price -->
+          <div>
+            <div class="text-gray-700 text-md">{{ $t('auction.start_price') }}</div>
+            <div class="text-purple-500 text-md">{{ $t('global.price', { price: formatedAuction.start_price}) }}</div>
+          </div>
+
+          <!-- Store price -->
+          <div class="">
+            <div class="text-gray-700 text-md">{{ $t('auction.store_price') }}</div>
+            <div class="text-purple-500 text-md">
+              <s>{{ $t('global.price', { price: formatedAuction.store_price}) }}</s></div>
+          </div>
         </div>
 
-        <!-- infos -->
-        <div class="info flex flex-col justify-around flex-1 mt-2">
-          <!-- name -->
-          <div class="subpixel-antialiased text-2xl font-semibold text-gray-800">
-            {{ formatedAuction.product_name }}
-          </div>
-
-          <!-- more info price start and price store -->
-          <div class="my-5 flex justify-around text-center">
-            <!-- start price -->
-            <div class="">
-              <div class="text-gray-700">{{ $t('auction.start_price') }}</div>
-              <div class="text-purple-500 text-2xl">{{ $t('global.price', { price: formatedAuction.start_price}) }}</div>
-            </div>
-
-            <!-- Store price -->
-            <div class="">
-              <div class="text-gray-700">{{ $t('auction.store_price') }}</div>
-              <div class="text-purple-500 text-2xl">
-                <s>{{ $t('global.price', { price: formatedAuction.store_price}) }}</s></div>
-            </div>
-          </div>
-
-          <!-- Progress + subscribe btn -->
-          <div class="flex items-center justify-center flex-col md:flex-row">
-            <div class="md:flex-1 w-full me-3">
-              <div class="text-gray-500 text-sm">{{ $t('auction.room_fullnes', { full: 20 }) }}</div>
-              <Progress :value="20" class="shadow-md"/>
-            </div>
-
-            <auction-subscribe-btn
-              :auction="formatedAuction"
-              class="mt-10 md:mt-0"
-            />
-
-          </div>
+        <div>
+          <div class="text-gray-500 text-sm">{{ $t('auction.room_fullnes', { full: 20 }) }}</div>
+          <Progress :value="20" class="shadow-md"/>
         </div>
       </div>
-
+    </div>
+    <div class="text-center my-5 mt-5">
+      <auction-subscribe-btn
+        :auction="formatedAuction"
+        class="mt-10 md:mt-0"
+      />
     </div>
 
-  </article>
+  </div>
 </template>
 
 <script>

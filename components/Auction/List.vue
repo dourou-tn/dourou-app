@@ -1,5 +1,5 @@
 <template>
-<div class="auction-list">
+<div class="auction-list container">
   <DouTitle :text="title" />
   <div
     v-for="auction in auctions"
