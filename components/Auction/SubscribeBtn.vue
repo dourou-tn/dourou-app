@@ -2,7 +2,7 @@
   <Nuxt-link
     :to="localePath('/auctions/subscribe')"
     v-on:click.native="subscribe"
-    class="text-sm bg-orange-500 px-10 py-2 rounded-lg hover:shadow-md text-purple-500"
+    class="text-sm font-semibold bg-orange-500 px-10 py-2 rounded-lg hover:shadow-md text-purple-500"
   >
     {{ $t('auction.subscribe_cta', { price: auction.subscribe_price }) }}
   </Nuxt-link>
