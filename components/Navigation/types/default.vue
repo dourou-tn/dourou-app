@@ -23,6 +23,7 @@
     </nav>
 
     <aside
+      v-if="drawerIsOpen"
       v-click-outside="closeDrawer"
       class="pt-10 pl-5 transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-700 z-30 translate-x-0"
       :class="drawerIsOpen ? '' : '-translate-x-full'">

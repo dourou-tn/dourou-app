@@ -9,7 +9,7 @@
 
     </div>
 
-    <Nuxt-link v-else :to="localePath('/auth')" class="hidden sm:flex bg-orange-500 text-purple-500 py-1 px-5 rounded hover:bg-orange-500">
+    <Nuxt-link v-else :to="localePath('/auth')" class="text-sm hidden sm:flex bg-orange-500 text-purple-500 py-1 px-5 rounded hover:shadow-lg hover:opacity-90">
       {{ $t('global.auth.login.title') }}
     </Nuxt-link>
 

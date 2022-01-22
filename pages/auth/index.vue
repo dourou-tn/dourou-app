@@ -103,6 +103,7 @@
           <DouHref
             @click="toggleRegister"
             :text="$t('global.auth.form.forgot_password')"
+            class="focus:ring-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-1"
           />
 
         </div>
