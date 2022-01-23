@@ -1,9 +1,9 @@
 <template>
   <div class="block sm:flex px-5 lg:px-52">
-    <img class="rounded-t-lg mx-auto" :src="`http://localhost:5000/${JSON.parse(auction.product).image_path}`" max-width="250">
+    <img class="rounded mx-auto" :src="`http://localhost:5000/${JSON.parse(auction.product).image_path}`" max-width="250">
 
     <div class="p-5 text-center sm:text-left w-full">
-      <h5 class="ms-6 text-gray-900 font-bold text-2xl tracking-tight mb-2">{{ JSON.parse(auction.product).name }}</h5>
+      <h5 class="ms-6 text-purple-500 font-bold text-2xl tracking-tight mb-2">{{ JSON.parse(auction.product).name }}</h5>
       <!-- count down -->
       <no-ssr>
         <flip-countdown

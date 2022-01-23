@@ -1,17 +1,17 @@
 <template>
   <!-- prices -->
   <div class="shadow rounded-md mb-5" v-if="this.prices.length">
-    <ul class="divide-y divide-gray-200">
+    <ul>
       <!-- PRICES ITEM -->
-      <li v-for="(price, i) in prices" :key="i">
-        <a class="block hover:bg-gray-50">
+      <li v-for="(price, i) in prices" :key="i" class="bg-white bg-purple-200 rounded my-1">
+        <a class="block">
           <div class="px-4 py-4 sm:px-6">
             <div class="flex items-center justify-between">
-              <p class="text-sm text-gray-600 truncate">
+              <p class="text-sm text-purple-500 truncate">
                 {{ price.label }}
               </p>
               <div class="ml-2 flex-shrink-0 flex">
-                <p class="px-2 inline-flex text-md leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <p class="px-3 py-1 inline-flex text-md leading-5 font-semibold rounded text-purple-600">
                   {{ $t('global.price', { price: price.price }) }}
                 </p>
               </div>
@@ -21,15 +21,15 @@
       </li>
 
       <!-- TOTAL -->
-      <li class="bg-gray-100">
-        <a class="block hover:bg-gray-100">
+      <li class="bg-white bg-purple-200 rounded my-1">
+        <a class="block">
           <div class="px-4 py-4 sm:px-6">
             <div class="flex items-center justify-between">
-              <p class="text-sm text-gray-800 truncate font-bold">
+              <p class="text-sm text-purple-500 truncate font-bold">
                 {{ $t('subscribe.tot_price') }}
               </p>
               <div class="ml-2 flex-shrink-0 flex">
-                <p class="px-2 inline-flex text-md leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <p class="px-2 inline-flex text-md leading-5 font-semibold rounded text-purple-600">
                   {{ $t('global.price', { price: this.totalPrice }) }}
                 </p>
               </div>

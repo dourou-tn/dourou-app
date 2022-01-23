@@ -1,7 +1,7 @@
 <template>
   <div class="page-home">
     <DouTitle :text="$t('auction.live.title')" />
-    <div class="antialiased bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="antialiased bg-purple-300 shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <AuctionLive
         v-for="(auction, i) in auctions"
         :key="i"

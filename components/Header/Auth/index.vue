@@ -1,17 +1,22 @@
 <template>
   <div class="flex items-center">
+
+    <!-- Guest section -->
+    <DouButton
+      v-if="!$auth.loggedIn"
+      @click="$router.push(localePath('/auth'))"
+      :label="$t('global.auth.login.title')"
+      color="orange-500"
+      textColor="purple-500"
+    />
+
     <!-- Auth section -->
     <div v-if="$auth.loggedIn" class="flex justify-between items-center">
-
       <TokenIndicator class="hidden sm:flex me-2" />
-
       <AuthDropdown />
-
     </div>
 
-    <Nuxt-link v-else :to="localePath('/auth')" class="text-sm hidden sm:flex bg-orange-500 text-purple-500 py-1 px-5 rounded hover:shadow-lg hover:opacity-90">
-      {{ $t('global.auth.login.title') }}
-    </Nuxt-link>
+    
 
   </div>
 </template>
@@ -19,12 +24,15 @@
 <script>
 import TokenIndicator from './TokenIndicator.vue';
 import AuthDropdown from './Dropdown.vue';
+import DouButton from 'dourou-components/DouButton/index.vue';
+
 
 export default {
   name: 'HeaderAuth',
   components: {
     TokenIndicator,
     AuthDropdown,
+    DouButton
   }
 }
 </script>

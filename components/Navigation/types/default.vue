@@ -1,23 +1,27 @@
 <template>
   <div>
-    <nav class="hidden sm:block bg-white shadow-md">
+    <nav class="hidden sm:block bg-purple-600 shadow-md">
       <ul class="xs:w-full md:w-9/12 md:m-auto flex justify-around py-2">
         <DouLink
           :to="'/'"
           :text="$t('menu.accueil')"
           exact
+          color="orange-500"
         />
         <DouLink
           :to="'/auctions/live'"
           :text="$t('menu.ventesEnCours')"
+          color="orange-500"
         />
         <DouLink
           :to="'/auctions/ended'"
           :text="$t('menu.ventesTerminees')"
+          color="orange-500"
         />
         <DouLink
           :to="'/contact'"
           :text="$t('menu.contact')"
+          color="orange-500"
         />
       </ul>
     </nav>
@@ -25,24 +29,28 @@
     <aside
       v-if="drawerIsOpen"
       v-click-outside="closeDrawer"
-      class="pt-10 ps-5 transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-700 z-30 translate-x-0 shadow-lg"
+      class="bg-purple-600 pt-10 ps-5 transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-700 z-30 translate-x-0 shadow-lg"
       :class="drawerIsOpen ? '' : '-translate-x-full'">
       <div class="flex flex-col">
         <DouLink
           :to="'/'"
           :text="$t('menu.accueil')"
+          color="orange-500"
         />
         <DouLink
           :to="'/auctions/live'"
           :text="$t('menu.ventesEnCours')"
+          color="orange-500"
         />
         <DouLink
           :to="'/auctions/ended'"
           :text="$t('menu.ventesTerminees')"
+          color="orange-500"
         />
         <DouLink
           :to="'/contact'"
           :text="$t('menu.contact')"
+          color="orange-500"
         />
         
       </div>

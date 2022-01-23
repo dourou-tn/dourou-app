@@ -1,19 +1,29 @@
 <template>
-  <Nuxt-link
+  <DouButton
+    @click.native="subscribe"
+    :label="$t('auction.subscribe_cta', { price: auction.subscribe_price })"
+    color="orange-500"
+    textColor="purple-500"
+  />
+  <!-- <Nuxt-link
     :to="localePath('/auctions/subscribe')"
     v-on:click.native="subscribe"
-    class="text-sm font-semibold bg-orange-500 px-10 py-2 rounded-lg hover:shadow-md text-purple-500"
+    class="flex text-sm bg-orange-500 rounded-md shadow-lg hover:shadow-md text-purple-500 h-full w-full items-center justify-center"
   >
-    {{ $t('auction.subscribe_cta', { price: auction.subscribe_price }) }}
-  </Nuxt-link>
+    <div>
+      <div class="text-purple-600 text-md">Participez à</div>
+      <div class="text-purple-500 text-xl font-bold">{{ auction.subscribe_price }} DT</div>
+    </div>
+  </Nuxt-link> -->
 </template>
 
 <script>
 import Doulink from 'dourou-components/DouLink/index.vue';
+import DouButton from 'dourou-components/DouButton/index.vue';
 
 export default {
   name: 'SubscribeButton',
-  components: { Doulink },
+  components: { Doulink, DouButton },
   props: {
     auction: {
       type: Object,

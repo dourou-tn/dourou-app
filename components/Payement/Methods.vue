@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <span class="text-gray-800">{{ $t('payement.methods.title') }}</span>
+    <span class="text-purple-600">{{ $t('payement.methods.title') }}</span>
     <div class="flex justify-center">
       <button
         type="button"

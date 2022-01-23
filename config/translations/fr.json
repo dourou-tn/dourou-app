@@ -11,13 +11,13 @@
       "login": {
         "title": "Se connecter",
         "subtitle": "Connectez-vous pour accéder à votre compte",
-        "register_call": "Si vous n'avez pas de compte, créez un pour accéder à toutes les ventes en cours",
+        "register_call": "Remplissez le formulaire ci-dessous pour vous connecter sur Dourou. Si vous n'avez pas de compte, vous pouvez en créer un en cliquant sur ",
         "apiError": "Erreur lors de la connexion"
       },
       "register": {
         "title": "S'inscrire",
         "subtitle": "Créez votre compte pour accéder à toutes les ventes en cours",
-        "login_call": "Si vous avez un compte, connectez-vous",
+        "login_call": "Remplissez le formulaire ci-dessous pour vous inscrire sur Dourou, si vous avez déjà un compte veuillez vous cliquer sur ",
         "apiError": "Erreur lors de la création du compte"
       },
       "form": {
@@ -68,7 +68,7 @@
         "profile": "Mon profil",
         "support": "Support",
         "logout": "Déconnexion",
-        "buy_dourou": "Acheter des dourous"
+        "buy_dourou": "Acheter des DOUROU"
       }
     },
     "time": {

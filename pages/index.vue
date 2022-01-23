@@ -1,7 +1,8 @@
 <template>
   <div class="page-home">
-
-    <DouBanner :img-path="banner" />
+    <div class="mb-10">
+      <DouBanner :img-path="banner" />
+    </div>
 
     <AuctionList
       type="FutureAuction"

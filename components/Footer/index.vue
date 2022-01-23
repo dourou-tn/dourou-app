@@ -1,15 +1,15 @@
 <template>
-  <footer class="bg-gray-50">
+  <footer class="bg-purple-600 mt-16">
     <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div>
-          <span class="text-purple-500 text-xl font-bold leading-tight">DOUROU.tn</span>
+          <span class="text-orange-500 text-xl font-bold leading-tight">DOUROU.tn</span>
 
-          <p class="max-w-xs mt-4 text-sm text-gray-500">
+          <p class="max-w-xs mt-4 text-sm text-gray-50">
             {{ $t('footer.resume') }}
           </p>
 
-          <div class="flex mt-8 text-gray-500">
+          <div class="flex mt-8 text-gray-50">
             <a href="" target="_blank" rel="noreferrer" aria-label="Facebook" class="hover:opacity-75 px-2">
               <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class="w-6 h-6">
                 <path
@@ -44,20 +44,20 @@
 
         <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <p class="font-medium text-purple-500">
+            <p class="font-medium text-orange-500">
               {{ $t('footer.sells') }}
             </p>
             <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
               <DouLink
                 :to="'/auctions/current'"
                 :text="$t('menu.ventesEnCours')"
-                color="gray-500"
+                color="white"
                 normal
               />
               <DouLink
                 :to="'/auctions/ended'"
                 :text="$t('menu.ventesTerminees')"
-                color="gray-500"
+                color="white"
                 normal
               />
               
@@ -65,7 +65,7 @@
           </div>
 
           <div>
-            <p class="font-medium text-purple-500">
+            <p class="font-medium text-orange-500">
               {{ $t('footer.helpfulLinks') }}
             </p>
 
@@ -73,26 +73,26 @@
               <DouLink
                 :to="'/contact'"
                 :text="$t('menu.contact')"
-                color="gray-500"
+                color="white"
                 normal
               />
               <DouLink
                 :to="'/contact'"
                 :text="$t('menu.faq')"
-                color="gray-500"
+                color="white"
                 normal
               />
               <DouLink
                 :to="'/contact'"
                 :text="$t('menu.chat')"
-                color="gray-500"
+                color="white"
                 normal
               />
             </nav>
           </div>
 
           <div>
-            <p class="font-medium text-purple-500">
+            <p class="font-medium text-orange-500">
               {{ $t('footer.legal') }}
             </p>
 
@@ -100,19 +100,19 @@
               <DouLink
                 :to="'/contact'"
                 :text="$t('menu.privacy')"
-                color="gray-500"
+                color="white"
                 normal
               />
               <DouLink
                 :to="'/contact'"
                 :text="$t('menu.terms')"
-                color="gray-500"
+                color="white"
                 normal
               />
               <DouLink
                 :to="'/contact'"
                 :text="$t('menu.accessibility')"
-                color="gray-500"
+                color="white"
                 normal
               />
             </nav>
@@ -120,7 +120,7 @@
         </div>
       </div>
 
-      <p class="mt-12 text-xs text-gray-500">
+      <p class="mt-12 text-xs text-white">
         &copy; 2021 Dourou.tn
       </p>
     </div>

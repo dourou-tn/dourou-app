@@ -1,8 +1,8 @@
 <template>
-  <div class="progress_wrapper h-4 bg-gray-300 border-1 border-solid border-gray-300 rounded">
+  <div class="progress_wrapper h-4 bg-purple-100 rounded">
     <div
-      :class="`bg-${color} rounded`"
-      :style="{ width: value + '%', height: '0.864rem', 'margin-left': '0.02rem' }"
+      :class="`bg-${color} rounded h-full`"
+      :style="{ width: value + '%' }"
     />
   </div>
 </template>

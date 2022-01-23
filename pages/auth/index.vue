@@ -3,15 +3,37 @@
 
     <DouTitle :text="register ? $t('global.auth.register.title') : $t('global.auth.login.title')" />
 
-    <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-20">
-      <p class="text-center text-gray-500 mb-5 mt-5">
+    <section class="bg-purple-300 shadow-md rounded px-8 pt-6 pb-8 mb-20">
+      <p class="text-center text-purple-500 mb-5 mt-5">
         <span v-text="register ? $t('global.auth.register.login_call') : $t('global.auth.login.register_call') ">
         </span>
         <DouHref
           @click="toggleRegister"
           :text="register ? $t('global.auth.login.title') : $t('global.auth.register.title')"
-        />.
+        />
       </p>
+
+      <div class="flex justify-center items-center text-center font-bold text-xl my-3">
+        <div
+          class="hover:text-orange-500 cursor-pointer"
+          :class="
+            `text-${ register ? 'purple-500' : 'purple-100' }`
+          "
+          @click="toggleRegister"
+        >
+          CONNEXION
+        </div>
+        <div class="mx-2 text-4xl text-purple-400">|</div>
+        <div
+          class="hover:text-orange-500 cursor-pointer"
+          :class="
+            `text-${ register ? 'white' : 'purple-500' }`
+          "
+          @click="toggleRegister"
+        >
+          INSCRIPTION
+        </div>
+      </div>
 
       <Alert
         v-if="apiError"
@@ -95,15 +117,24 @@
         </div>
 
         <div class="flex items-center justify-between">
+          
+
+          <!-- <DouButton
+            @click="submitForm"
+            class="flex text-sm bg-orange-500 rounded-md shadow-lg hover:shadow-md text-purple-500 items-center justify-center"
+          >
+            {{ register ? $t('global.auth.register.title') : $t('global.auth.login.title') }}
+          </DouButton> -->
+
+
           <DouButton
             @click="submitForm"
             :label="register ? $t('global.auth.register.title') : $t('global.auth.login.title')"
           />
 
-          <DouHref
+          <DouLink
             @click="toggleRegister"
             :text="$t('global.auth.form.forgot_password')"
-            class="focus:ring-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-1"
           />
 
         </div>
@@ -118,6 +149,7 @@ import DouTitle from 'dourou-components/DouTitle/index.vue';
 import DouInput from 'dourou-components/DouInput/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
 import DouHref from 'dourou-components/DouHref/index.vue';
+import DouLink from 'dourou-components/DouLink/index.vue';
 
 import Alert from '~/components/Alert/index.vue';
 
@@ -131,6 +163,7 @@ export default {
     DouHref,
     DouTitle,
     Alert,
+    DouLink,
   },
   data() {
     const defaultErrors = {
