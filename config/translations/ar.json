@@ -123,7 +123,10 @@
     "subscribe_cta": "اشترك ب {price} دت",
     "room_fullnes": "دار المزاد {full}٪ ممتلئة",
     "date": "يوم {date}",
-    "time": "الساعة {time}"
+    "time": "الساعة {time}",
+    "live": {
+      "title": "المزادات الحالية"
+    }
   },
   "subscribe": {
     "title": "اشترك بالمبيعات الحالية",

@@ -2,6 +2,7 @@
   <div class="bg-white shadow-md border border-gray-200 rounded-lg relative mx-auto mb-20 pt-10 xl-mx-10">
 
     <div class="absolute transform -translate-x-1/2 bg-purple-500 left-1/2 -top-7 text-white text-center rounded-lg font-semibold w-2/6 py-1 shadow-md">
+      <!--  -->
       <div>{{ $t('auction.date', { date: formatedAuction.date }) }}</div>
       <div>{{ $t('auction.time', { time: formatedAuction.time }) }}</div>
     </div>
@@ -45,9 +46,11 @@
 
 <script>
 import moment from 'moment';
-import Doulink from 'dourou-components/DouLink/index.vue';
+import 'moment/locale/fr';
 
+import Doulink from 'dourou-components/DouLink/index.vue';
 import Progress from "../../Common/Progress.vue";
+
   export default {
     name: "HomeAuctionItem",
     props: ["auction"],
@@ -64,6 +67,7 @@ import Progress from "../../Common/Progress.vue";
           id: this.auction.id,
           date: this.moment(this.auction.start_date).format('DD/MM/YYYY'),
           time: this.moment(this.auction.start_date).format('HH:mm'),
+          start_date: moment(this.auction.start_date),
           start_price: this.auction.start_price,
           store_price: Math.round(product.price * 100) / 100,
           image_path: `http://localhost:5000/${product.image_path}`,

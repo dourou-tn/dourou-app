@@ -8,7 +8,7 @@
           exact
         />
         <DouLink
-          :to="'/auctions/current'"
+          :to="'/auctions/live'"
           :text="$t('menu.ventesEnCours')"
         />
         <DouLink
@@ -33,7 +33,7 @@
           :text="$t('menu.accueil')"
         />
         <DouLink
-          :to="'/auctions/current'"
+          :to="'/auctions/live'"
           :text="$t('menu.ventesEnCours')"
         />
         <DouLink
@@ -69,7 +69,7 @@ export default {
     return {
       navigation: [
         { id: 0, name: this.$t('menu.accueil'), href: '/' },
-        { id: 1, name: this.$t('menu.ventesEnCours'), href: '/auctions/current' },
+        { id: 1, name: this.$t('menu.ventesEnCours'), href: '/auctions/live' },
         { id: 2, name: this.$t('menu.ventesTerminees'), href: '/auctions/ended' },
         { id: 3, name: this.$t('menu.contact'), href: '/contact' },
       ],
