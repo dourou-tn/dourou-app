@@ -122,7 +122,10 @@
     "subscribe_cta": "Participez à {price} dt",
     "room_fullnes": "Salle des ventes remplie à {full}%",
     "date": "Le {date}",
-    "time": "à {time}"
+    "time": "à {time}",
+    "live": {
+      "title": "Enchères en cours"
+    }
   },
   "subscribe": {
     "title": "Participer à l'enchère",
