@@ -7,7 +7,7 @@
     <p class="text-purple-400 font-800">
       Vous pouvez participer à l'enchère que vous souhaitez.
       <p class="text-purple-500 font-bold mt-5">
-        Il y a {{ auctions.length }} vente(s) en cours
+        Il y a {{ auctions.length }} enchère(s) à venir
       </p>
     </p>
   </div>

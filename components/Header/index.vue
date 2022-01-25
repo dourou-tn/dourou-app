@@ -32,6 +32,6 @@
       DouDropdown,
       MobileToggler,
       HeaderAuth,
-    }
+    },
   }
 </script>

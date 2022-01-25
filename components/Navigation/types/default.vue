@@ -12,6 +12,7 @@
           :to="'/auctions/live'"
           :text="$t('menu.ventesEnCours')"
           color="orange-500"
+          :warning="$auth && $auth.user && $auth.user.sub_auctions && $auth.user.sub_auctions.length > 0"
         />
         <DouLink
           :to="'/auctions/ended'"

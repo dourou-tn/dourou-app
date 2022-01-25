@@ -9,7 +9,7 @@
     <div
       v-if="isOpen"
       id="auth-dropdown"
-      class="absolute mt-2 m-width-1/4 rounded-md bg-purple-100 shadow-lg  focus:outline-none"
+      class="absolute mt-2 m-width-1/4 rounded-md bg-purple-100 shadow-lg focus:outline-none z-50"
       :class="positionClass"
       role="menu"
       aria-orientation="vertical" aria-labelledby="menu-button"
@@ -38,7 +38,7 @@
             <div class="divide-y divide-purple-500 ">
               <div class="ps-5 py-2">
                 <DouLink
-                  to="/"
+                  to="/user/profile"
                   :text="$t('global.auth.dropdown.profile')"
                   color="orange-500"
                   normal

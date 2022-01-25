@@ -3,7 +3,7 @@
     <h2 class="text-purple-500 font-bold text-2xl text-center font-medium my-10">
       {{ $t('subscribe.title') }}
     </h2>
-    <div class="bg-purple-300 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="bg-purple-300 shadow-md rounded px-8 pt-6 pb-8 mb-4" v-if="!loading">
 
       <!-- img + name + date + time -->
       <div class="text-center mb-5 relative">
@@ -11,26 +11,26 @@
           <!--  -->
           <div>{{ $t('auction.date', { date: auction.start_date }) }} {{ $t('auction.time', { time: auction.start_time }) }}</div>
         </div>
-        <!-- <div class="bg-purple-500 mx-auto text-white text-center rounded-lg font-semibold w-2/6 py-1 shadow-md mb-5">
-          <div>{{ $t('auction.date', { date: auction.start_date }) }}</div>
-          <div>{{ $t('auction.time', { time: auction.start_time }) }}</div>
-        </div> -->
 
-        <img :src="`http://localhost:5000/${product.image_path}`" :alt="`image de ${product.name}`" class="rounded m-auto">
+        <img :src="`http://localhost:5000/${product.image_path}`" :alt="`image de ${auction.product.name}`" class="rounded m-auto">
 
         <h2 class="text-purple-500 font-bold text-2xl text-center font-medium my-3">{{product.name}}</h2>
 
+        <!-- description -->
+
+        <ProductDescription :content="product.description" />
         <!-- count down -->
-        <flip-countdown
-          v-if="auction.start_date"
-          :deadline="`${moment(auction.start_date).format('YYYY-MM-DD')} ${auction.start_time}`"
-          :labels="{
-            days: this.$t('global.time.days'),
-            hours: this.$t('global.time.hours'),
-            minutes: this.$t('global.time.minutes'),
-            seconds: this.$t('global.time.seconds'),
-          }"
-        />
+        <!-- <client-only>
+          <flip-countdown
+            :deadline="`${moment(auction.start_date).format('YYYY-MM-DD')} ${auction.start_time}`"
+            :labels="{
+              days: this.$t('global.time.days'),
+              hours: this.$t('global.time.hours'),
+              minutes: this.$t('global.time.minutes'),
+              seconds: this.$t('global.time.seconds'),
+            }"
+          />
+        </client-only> -->
 
       </div>
 
@@ -119,6 +119,9 @@
       </div>
 
     </div>
+    <div v-else>
+      <Douloader />
+    </div>
   </div>
 </template>
 
@@ -126,33 +129,41 @@
 import moment from 'moment';
 import FlipCountdown from 'vue2-flip-countdown';
 import Douloader from 'dourou-components/DouLoader/index.vue';
+import ProductDescription from '~/components/Product/Description.vue';
+
 
 export default {
   name: 'AuctionSubscribe',
   middleware: 'auth',
-  components: { Douloader, FlipCountdown },
+  components: { Douloader, FlipCountdown, ProductDescription },
   async mounted () {
+    this.loading = true;
     if (!this.$route.query.auction_id) {
       this.$router.push('/');
     }
-    if (this.$route.query.auction_id) {
+    else {
       this.auction = await this.$store.dispatch('auction/get', this.$route.query.auction_id);
-      this.product = JSON.parse(this.auction.product);
+      this.product = await this.$store.dispatch('products/get', this.auction.product_id);
+
+      this.auction.start_date = moment(this.auction.start_date).format('YYYY-MM-DD');
+      this.auction.start_time = moment(this.auction.start_date).format('HH:mm:ss');
     }
+    this.loading = false;
   },
   data () {
     return {
       moment,
-      auction: {},
+      auction: null,
+      product: null,
       product: {},
       success: false,
       error: false,
       alreadySub: false,
-      loading: false,
+      loading: true,
       images: {
         posteTN: require('~/assets/image/la-poste-tunisienne.png'),
         cb: require('~/assets/image/master-card-visa.png'),
-      }
+      },
     }
   },
   methods: {
@@ -167,6 +178,7 @@ export default {
         this.loading = true;
         await that.$store.dispatch('auction/subscribe', that.auction.id);
         this.auction.is_subscribed = true;
+        await this.$auth.fetchUser();
         this.success = true;
         that.loading = false;
       } catch (error) {

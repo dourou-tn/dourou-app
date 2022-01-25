@@ -29,5 +29,8 @@ export default {
   async fetch() {
     this.auctions = (await this.$axios.get('client/auctions/upcoming')).data;
   },
+  mounted () {
+    console.log(this.$auth);
+  }
 }
 </script>

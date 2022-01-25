@@ -78,6 +78,7 @@ import Progress from "../../Common/Progress.vue";
           image_path: `http://localhost:5000/${product.image_path}`,
           subscribe_price: this.auction.subscribe_price,
           product_name: product.name,
+          is_subscribed: this.auction.is_subscribed,
         }
       }
     }

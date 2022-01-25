@@ -1,10 +1,20 @@
 <template>
-  <DouButton
-    @click.native="subscribe"
-    :label="$t('auction.subscribe_cta', { price: auction.subscribe_price })"
-    color="orange-500"
-    textColor="purple-500"
-  />
+  <div>
+    <DouButton
+      v-if="!auction.is_subscribed"
+      @click.native="subscribe"
+      :label="$t('auction.subscribe_cta', { price: auction.subscribe_price })"
+      color="orange-500"
+      textColor="purple-500"
+    />
+    <DouButton
+      v-else
+      :label="'Vous êtes inscrit'"
+      color="purple-500"
+      textColor="orange-500"
+      disabled
+    />
+  </div>
   <!-- <Nuxt-link
     :to="localePath('/auctions/subscribe')"
     v-on:click.native="subscribe"
