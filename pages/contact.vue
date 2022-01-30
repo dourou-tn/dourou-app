@@ -36,10 +36,6 @@
             color="orange-500"
             textColor="purple-500"
           />
-          <!-- <button
-            class="text-sm uppercase font-bold tracking-wide bg-orange-500 rounded-lg hover:shadow-md py-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-500">
-            {{  }}
-          </button> -->
         </div>
       </div>
     </div>
@@ -49,12 +45,13 @@
 <script>
 import DouInput from 'dourou-components/DouInput/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
-
+import SVGContact from '~/components/SVG/contact.vue';
 export default {
   name: 'PageContact',
   components: {
     DouInput,
     DouButton,
+    SVGContact
   },
   data() {
     return {

@@ -131,11 +131,19 @@ import FlipCountdown from 'vue2-flip-countdown';
 import Douloader from 'dourou-components/DouLoader/index.vue';
 import ProductDescription from '~/components/Product/Description.vue';
 
+import PayementPrices from '~/components/Payement/Prices.vue';
+import PayementMethods from '~/components/Payement/Methods.vue';
 
 export default {
   name: 'AuctionSubscribe',
   middleware: 'auth',
-  components: { Douloader, FlipCountdown, ProductDescription },
+  components: {
+    Douloader,
+    FlipCountdown,
+    ProductDescription,
+    PayementMethods,
+    PayementPrices,
+  },
   async mounted () {
     this.loading = true;
     if (!this.$route.query.auction_id) {

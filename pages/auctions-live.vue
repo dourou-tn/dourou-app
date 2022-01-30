@@ -1,22 +1,24 @@
 <template>
   <div class="page-home">
     <DouTitle :text="$t('auction.live.title')" />
-
-    <AuctionLive
-      v-for="(auction, i) in auctions"
-      :key="i"
-      :auction="auction"
-    />
+    <DouGrid>
+      <AuctionLive
+        v-for="(auction, i) in auctions"
+        :key="i"
+        :auction="auction"
+      />
+    </DouGrid>
   </div>
 </template>
 
 <script>
 import DouTitle from 'dourou-components/DouTitle/index.vue';
-import AuctionLive from '~/components/Auction/Type/Live.vue';
+import DouGrid from 'dourou-components/DouGrid/index.vue';
+import AuctionLive from '~/components/Auction/AuctionLive.vue';
 
 export default {
   name: 'AuctionsCurrent',
-  components: { DouTitle, AuctionLive },
+  components: { DouTitle, AuctionLive, DouGrid },
   data () {
     return {
       auctions: [],

@@ -66,14 +66,6 @@
           />
         </div>
       </div>
-
-
-      <!-- <div class="text-center my-5 mt-5">
-        <auction-subscribe-btn
-          :auction="auction"
-          class="mt-10 md:mt-0"
-        />
-      </div> -->
     </div>
 
   </div>
@@ -122,12 +114,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  /* .flip-clock__card {
-    font-size: 1.85rem !important;
-  }
-  .flip-clock__slot {
-    font-size: 0.8rem !important;
-  } */
-</style>

@@ -95,7 +95,7 @@ import DouTitle from 'dourou-components/DouTitle/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
 
 export default {
-  name: 'AchterDourou',
+  name: 'BuyDourou',
   components: { DouTitle, DouButton },
   middleware: 'auth',
   async mounted () {

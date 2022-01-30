@@ -68,7 +68,7 @@
 
         <div class="text-center py-5">
           <DouButton
-            @click="$router.push(localePath('/acheter-dourou'))"
+            @click="$router.push(localePath('/buy-dourou'))"
             :label="$t('global.auth.dropdown.buy_dourou')"
             color="orange-500"
             textColor="purple-500"
