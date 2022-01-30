@@ -38,7 +38,7 @@
             <div class="divide-y divide-purple-500 ">
               <div class="ps-5 py-2">
                 <DouLink
-                  to="/user/profile"
+                  to="/profile"
                   :text="$t('global.auth.dropdown.profile')"
                   color="orange-500"
                   normal

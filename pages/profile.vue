@@ -13,28 +13,28 @@
             <span class="text-purple-600 mr-1 text-2xl">></span>
             <DouLink
               :text="$t('profile.menu.account')"
-              :to="'/user/profile/account'"
+              :to="'/profile/account'"
             />
           </div>
           <div class="py-1 flex items-center">
             <span class="text-purple-600 mr-1 text-2xl">></span>
             <DouLink
               :text="$t('profile.menu.security')"
-              :to="'/user/profile/security'"
+              :to="'/profile/security'"
             />
           </div>
           <div class="py-1 flex items-center">
             <span class="text-purple-600 mr-1 text-2xl">></span>
             <DouLink
               :text="$t('profile.menu.my_auctions')"
-              :to="'/user/profile/auctions'"
+              :to="'/profile/auctions'"
             />
           </div>
           <div class="py-1 flex items-center">
             <span class="text-purple-600 mr-1 text-2xl">></span>
             <DouLink
               :text="$t('profile.menu.help')"
-              :to="'/user/profile/help'"
+              :to="'/profile/help'"
             />
           </div>
         </div>

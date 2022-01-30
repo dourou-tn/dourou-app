@@ -13,7 +13,6 @@
           - dourou indicator (nbr)
           - auth dropdown
         -->
-        <!-- <Navigation class="flex-1 pt-3" /> -->
         <HeaderAuth />
       </div>
 
@@ -25,7 +24,6 @@
   import DouDropdown from 'dourou-components/DouDropdown/index.vue';
   import MobileToggler from '~/components/Header/MobileToggler.vue';
   import HeaderAuth from '~/components/Header/Auth/index.vue';
-  import Navigation from '~/components/Header/Navigation.vue';
 
   export default {
     name: 'Header',
@@ -33,8 +31,7 @@
       DouLogo,
       DouDropdown,
       MobileToggler,
-      HeaderAuth,
-      Navigation,
+      HeaderAuth
     },
   }
 </script>
