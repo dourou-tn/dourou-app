@@ -1,11 +1,12 @@
 <template>
-  <div class="flex">
+  <div class="flex justify-center">
     <nuxt-link
       v-for="locale in locales"
       :key="locale.code"
       :to="switchLocalePath(locale.code)"
+      class="px-1 cursor-pointer"
     >
-        <img :src="locale.img_src" :alt="`${locale.name}-flag`" width="22" class="ml-2">
+        <img :src="locale.img_src" :alt="`${locale.name}-flag`" width="24">
       </nuxt-link>
   </div>
 </template>

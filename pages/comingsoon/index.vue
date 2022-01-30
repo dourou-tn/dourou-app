@@ -1,101 +1,70 @@
 <template>
-  <div class="text-center flex flex-col	items-center justify-center pt-10 pb-10">
+  <div
+    class="coming-soon h-screen container mx-auto text-center text-white"
+  >
+    <!-- {{ width }} -->
+    <div class="h-full flex flex-col justify-around py-5 md:py-8 lg:py-10">
+      <DouLogo light class="mx-auto"/>
 
-      <DouLogo light width="32" class="mb-10" />
+      <HeaderTitle />
 
-      <!-- title & subtitle -->
-      <div class="px-2">
-        <h2 class="comingsoon-title text-white text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-15 font-bold">
-          {{$t('comingsoon.title')}}
-        </h2>
-
-        <h3 class="text-white text-2xl md:text-5xl lg:text-6xl xl:text-7xl mb-10">{{$t('comingsoon.subtitle')}}</h3>
-
-      </div>
-
-      <!-- image token -->
-      <img :src="tokenImage" width="100" alt="Image du jeton dourou.tn" class="mb-10 image__token">
-
-      <!-- counter -->
       <flip-countdown v-if="startDate" :deadline="startDate" :labels="labels"></flip-countdown>
 
-      <div class="flex flex-wrap mt-20 justify-center ">
-        <div class="m-3 text-center">
-          <p class="text-white">{{ $t("comingsoon.contact.headline") }}</p>
-          <input v-model="contact.email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" :placeholder="$t('global.auth.form.email.placeholder')">
+      <NewsLetter class="px-10" />
 
-          <div class="social-icons mt-10">
-            <a href="#">
-              <font-awesome-icon :icon="['fab', 'facebook-square']" class="mx-2 fa-3x text-white" />
-            </a>
-            <a href="#">
-              <font-awesome-icon :icon="['fab', 'instagram-square']" class="mx-2 fa-3x text-white" />
-            </a>
-            <a href="#">
-              <font-awesome-icon :icon="['fab', 'youtube-square']" class="mx-2 fa-3x text-white" />
-            </a>
-          </div>
-        </div>
+      <div class="mx-auto text-center">
+        <SocialIcons class="mb-2"/>
+        <LocalSelector />
       </div>
+    </div>
 
-      <div class="flags">
-        <LocalesSelector />
-      </div>
-</div>
+  </div>
 </template>
 
 <script>
 import DouLogo from 'dourou-components/DouLogo/index.vue';
-import FlipCountdown from 'vue2-flip-countdown'
+import DouInput from 'dourou-components/DouInput/index.vue';
+import DouButton from 'dourou-components/DouButton/index.vue';
+import LocalSelector from '~/components/LocaleSelector/index.vue';
+import FlipCountdown from 'vue2-flip-countdown';
+
+import NewsLetter from '~/components/Comingsoon/Newsletter.vue';
+import SocialIcons from '~/components/Comingsoon/SocialIcons.vue';
+import HeaderTitle from '~/components/Comingsoon/HeaderTitle.vue';
+
 
 export default {
   name: 'Comingsoon',
   layout: 'comingsoon',
-  components: { FlipCountdown, DouLogo },
+  components: {
+    DouLogo,
+    FlipCountdown,
+    DouInput,
+    DouButton,
+    LocalSelector,
+    NewsLetter,
+    SocialIcons,
+    HeaderTitle
+  },
   async mounted () {
-    const config = await this.$store.dispatch('config/get', 'open-date');
-    this.startDate = JSON.parse(config[0].value).value;
+    // const config = await this.$store.dispatch('config/get', 'open-date');
+    // this.startDate = JSON.parse(config[0].value).value;
+    this.startDate = '2022-02-01 00:00:00';
   },
   data () {
     return {
-      contact: {
-        email: '',
-      },
       labels: {
         days: this.$t('global.time.days'),
         hours: this.$t('global.time.hours'),
         minutes: this.$t('global.time.minutes'),
         seconds: this.$t('global.time.seconds'),
       },
-      tokenImage: require('~/assets/image/token.png'),
       startDate: null,
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
-.flip-clock__slot {
-  color: white;
-  display: none;
-}
-
-@keyframes flip_animation {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(360deg);}
-}
-
-@keyframes flip_animation_leave {
-  from {transform: rotateY(360deg);}
-  to {transform: rotateY(0deg);}
-}
-
-.image__token {
-  animation-name: flip_animation;
-  animation-duration: 1s;
-}
-.image__token:hover {
-  animation-name: flip_animation_leave;
-  animation-duration: 1s;
-}
+  /*  */
 </style>

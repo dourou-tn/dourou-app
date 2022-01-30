@@ -11,12 +11,27 @@
       </p>
     </p>
   </div>
-  <div
-    v-for="auction in auctions"
-    :key="auction.id"
-  >
-    <AuctionTypeFuture :auction="auction" />
+
+  <div class="container mx-auto px-0 xl:px-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div
+        v-for="auction in auctions"
+        :key="auction.id"
+        class="mb-10"
+      >
+        <AuctionTypeFuture :auction="auction" />
+      </div>
+      <!-- <div
+        class="flex justify-center text-6xl border-2 border-gray-300 rounded-xl p-6 bg-gray-100"
+      >
+        1
+      </div> -->
+      
+    </div>
   </div>
+
+
+  
 </div>
 </template>
 

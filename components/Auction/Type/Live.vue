@@ -124,10 +124,10 @@ export default {
 </script>
 
 <style>
-  .flip-clock__card {
+  /* .flip-clock__card {
     font-size: 1.85rem !important;
   }
   .flip-clock__slot {
     font-size: 0.8rem !important;
-  }
+  } */
 </style>

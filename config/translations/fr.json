@@ -61,7 +61,8 @@
         "firstname_is_required": "Le prénom est obligatoire",
         "lastname_is_required": "Le nom est obligatoire",
         "username_is_required": "Le pseudo est obligatoire",
-        "password_confirmation": "Les mots de passe doivent être identiques"
+        "password_confirmation": "Les mots de passe doivent être identiques",
+        "email_already_exists": "Cet email existe déjà"
       },
       "dropdown": {
         "menu": "menu",
@@ -89,10 +90,10 @@
     }
   },
   "comingsoon": {
-    "title": "On arrive bientôt!",
-    "subtitle": "Les présents informent les absents",
+    "title": "Dourou un nouveau monde d'enchères en ligne",
+    "subtitle": "Arrive bientôt",
     "contact": {
-      "headline": "Get subscribe to our mailing for latest updates... keep rocking!"
+      "headline": "Prévenez-moi quand il est prêt"
     }
   },
   "menu": {
@@ -121,7 +122,7 @@
     "start_price": "Prix de départ",
     "store_price": "Prix magasin",
     "subscribe_cta": "Participez à {price} dt",
-    "room_fullnes": "Salle des ventes remplie à {full}%",
+    "room_fullnes": "Salle remplie à {full}%",
     "date": "Le {date}",
     "time": "à {time}",
     "live": {

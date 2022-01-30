@@ -1,15 +1,13 @@
 <template>
   <div class="page-home">
-    <div class="mb-10">
-      <DouBanner :img-path="banner" />
+    <DouBanner :img-path="'/banner.jpg'" class="mb-10 mx-auto"/>
+    <div class="container m-auto">
+      <AuctionList
+        type="FutureAuction"
+        :title="$t('nextAuction')"
+        :auctions="auctions"
+      />
     </div>
-
-    <AuctionList
-      type="FutureAuction"
-      :title="$t('nextAuction')"
-      :auctions="auctions"
-    />
-
   </div>
 </template>
 
@@ -22,7 +20,7 @@ export default {
   components: { DouBanner, AuctionList },
   data() {
     return {
-      banner: require('~/assets/image/banner.jpg'),
+      banner: '/',
       auctions: [],
     }
   },

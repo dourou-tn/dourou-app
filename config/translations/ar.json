@@ -61,7 +61,8 @@
         "firstname_is_required": "الإسم الأول مطلوب",
         "lastname_is_required": "اسم العائلة مطلوب",
         "username_is_required": "الاسم المستعار مطلوب",
-        "password_confirmation": "يجب أن تكون كلمات المرور متطابقة"
+        "password_confirmation": "يجب أن تكون كلمات المرور متطابقة",
+        "email_already_exists": "هذا البريد الإلكتروني موجود"
       },
       "dropdown": {
         "menu": "القائمة",
@@ -89,10 +90,10 @@
     }
   },
   "comingsoon": {
-    "title": "جاينكم عن قريب",
-    "subtitle": "الحاضر يعلم الغايب",
+    "title": "عالم جديد من المزادات على الإنترنت",
+    "subtitle": "سيأتي قريبا",
     "contact": {
-      "headline": "احصل على اشتراك في رسائلنا البريدية للحصول على آخر التحديثات ... استمر في التأرجح!"
+      "headline": "أعلمني عندما يكون جاهزًا"
     }
   },
   "menu": {

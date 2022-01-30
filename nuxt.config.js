@@ -1,4 +1,5 @@
 import { io, auth, axios, i18n, fonts } from './config';
+import { join } from 'path';
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -39,7 +40,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
-    ['@nuxtjs/dotenv', { path: '../.env'} ],
+    ['@nuxtjs/dotenv', { path: join(__dirname, '..') } ],
     '@nuxtjs/google-fonts',
     '@nuxtjs/fontawesome'
   ],
@@ -50,6 +51,7 @@ export default {
     ['@nuxtjs/axios'],
     ['@nuxtjs/auth-next'],
     ['@nuxtjs/i18n'],
+    ['@nuxt/image'],
   ],
 
   // socket.io module: https://nuxt-socket-io.netlify.app/installation/
@@ -71,6 +73,11 @@ export default {
     icons: {
       brands: true,
     },
+  },
+
+  // https://image.nuxtjs.org/api/options#domains
+  image: {
+    domains: ['http://localhost:5000']
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
