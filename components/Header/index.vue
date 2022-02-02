@@ -1,7 +1,7 @@
 <template>
   <header id="header" class="px-0 xl:px-24 py-3 bg-white sm:bg-purple-500 shadow-md sm:shadow-0">
 
-      <div class="flex justify-between px-5 sm:px-10 md:px-20">
+      <div class="flex justify-between px-5 sm:px-10 md:px-10 lg:px-12">
 
         <!-- Hamburger menu on mobile -->
         <MobileToggler />

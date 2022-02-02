@@ -1,5 +1,5 @@
 <template>
-  <DouCard class="py-10 mb-3">
+  <DouCard class="py-10 mb-5">
     <div class="absolute transform -translate-x-1/2 bg-purple-600 left-1/2 -top-4 text-orange-500 text-center rounded-lg font-semibold w-2/3 px-2 py-2 shadow-md">
       <!--  -->
       <div>{{ $t('auction.date', { date: formatedAuction.date }) }} {{ $t('auction.time', { time: formatedAuction.time }) }}</div>

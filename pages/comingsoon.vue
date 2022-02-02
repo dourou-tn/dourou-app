@@ -36,6 +36,7 @@ import HeaderTitle from '~/components/Comingsoon/HeaderTitle.vue';
 export default {
   name: 'Comingsoon',
   layout: 'comingsoon',
+  transition: 'home',
   components: {
     DouLogo,
     FlipCountdown,

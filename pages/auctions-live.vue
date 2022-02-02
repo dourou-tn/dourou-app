@@ -1,5 +1,5 @@
 <template>
-  <div class="page-home">
+  <div class="auctions-live-page container mx-auto px-0 md:px-5">
     <DouTitle :text="$t('auction.live.title')" />
     <DouGrid>
       <AuctionLive
@@ -18,6 +18,7 @@ import AuctionLive from '~/components/Auction/AuctionLive.vue';
 
 export default {
   name: 'AuctionsCurrent',
+  transition: 'home',
   components: { DouTitle, AuctionLive, DouGrid },
   data () {
     return {

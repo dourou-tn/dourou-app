@@ -1,5 +1,5 @@
 <template>
-  <div class="page-auth">
+  <div class="page-auth max-w-screen-md mx-auto">
 
     <DouTitle :text="register ? $t('global.auth.register.title') : $t('global.auth.login.title')" />
 
@@ -157,6 +157,7 @@ export default {
   name: 'PageAuth',
   middleware: 'auth',
   auth: 'guest',
+  transition: 'home',
   components: {
     DouInput,
     DouButton,

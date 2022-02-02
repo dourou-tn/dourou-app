@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="hidden sm:block bg-purple-600 shadow-md">
-      <ul class="xs:w-full md:w-9/12 md:m-auto flex justify-around py-2">
+      <ul class="flex justify-around py-2 xl:px-12">
         <DouLink
           :to="'/'"
           :text="$t('menu.accueil')"

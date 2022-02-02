@@ -42,7 +42,8 @@ export default {
     // https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { path: join(__dirname, '..') } ],
     '@nuxtjs/google-fonts',
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/moment'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -79,6 +80,11 @@ export default {
   image: {
     domains: ['http://localhost:5000']
   },
+
+  moment: {
+    defaultTimezone: 'Africa/Tunis',
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },

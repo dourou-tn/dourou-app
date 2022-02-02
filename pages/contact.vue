@@ -1,7 +1,7 @@
 <template>
-  <div class="page-contact">
-    <div
-      class="bg-purple-300 shadow-md rounded-lg max-w-screen-xl px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto  text-gray-900 rounded-lg mb-20 mt-6">
+  <div class="page-contact max-w-screen-md mx-auto">
+    <section
+      class="sm:my-8 bg-purple-300 shadow-md rounded-lg px-8 grid gap-8 grid-cols-1 md:grid-cols-2 py-8 mx-auto">
       <div class="flex flex-col justify-between">
         <div>
           <h2 class="text-purple-500 text-4xl lg:text-5xl font-bold leading-tight">{{ $t('contact.title') }}</h2>
@@ -38,20 +38,23 @@
           />
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
 import DouInput from 'dourou-components/DouInput/index.vue';
+import DouTitle from 'dourou-components/DouTitle/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
 import SVGContact from '~/components/SVG/contact.vue';
 export default {
   name: 'PageContact',
+  transition: 'home',
   components: {
     DouInput,
     DouButton,
-    SVGContact
+    SVGContact,
+    DouTitle
   },
   data() {
     return {

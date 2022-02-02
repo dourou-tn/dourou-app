@@ -1,8 +1,9 @@
 <template>
-  <div class="page-subscribe">
-    <h2 class="text-purple-500 font-bold text-2xl text-center font-medium my-10">
-      {{ $t('subscribe.title') }}
-    </h2>
+  <div class="page-subscribe max-w-screen-md mx-auto">
+    <DouTitle :text="$t('subscribe.title')"/>
+    <!-- <h2 class="text-purple-500 text-2xl text-center font-medium my-10">
+      
+    </h2> -->
     <div class="bg-purple-300 shadow-md rounded px-8 pt-6 pb-8 mb-4" v-if="!loading">
 
       <!-- img + name + date + time -->
@@ -129,6 +130,7 @@
 import moment from 'moment';
 import FlipCountdown from 'vue2-flip-countdown';
 import Douloader from 'dourou-components/DouLoader/index.vue';
+import DouTitle from 'dourou-components/DouTitle/index.vue';
 import ProductDescription from '~/components/Product/Description.vue';
 
 import PayementPrices from '~/components/Payement/Prices.vue';
@@ -137,12 +139,14 @@ import PayementMethods from '~/components/Payement/Methods.vue';
 export default {
   name: 'AuctionSubscribe',
   middleware: 'auth',
+  transition: 'home',
   components: {
     Douloader,
     FlipCountdown,
     ProductDescription,
     PayementMethods,
     PayementPrices,
+    DouTitle,
   },
   async mounted () {
     this.loading = true;

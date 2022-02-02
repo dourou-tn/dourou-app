@@ -12,6 +12,7 @@ import DouGrid from 'dourou-components/DouGrid/index.vue';
 
 export default {
   name: 'AuctionsCurrent',
+  transition: 'home',
   components: { DouTitle, /* ,AuctionLive */ DouGrid },
   data () {
     return {

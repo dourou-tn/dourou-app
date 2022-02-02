@@ -1,5 +1,5 @@
 <template>
-  <div class="page-home mt-5">
+  <div class="buy-dourou-page container mx-auto max-w-screen-md">
     <DouTitle :text="$t('packs.title')" />
 
     <section v-if="!selectedPack" class="px-16 antialiased bg-purple-300 shadow-md rounded pb-16 mb-4">
@@ -93,10 +93,18 @@
 <script>
 import DouTitle from 'dourou-components/DouTitle/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
+import PayementMethods from '~/components/Payement/Methods.vue';
+import PayementPrices from '~/components/Payement/Prices.vue';
 
 export default {
   name: 'BuyDourou',
-  components: { DouTitle, DouButton },
+  transition: 'home',
+  components: {
+    DouTitle,
+    DouButton,
+    PayementMethods,
+    PayementPrices,
+  },
   middleware: 'auth',
   async mounted () {
     await this.$store.dispatch('packs/fetch');

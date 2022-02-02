@@ -1,42 +1,30 @@
 <template>
-  <div class="page-contact">
+  <div class="page-contact max-w-screen-md mx-auto">
     <div
-      class="bg-purple-300 shadow-md rounded-lg max-w-screen-xl px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto  text-gray-900 rounded-lg mb-20 mt-6"
+      class="sm:my-8 bg-purple-300 shadow-md rounded-lg px-8 grid gap-8 grid-cols-1 md:grid-cols-2 py-8 mx-auto"
     >
       <div class="flex flex-col justify-start">
         <div>
           <h2 class="text-purple-500 text-4xl lg:text-5xl font-bold leading-tight">{{ $t('profile.title') }}</h2>
           <div class="text-purple-400">{{ $t('profile.subtitle') }}</div>
         </div>
-        <div class="mt-8">
-          <div class="py-1 flex items-center">
-            <span class="text-purple-600 mr-1 text-2xl">></span>
-            <DouLink
-              :text="$t('profile.menu.account')"
-              :to="'/profile/account'"
-            />
-          </div>
-          <div class="py-1 flex items-center">
-            <span class="text-purple-600 mr-1 text-2xl">></span>
-            <DouLink
-              :text="$t('profile.menu.security')"
-              :to="'/profile/security'"
-            />
-          </div>
-          <div class="py-1 flex items-center">
-            <span class="text-purple-600 mr-1 text-2xl">></span>
-            <DouLink
-              :text="$t('profile.menu.my_auctions')"
-              :to="'/profile/auctions'"
-            />
-          </div>
-          <div class="py-1 flex items-center">
-            <span class="text-purple-600 mr-1 text-2xl">></span>
-            <DouLink
-              :text="$t('profile.menu.help')"
-              :to="'/profile/help'"
-            />
-          </div>
+        <div class="mt-8 flex flex-col">
+          <DouLink
+            :text="$t('profile.menu.account')"
+            :to="'/profile/account'"
+          />
+          <DouLink
+            :text="$t('profile.menu.security')"
+            :to="'/profile/security'"
+          />
+          <DouLink
+            :text="$t('profile.menu.my_auctions')"
+            :to="'/profile/auctions'"
+          />
+          <DouLink
+            :text="$t('profile.menu.help')"
+            :to="'/profile/help'"
+          />
         </div>
       </div>
       <div class="flex items-center w-full">
@@ -49,11 +37,13 @@
 <script>
 import DouInput from 'dourou-components/DouInput/index.vue';
 import DouLink from 'dourou-components/DouLink/index.vue';
+import DouTitle from 'dourou-components/DouTitle/index.vue';
 
 export default {
   name: 'ProfilePage',
+  transition: 'home',
   middleware: 'auth',
-  components: { DouInput, DouLink },
+  components: { DouInput, DouLink, DouTitle },
   data () {
     return {
       

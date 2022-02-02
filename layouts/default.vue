@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 min-h-screen flex flex-col" :style="{ direction: $dir() }">
+  <div class="antialiased bg-gray-100 min-h-screen flex flex-col" :style="{ direction: $dir() }">
 
     <!-- ComponentsHeader -->
     <div class="m-0 p-0 sticky top-0 z-50">
@@ -7,7 +7,7 @@
       <Navigation />
     </div>
 
-    <div class="relative">
+    <div class="relative flex-1">
       <Nuxt />
     </div>
 
@@ -37,3 +37,16 @@ export default {
   },
 }
 </script>
+
+<style>
+.home-enter-active,
+.home-leave-active {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+.home-enter,
+.home-leave-to {
+  opacity: 0.5;
+}
+</style>
