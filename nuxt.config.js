@@ -48,7 +48,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // ['nuxt-socket-io'],
+    ['nuxt-socket-io'],
     ['@nuxtjs/axios'],
     ['@nuxtjs/auth-next'],
     ['@nuxtjs/i18n'],

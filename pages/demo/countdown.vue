@@ -1,5 +1,8 @@
 <template>
-  <Countdown :date="deadline" />
+  <div>
+    <Countdown :date="deadline" />
+    <button @click="reset">Start</button>
+  </div>
 </template>
 
 <script>
@@ -10,8 +13,16 @@ export default {
   components: { Countdown },
   data () {
     return {
-      deadline: '2022-02-01 02:00:00',
+      deadline: this.$moment().add(10, 's').format('YYYY-MM-DD HH:mm:ss'),
     }
-  }
+  },
+  methods: {
+    reset () {
+      console.log('moment', this.$moment().format('YYYY-MM-DD HH:mm:ss'));
+      console.log('mom+10', this.$moment().add(10, 's').format('YYYY-MM-DD HH:mm:ss'));
+      // this.deadline = null;
+      this.deadline = this.$moment().add(10, 's').format('YYYY-MM-DD HH:mm:ss');
+    }
+  },
 }
 </script>

@@ -24,19 +24,16 @@ export default {
   data () {
     return {
       now: Math.trunc((new Date()).getTime() / 1000),
-      event: this.date,
+      // event: this.date,
       finish: false,
       counterInterval: null,
     }
   },
   mounted () {
-    console.log('>>> timer mounted');
     const _self = this;
     this.counterInterval = window.setInterval(() => {
-      console.log('>>> TIMER');
       this.now = Math.trunc((new Date()).getTime() / 1000);
       if (!this.finish && this.calculatedDate - this.now <= 0) {
-        console.log('FINISH');
         _self.finish = true;
         _self.$emit('countdown-finish');
         clearInterval(_self.counterInterval);
@@ -50,6 +47,9 @@ export default {
     }
   },
   computed: {
+    event () {
+      return this.date;
+    },
     secondCount () {
       return this.calculatedDate - this.now
     },
