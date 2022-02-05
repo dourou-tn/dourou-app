@@ -16,7 +16,7 @@
         </div>
         <div>
 
-          <div class="text-2xl font-bold text-gray-800">{{ auction.last_bider }}</div>
+          <div class="text-2xl font-bold text-gray-800" ref="lastBider">{{ auction.last_bider }}</div>
           <div class="text-gray-500">Dernier Enchèreur</div>
         </div>
       </div>
@@ -28,6 +28,8 @@
             label="+100"
             class="w-full mx-5"
             @click="bidHandler(0.1)"
+            :disabled="disableBid"
+            :style="`${disableBid ? 'background: #eee' : ''}`"
           />
           <!-- :disabled="isLastBider" -->
 
@@ -35,6 +37,8 @@
             label="+200"
             class="w-full mx-5"
             @click="bidHandler(0.2)"
+            :disabled="disableBid"
+            :style="`${disableBid ? 'background: #eee' : ''}`"
           />
           <!-- :disabled="isLastBider" -->
         </div>
@@ -61,17 +65,20 @@ import DouTitle from 'dourou-components/DouTitle/index.vue';
 import DouCard from 'dourou-components/DouCard/index.vue';
 import DouButton from 'dourou-components/DouButton/index.vue';
 import DouLoader from 'dourou-components/DouLoader/index.vue';
-
+import party from "party-js";
 
 export default {
   name: 'Room',
   components: { DouTitle, DouCard, DouButton, Timer, DouLoader},
   data () {
     return {
+      party: party,
       auction: null,
       socket: null,
       timer_started: false,
       stress_phase: false,
+      disableBid: false,
+      needToRefresh: false,
     }
   },
   computed: {
@@ -87,11 +94,9 @@ export default {
     });
 
     this.socket.on("bid", ({ auction_id, current_price, last_bider, amount, stress_phase }) => {
-      console.log('## bid', auction_id, current_price, last_bider, amount, stress_phase);
-      console.log('stress_phase comp', this.stress_phase);
-
-      if (this.stress_phase) {
-        that.auction.end_date = this.$moment().add(10, 's');
+      if (stress_phase) {
+        this.needToRefresh = true;
+        // that.auction.end_date = this.$moment().add(10, 's');
       }
 
       this.updateCurrentPrice(current_price);
@@ -99,15 +104,27 @@ export default {
       that.$auth.fetchUser();
     });
 
-    this.socket.on('tick:regular', () => {
-      console.log('tick:regular');
+    this.socket.on('tick:regular_phase', () => {
+      console.log('[tick]:regular_phase');
       if (!that.timer_started) that.timer_started = true;
     });
 
     this.socket.on('tick:stress_phase', () => {
-      console.log('tick:stress_phase');
+      console.log('[tick]:stress_phase');
       if (!that.stress_phase) that.stress_phase = true;
+      if (that.needToRefresh) {
+        that.needToRefresh = false;
+        that.auction.end_date = this.$moment().add(10, 's');
+      }
       console.log('stress_pase', that.stress_phase);
+    });
+
+    this.socket.on('tick:auction_end', () => {
+      console.log('[auction-end]');
+      that.stress_phase = false;
+      // close the socket
+      this.socket.close();
+      this.finishRoom();
     })
 
   },
@@ -118,8 +135,10 @@ export default {
   },
   methods: {
     async bidHandler (amount) {
-      console.log(this.auction.end_date);
-      console.log(this.$moment().add(10, 'seconds'))
+      this.disableBid = true;
+      setTimeout(() => {
+        this.disableBid = false;
+      }, 1000);
       try {
         await this.$store.dispatch('bid/bid', {
           auction_id: this.auction.id,
@@ -134,7 +153,19 @@ export default {
     },
     updateLastBider (last_bider) {
       this.auction.last_bider = last_bider;
+    },
+    finishRoom() {
+      if (this.isLastBider) {
+        this.party.sparkles(this.$refs.lastBider, {
+          count: party.variation.range(10, 60),
+          speed: party.variation.range(50, 300),
+        });
+      }
     }
-  }
+  },
+  beforeDestroy() {
+    console.log('[beforeDestroy]');
+    this.socket.close();
+  },
 }
 </script>
