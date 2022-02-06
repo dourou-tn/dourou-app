@@ -15,7 +15,7 @@
           :warning="$auth && $auth.user && $auth.user.sub_auctions && $auth.user.sub_auctions.length > 0"
         />
         <DouLink
-          :to="'/auctions-expired'"
+          :to="'/auctions-completed'"
           :text="$t('menu.ventesTerminees')"
           color="orange-500"
         />
@@ -44,7 +44,7 @@
           color="orange-500"
         />
         <DouLink
-          :to="'/auctions-expired'"
+          :to="'/auctions-completed'"
           :text="$t('menu.ventesTerminees')"
           color="orange-500"
         />
@@ -79,7 +79,7 @@ export default {
       navigation: [
         { id: 0, text: this.$t('menu.accueil'), to: '/' },
         { id: 1, text: this.$t('menu.ventesEnCours'), to: '/auctions-live' },
-        { id: 2, text: this.$t('menu.ventesTerminees'), to: '/auctions-expired' },
+        { id: 2, text: this.$t('menu.ventesTerminees'), to: '/auctions-completed' },
         { id: 3, text: this.$t('menu.contact'), to: '/contact' },
       ],
     }

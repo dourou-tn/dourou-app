@@ -123,6 +123,7 @@ export default {
   methods: {
     choosePack (packId) {
       this.selectedPack = this.packs.filter(pack => pack.id === packId)[0];
+      window.scrollTo(0, 0);
     },
     async buyPack (method) {
       const response = await this.$store.dispatch('packs/buy', { pack_id: this.selectedPack.id, method });
@@ -134,6 +135,7 @@ export default {
 
     },
     cancelBuyPack () {
+      window.scrollTo(0, 0);
       this.selectedPack = null;
     }
   }

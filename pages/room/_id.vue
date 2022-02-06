@@ -131,6 +131,7 @@ export default {
   async fetch() {
     const { id } = this.$route.params;
     const response = await this.$axios.post('client/room', { auction_id: id });
+    console.log('response', response)
     this.auction = response.data;
   },
   methods: {

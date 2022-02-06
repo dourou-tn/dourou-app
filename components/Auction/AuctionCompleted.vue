@@ -37,12 +37,6 @@
 
       </div>
 
-      <div class="text-center">
-        <SubscribeBtn
-          :auction="formatedAuction"
-        />
-      </div>
-
     </div>
   </DouCard>
 </template>
@@ -53,7 +47,6 @@ import 'moment/locale/fr';
 
 import DouCard from 'dourou-components/DouCard/index.vue';
 import Progress from "~/components/Common/Progress.vue";
-import SubscribeBtn from './SubscribeBtn.vue';
 
 export default {
   name: "HomeAuctionItem",
@@ -61,7 +54,6 @@ export default {
   components: {
     Progress,
     DouCard,
-    SubscribeBtn,
   },
   data() {
     return {

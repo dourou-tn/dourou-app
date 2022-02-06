@@ -201,9 +201,10 @@ export default {
             this.error = 'already_sub';
           }
         }
-        this.success = false;
-        this.loading = false;
       }
+      this.success = false;
+      this.loading = false;
+      window.scrollTo(0, 0);
     },
   }
 }
